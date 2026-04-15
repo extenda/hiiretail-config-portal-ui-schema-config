@@ -1,0 +1,37 @@
+{
+    "locale": "sv",
+    "messages": {
+        "common": {
+            "save": "Spara",
+            "cancel": "Avbryt",
+            "delete": "Ta bort",
+            "edit": "Redigera",
+            "search": "Sök",
+            "loading": "Laddar...",
+            "noResults": "Inga resultat hittades"
+        },
+        "navigation": {
+            "dashboard": "Instrumentpanel",
+            "products": "Produkter",
+            "orders": "Beställningar",
+            "customers": "Kunder",
+            "settings": "Inställningar"
+        },
+        "product": {
+            "name": "Produktnamn",
+            "description": "Beskrivning",
+            "price": "Pris",
+            "category": "Kategori",
+            "inStock": "I lager",
+            "addProduct": "Lägg till produkt",
+            "editProduct": "Redigera produkt",
+            "deleteProduct": "Ta bort produkt"
+        },
+        "errors": {
+            "required": "Detta fält är obligatoriskt",
+            "invalidEmail": "Ange en giltig e-postadress",
+            "minLength": "Måste vara minst {min} tecken",
+            "serverError": "Ett oväntat fel inträffade. Försök igen."
+        }
+    }
+}

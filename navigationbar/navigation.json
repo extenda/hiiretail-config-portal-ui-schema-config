@@ -1,0 +1,67 @@
+{
+    "navigation": [
+        {
+            "id": "dashboard",
+            "label": "Dashboard",
+            "icon": "dashboard",
+            "path": "/dashboard",
+            "order": 1,
+            "type": "kind"
+        },
+        {
+            "id": "products",
+            "label": "Products",
+            "icon": "inventory",
+            "path": "/products",
+            "order": 2,
+            "type": "group",
+            "children": [
+                {
+                    "id": "product-list",
+                    "label": "Product List",
+                    "path": "/products/list",
+                    "order": 1,
+                    "type": "kind"
+                },
+                {
+                    "id": "product-categories",
+                    "label": "Categories",
+                    "path": "/products/categories",
+                    "order": 2,
+                    "type": "kind"
+                },
+                {
+                    "id": "linked-schema-kind",
+                    "label": "Linked Schema Kind",
+                    "path": "/products/linked-schema-kind",
+                    "order": 3,
+                    "type": "kind"
+                }
+            ]
+        },
+        {
+            "id": "orders",
+            "label": "Orders",
+            "icon": "shopping_cart",
+            "path": "/orders",
+            "order": 3,
+            "type": "kind"
+        },
+        {
+            "id": "customers",
+            "label": "Customers",
+            "icon": "people",
+            "path": "/customers",
+            "order": 4,
+            "type": "kind"
+        },
+        {
+            "id": "settings",
+            "label": "Settings",
+            "icon": "settings",
+            "path": "/settings",
+            "order": 5,
+            "type": "kind"
+        }
+    ]
+}
