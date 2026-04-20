@@ -1,67 +1,64 @@
 {
+    "name": "Navigation Layout",
     "navigation": [
         {
-            "id": "dashboard",
-            "label": "Dashboard",
-            "icon": "dashboard",
-            "path": "/dashboard",
-            "order": 1,
-            "type": "kind"
-        },
-        {
-            "id": "products",
-            "label": "Products",
-            "icon": "inventory",
-            "path": "/products",
-            "order": 2,
+            "id": "1776693281625-crcexi0",
+            "label": "Exchange Rate",
             "type": "group",
+            "order": 0,
             "children": [
                 {
-                    "id": "product-list",
-                    "label": "Product List",
-                    "path": "/products/list",
+                    "id": "exr.markup.v1",
+                    "label": "Markup",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/exr.markup.v1"
+                },
+                {
+                    "id": "exr.exchange-rates.v1",
+                    "label": "List",
+                    "type": "kind",
                     "order": 1,
-                    "type": "kind"
+                    "path": "/exr.exchange-rates.v1"
                 },
                 {
-                    "id": "product-categories",
-                    "label": "Categories",
-                    "path": "/products/categories",
+                    "id": "exr.do-import-exchange-rates.v1",
+                    "label": "Auto import",
+                    "type": "kind",
                     "order": 2,
-                    "type": "kind"
-                },
-                {
-                    "id": "linked-schema-kind",
-                    "label": "Linked Schema Kind",
-                    "path": "/products/linked-schema-kind",
-                    "order": 3,
-                    "type": "kind"
+                    "path": "/exr.do-import-exchange-rates.v1"
                 }
             ]
         },
         {
-            "id": "orders",
-            "label": "Orders",
-            "icon": "shopping_cart",
-            "path": "/orders",
-            "order": 3,
-            "type": "kind"
+            "id": "1776693351335-zyegehb",
+            "label": "Tender",
+            "type": "group",
+            "order": 1,
+            "children": [
+                {
+                    "id": "che.tender.v1",
+                    "label": "Settings",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/che.tender.v1"
+                }
+            ]
         },
         {
-            "id": "customers",
-            "label": "Customers",
-            "icon": "people",
-            "path": "/customers",
-            "order": 4,
-            "type": "kind"
-        },
-        {
-            "id": "settings",
-            "label": "Settings",
-            "icon": "settings",
-            "path": "/settings",
-            "order": 5,
-            "type": "kind"
+            "id": "1776693389952-0db360h",
+            "label": "Checkout App",
+            "type": "group",
+            "order": 2,
+            "children": [
+                {
+                    "id": "cha.settings.v1",
+                    "label": "Settings",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cha.settings.v1"
+                }
+            ]
         }
     ]
 }
