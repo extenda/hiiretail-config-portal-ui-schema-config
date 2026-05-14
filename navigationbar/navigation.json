@@ -46,17 +46,17 @@
             ]
         },
         {
-            "id": "1776693389952-0db360h",
-            "label": "Checkout App",
+            "id": "loy.external-api.v1",
+            "label": "Loyalty",
             "type": "group",
             "order": 2,
             "children": [
                 {
-                    "id": "cha.settings.v1",
-                    "label": "Settings",
+                    "id": "loy.external-api.v1",
+                    "label": "Configuration",
                     "type": "kind",
                     "order": 0,
-                    "path": "/cha.settings.v1"
+                    "path": "/loy.external-api.v1"
                 }
             ]
         }
