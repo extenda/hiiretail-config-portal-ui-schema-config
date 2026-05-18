@@ -1,0 +1,42 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/id"
+        },
+        {
+          "type": "Group",
+          "label": "Config",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/config/properties/type"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/config/properties/currencyIdFrom"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/config/properties/currencyIdTo"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/config/properties/markup"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
