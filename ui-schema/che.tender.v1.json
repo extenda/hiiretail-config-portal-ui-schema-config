@@ -1,0 +1,128 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "Tender Details",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Basic Information",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id",
+                      "label": "ID"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/currencyId",
+                      "label": "Currency ID"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/classCode",
+                      "label": "Class Code"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/name",
+                      "label": "Name"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/disabled",
+                      "label": "Disabled"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/description",
+                  "label": "Description",
+                  "options": {
+                    "multi": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Restriction Rule",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Restriction Rule Details",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/restrictionRule/properties/id",
+                      "label": "ID"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/restrictionRule/properties/name",
+                      "label": "Name"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/restrictionRule/properties/description",
+                  "label": "Description",
+                  "options": {
+                    "multi": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/restrictionRule/properties/maximumPerTransactionAmount",
+                  "label": "Maximum Per Transaction Amount"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/restrictionRule/properties/itemCategoryTags",
+                  "label": "Item Category Tags"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Additional Properties",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Custom Properties",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/additionalProperties",
+                  "label": "Additional Properties"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
