@@ -1,0 +1,53 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Exchange Rate",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/id",
+              "label": "ID"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Config",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/config/properties/type",
+              "label": "Type"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/config/properties/currencyIdFrom",
+                  "label": "Currency ID From"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/config/properties/currencyIdTo",
+                  "label": "Currency ID To"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/config/properties/exchangeRate",
+              "label": "Exchange Rate"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
