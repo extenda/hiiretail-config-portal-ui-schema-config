@@ -1,0 +1,664 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "x-autoFill": [
+
+    {
+      "description": "Any tender type first selected — immediately set the two fields that have no safe engine fallback. This fires exactly once on the first type selection. Type-specific rules below then refine these values as needed. This ensures 'cancellable' and 'refundable' are never silently absent from the payload.",
+      "when": {
+        "scope": "#/properties/type",
+        "schema": { "type": "string", "minLength": 1 }
+      },
+      "set": [
+        { "scope": "#/properties/behavior/properties/cancellable",  "value": true },
+        { "scope": "#/properties/refund/properties/refundable",      "value": true }
+      ]
+    },
+
+    {
+      "description": "Standalone card terminal — no payment provider involved, clear any previously-selected provider.",
+      "when": {
+        "scope": "#/properties/terminal/properties/card_integration",
+        "schema": { "const": "STANDALONE_EFT" }
+      },
+      "set": [
+        { "scope": "#/properties/terminal/properties/card_provider", "value": null }
+      ]
+    },
+
+    {
+      "description": "Standalone mobile terminal — no provider plugin involved, clear any previously-selected provider.",
+      "when": {
+        "scope": "#/properties/terminal/properties/mobile_integration",
+        "schema": { "const": "STANDALONE_MOBILE" }
+      },
+      "set": [
+        { "scope": "#/properties/terminal/properties/mobile_provider", "value": null }
+      ]
+    },
+
+    {
+      "description": "Standalone gift card — no plugin involved, clear any previously-selected provider.",
+      "when": {
+        "scope": "#/properties/terminal/properties/gift_card_integration",
+        "schema": { "const": "STANDALONE" }
+      },
+      "set": [
+        { "scope": "#/properties/terminal/properties/gift_card_provider", "value": null }
+      ]
+    },
+
+    {
+      "description": "Cash tender type selected — apply sensible defaults: open cash drawer, allow overpayment with change, allow refunds, and enforce that cancellation must always be allowed for cash.",
+      "when": {
+        "scope": "#/properties/type",
+        "schema": { "const": "CASH" }
+      },
+      "set": [
+        { "scope": "#/properties/behavior/properties/cancellable",          "value": true },
+        { "scope": "#/properties/behavior/properties/open_cash_drawer",     "value": true },
+        { "scope": "#/properties/overpayment/properties/allow_overpayment", "value": true },
+        { "scope": "#/properties/overpayment/properties/give_change",       "value": true },
+        { "scope": "#/properties/refund/properties/refundable",             "value": true }
+      ]
+    },
+
+    {
+      "description": "Credit/Debit Card selected — set safe operational defaults. Cards do not open a cash drawer. Cancellation and refunds must be explicitly enabled since the engine defaults both to false.",
+      "when": {
+        "scope": "#/properties/type",
+        "schema": { "const": "CREDITDEBIT" }
+      },
+      "set": [
+        { "scope": "#/properties/behavior/properties/open_cash_drawer",     "value": false },
+        { "scope": "#/properties/behavior/properties/cancellable",          "value": true  },
+        { "scope": "#/properties/refund/properties/refundable",             "value": true  }
+      ]
+    },
+
+    {
+      "description": "Mobile Payment selected — set safe operational defaults. Mobile payments do not open a cash drawer, are typically exclusive, and must have cancellation and refunds explicitly enabled.",
+      "when": {
+        "scope": "#/properties/type",
+        "schema": { "const": "MOBILE" }
+      },
+      "set": [
+        { "scope": "#/properties/behavior/properties/open_cash_drawer",     "value": false },
+        { "scope": "#/properties/behavior/properties/exclusive",            "value": true  },
+        { "scope": "#/properties/behavior/properties/cancellable",          "value": true  },
+        { "scope": "#/properties/refund/properties/refundable",             "value": true  }
+      ]
+    },
+
+    {
+      "description": "Overpayment disabled — change can never arise, so cascade-clear all change and cash-back settings.",
+      "when": {
+        "scope": "#/properties/overpayment/properties/allow_overpayment",
+        "schema": { "const": false }
+      },
+      "set": [
+        { "scope": "#/properties/overpayment/properties/give_change",       "value": false },
+        { "scope": "#/properties/overpayment/properties/change_threshold",  "value": null  },
+        { "scope": "#/properties/overpayment/properties/change_tender_id",  "value": null  },
+        { "scope": "#/properties/overpayment/properties/max_cash_back",     "value": null  }
+      ]
+    },
+    {
+      "description": "Change disabled — clear the change routing fields; they have no meaning without change being given.",
+      "when": {
+        "scope": "#/properties/overpayment/properties/give_change",
+        "schema": { "const": false }
+      },
+      "set": [
+        { "scope": "#/properties/overpayment/properties/change_threshold", "value": null },
+        { "scope": "#/properties/overpayment/properties/change_tender_id", "value": null }
+      ]
+    },
+
+    {
+      "description": "Refunds disabled — clear all refund-specific settings; they are irrelevant and should not be submitted.",
+      "when": {
+        "scope": "#/properties/refund/properties/refundable",
+        "schema": { "const": false }
+      },
+      "set": [
+        { "scope": "#/properties/refund/properties/skip_amount_prompt", "value": null },
+        { "scope": "#/properties/refund/properties/max_refund_amount",   "value": null },
+        { "scope": "#/properties/refund/properties/min_refund_amount",   "value": null }
+      ]
+    },
+
+    {
+      "description": "No Rounding selected — the precision unit has no meaning when no rounding is applied.",
+      "when": {
+        "scope": "#/properties/rounding/properties/method",
+        "schema": { "const": "NO_ROUNDING" }
+      },
+      "set": [
+        { "scope": "#/properties/rounding/properties/precision", "value": null }
+      ]
+    }
+
+  ],
+
+  "options": {
+    "detail": {
+      "type": "Categorization",
+      "elements": [
+
+        {
+          "type": "Category",
+          "label": "Identity",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Tender Identity",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    { "type": "Control", "scope": "#/properties/id" },
+                    { "type": "Control", "scope": "#/properties/type" }
+                  ]
+                },
+                { "type": "Control", "scope": "#/properties/name" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/description",
+                  "options": { "multi": true, "rows": 3 }
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Operational Requirements",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "These two fields are required. The checkout engine has no safe fallback — if either is absent the tender is operationally broken. Sensible values have been pre-filled based on your tender type; change them only if you have a specific reason.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/type",
+                      "schema": { "type": "string", "minLength": 1 }
+                    }
+                  }
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/behavior/properties/cancellable",
+                      "rule": {
+                        "effect": "DISABLE",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": { "const": "CASH" }
+                        }
+                      }
+                    },
+                    { "type": "Control", "scope": "#/properties/refund/properties/refundable" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Next Steps",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "type": "string", "minLength": 1 }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Cash: currency is set from the store's country. See Behavior for cash drawer and change settings.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": { "scope": "#/properties/type", "schema": { "const": "CASH" } }
+                  }
+                },
+                {
+                  "type": "Label",
+                  "text": "Credit/Debit Card: go to Terminal to choose Integrated or Standalone and select your payment provider.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": { "scope": "#/properties/type", "schema": { "const": "CREDITDEBIT" } }
+                  }
+                },
+                {
+                  "type": "Label",
+                  "text": "Mobile Payment: go to Terminal to choose your integration type and mobile payment provider.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": { "scope": "#/properties/type", "schema": { "const": "MOBILE" } }
+                  }
+                },
+                {
+                  "type": "Label",
+                  "text": "Electronic Gift Card: go to Terminal to choose Integrated (HiiRetail Gift Card Plugin) or Standalone.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": { "scope": "#/properties/type", "schema": { "const": "ELECTRONICGIFTCARD" } }
+                  }
+                },
+                {
+                  "type": "Label",
+                  "text": "Organization Charge (B2B): go to Terminal to enable account-based credit limit authorization.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": { "scope": "#/properties/type", "schema": { "const": "ORGANIZATIONCHARGE" } }
+                  }
+                },
+                {
+                  "type": "Label",
+                  "text": "No terminal configuration required for this tender type. The remaining tabs contain optional limits and behavior overrides.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/type",
+                      "schema": {
+                        "not": { "enum": ["CASH", "CREDITDEBIT", "MOBILE", "ELECTRONICGIFTCARD", "ORGANIZATIONCHARGE"] }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Terminal",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Card Terminal",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "const": "CREDITDEBIT" }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/terminal/properties/card_integration" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/terminal/properties/card_provider",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/terminal/properties/card_integration",
+                      "schema": { "enum": ["INTEGRATED_CLOUD_EFT", "INTEGRATED_LOCAL_EFT"] }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Mobile Payment",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "const": "MOBILE" }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/terminal/properties/mobile_integration" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/terminal/properties/mobile_provider",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/terminal/properties/mobile_integration",
+                      "schema": { "const": "INTEGRATED_MOBILE_PLUGIN" }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Cash Hardware",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "const": "CASH" }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/terminal/properties/cash_hardware" }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Gift Card System",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "const": "ELECTRONICGIFTCARD" }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/terminal/properties/gift_card_integration" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/terminal/properties/gift_card_provider",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/terminal/properties/gift_card_integration",
+                      "schema": { "const": "INTEGRATED_EGC_PLUGIN" }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "B2B Account Authorization",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": { "const": "ORGANIZATIONCHARGE" }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/terminal/properties/org_charge_authorization" }
+              ]
+            },
+
+            {
+              "type": "Label",
+              "text": "No terminal configuration is required for this tender type.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type",
+                  "schema": {
+                    "not": {
+                      "enum": ["CASH", "CREDITDEBIT", "MOBILE", "ELECTRONICGIFTCARD", "ORGANIZATIONCHARGE"]
+                    }
+                  }
+                }
+              }
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Behavior",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Transaction Handling",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    { "type": "Control", "scope": "#/properties/behavior/properties/is_default" },
+                    { "type": "Control", "scope": "#/properties/behavior/properties/exclusive" }
+                  ]
+                },
+                { "type": "Control", "scope": "#/properties/behavior/properties/lock_transaction" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/behavior/properties/auto_finalize",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/type",
+                      "schema": { "const": "CASH" }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Display & Hardware",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/behavior/properties/preselect_denomination",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/type",
+                      "schema": { "const": "CASH" }
+                    }
+                  }
+                },
+                { "type": "Control", "scope": "#/properties/behavior/properties/open_cash_drawer" }
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Overpayment",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Overpayment",
+              "elements": [
+                { "type": "Control", "scope": "#/properties/overpayment/properties/allow_overpayment" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/overpayment/properties/max_cash_back",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/overpayment/properties/allow_overpayment",
+                      "schema": { "const": true }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Change",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/overpayment/properties/allow_overpayment",
+                  "schema": { "const": true }
+                }
+              },
+              "elements": [
+                { "type": "Control", "scope": "#/properties/overpayment/properties/give_change" },
+                {
+                  "type": "Group",
+                  "label": "Change Routing",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/overpayment/properties/give_change",
+                      "schema": { "const": true }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        { "type": "Control", "scope": "#/properties/overpayment/properties/change_threshold" },
+                        { "type": "Control", "scope": "#/properties/overpayment/properties/change_tender_id" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Refunds",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Refund Settings",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Whether refunds are allowed is configured on the Identity tab."
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/refund/properties/skip_amount_prompt",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/refund/properties/refundable",
+                      "schema": { "const": true }
+                    }
+                  }
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Refund Amount Limits",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/refund/properties/refundable",
+                  "schema": { "const": true }
+                }
+              },
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    { "type": "Control", "scope": "#/properties/refund/properties/min_refund_amount" },
+                    { "type": "Control", "scope": "#/properties/refund/properties/max_refund_amount" }
+                  ]
+                }
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Limits",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Per Transaction",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    { "type": "Control", "scope": "#/properties/limits/properties/min_per_transaction" },
+                    { "type": "Control", "scope": "#/properties/limits/properties/max_per_transaction" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "type": "Group",
+              "label": "Per Cashier Shift",
+              "elements": [
+                { "type": "Control", "scope": "#/properties/limits/properties/max_per_registration" }
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Rounding",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Amount Rounding",
+              "elements": [
+                { "type": "Control", "scope": "#/properties/rounding/properties/method" },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/rounding/properties/precision",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/rounding/properties/method",
+                      "schema": {
+                        "not": { "const": "NO_ROUNDING" }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "Category",
+          "label": "Advanced",
+          "elements": [
+
+            {
+              "type": "Group",
+              "label": "Extra Attributes",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/extra_attributes",
+                  "options": {
+                    "detail": {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        { "type": "Control", "scope": "#/properties/name" },
+                        { "type": "Control", "scope": "#/properties/type" },
+                        { "type": "Control", "scope": "#/properties/value" }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+
+          ]
+        }
+
+      ]
+    }
+  }
+}
