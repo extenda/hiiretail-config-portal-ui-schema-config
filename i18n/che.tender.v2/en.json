@@ -1,0 +1,132 @@
+{
+  "#.label": "Tenders",
+
+  "#/items/properties/id.label": "Tender ID",
+  "#/items/properties/id.description": "Unique identifier for this tender. Acts as the primary key — must be unique across all tenders and never reused. Referenced by transactions, reports, and ERP integrations. Examples: 'CASH_EUR', 'VISA', 'SWISH'.",
+
+  "#/items/properties/type.label": "Tender Type",
+  "#/items/properties/type.description": "The category this tender belongs to. This is the most important setting — it determines which terminal and hardware options are available and how the checkout engine routes the payment.",
+
+  "#/items/properties/name.label": "Display Name",
+  "#/items/properties/name.description": "The name shown on the POS screen and printed on receipts. Should be short and immediately recognizable to cashiers. Examples: 'Cash', 'Visa / Mastercard', 'Swish'.",
+
+  "#/items/properties/description.label": "Description",
+  "#/items/properties/description.description": "An internal description for configuration reference. Not shown to cashiers or customers.",
+
+  "#/items/properties/terminal.label": "Terminal & Hardware",
+  "#/items/properties/terminal.description": "Hardware and payment provider settings. Available options depend on the Tender Type selected above. For integrated options, Store Data derives the correct payment plugin from the combination of integration type and provider.",
+
+  "#/items/properties/terminal/properties/card_integration.label": "Card Terminal Integration",
+  "#/items/properties/terminal/properties/card_integration.description": "How the card terminal connects to the POS. 'Integrated' means the POS sends the amount to the terminal automatically via a plugin — the cashier only asks the customer to tap/insert/swipe. 'Standalone' means the cashier manually types the amount on a separate, unconnected terminal; no plugin is used.",
+
+  "#/items/properties/terminal/properties/card_provider.label": "Card Payment Provider",
+  "#/items/properties/terminal/properties/card_provider.description": "The payment service provider (PSP) for this integrated card terminal. Store Data uses this to connect the correct payment plugin to the checkout engine. Not applicable for standalone terminals.",
+
+  "#/items/properties/terminal/properties/mobile_integration.label": "Mobile Payment Integration",
+  "#/items/properties/terminal/properties/mobile_integration.description": "How the mobile payment is processed. 'Integrated' means the POS sends a payment request directly to the customer's app via a plugin — no manual amount entry needed. 'Standalone' means a separate terminal is used; no plugin is involved.",
+
+  "#/items/properties/terminal/properties/mobile_provider.label": "Mobile Payment Provider",
+  "#/items/properties/terminal/properties/mobile_provider.description": "The mobile payment service. Store Data uses this to connect the correct payment plugin to the checkout engine. Not applicable for standalone terminals.",
+
+  "#/items/properties/terminal/properties/cash_hardware.label": "Cash Handling Hardware",
+  "#/items/properties/terminal/properties/cash_hardware.description": "The type of cash-handling device connected to the POS. 'Cash Changer Machine' enables automatic change dispensing via a plugin — the machine counts and dispenses coins and notes automatically. 'Standard Cash Drawer' is opened by the POS but operated manually by the cashier.",
+
+  "#/items/properties/terminal/properties/gift_card_integration.label": "Gift Card Integration",
+  "#/items/properties/terminal/properties/gift_card_integration.description": "How the electronic gift card is authorized at the POS. 'Integrated' uses an EGC plugin registered in the checkout engine — the POS checks the card balance online and authorization is handled by the plugin. 'Standalone' uses the legacy card-reader hardware path with no online authorization; the card is read locally by the terminal.",
+
+  "#/items/properties/terminal/properties/gift_card_provider.label": "Gift Card Provider",
+  "#/items/properties/terminal/properties/gift_card_provider.description": "The gift card system to use for online balance checks and authorization. Only applicable when 'Integrated' is selected above.",
+
+  "#/items/properties/terminal/properties/org_charge_authorization.label": "Enable B2B Account Authorization",
+  "#/items/properties/terminal/properties/org_charge_authorization.description": "When true, enables the built-in organizational charge authorizer. Before accepting this tender, the POS will verify that the customer has a registered trade account with sufficient credit limit. The cashier may also be prompted for a purchase reference number, depending on the POS configuration.",
+
+  "#/items/properties/behavior.label": "POS Behavior",
+  "#/items/properties/behavior.description": "Settings that control how the POS handles this tender during a transaction.",
+
+  "#/items/properties/behavior/properties/is_default.label": "Default Tender",
+  "#/items/properties/behavior/properties/is_default.description": "When true, this tender is pre-selected when the cashier opens the payment screen. Only one tender should be set as default.",
+
+  "#/items/properties/behavior/properties/lock_transaction.label": "Lock Transaction After Payment Entry",
+  "#/items/properties/behavior/properties/lock_transaction.description": "When true, the transaction is locked the moment the cashier enters this tender — no more items can be added, quantities changed, or discounts applied. The payment can still be completed or cancelled; only post-entry modifications are blocked.",
+
+  "#/items/properties/behavior/properties/cancellable.label": "Transaction Can Be Cancelled",
+  "#/items/properties/behavior/properties/cancellable.description": "Required. When true, a transaction that includes this tender can be voided (cancelled) by the cashier. When false, the cancel command is blocked for any transaction containing this tender — the cashier's only exit is to finalize with a different tender. The checkout engine has no safe fallback: if this is absent or false, the tender is operationally broken. Not configurable for Cash — cash transactions must always be cancellable.",
+
+  "#/items/properties/behavior/properties/exclusive.label": "No Split Payment",
+  "#/items/properties/behavior/properties/exclusive.description": "When true, this tender cannot be combined with any other payment method in the same transaction. The POS rejects any attempt to mix this tender with another. Typically used for gift cards, vouchers, or loyalty redemptions where split payment is not permitted.",
+
+  "#/items/properties/behavior/properties/auto_finalize.label": "Auto-Finalize Payment",
+  "#/items/properties/behavior/properties/auto_finalize.description": "When true, the POS processes this tender automatically without asking the cashier to confirm the amount. Intended for unmanned or automated scenarios such as self-checkout or drive-through. Not applicable to Cash — auto-finalizing cash bypasses denomination selection and change calculation entirely.",
+
+  "#/items/properties/behavior/properties/preselect_denomination.label": "Pre-Select First Denomination",
+  "#/items/properties/behavior/properties/preselect_denomination.description": "When the cashier opens the denomination selection dialog for this cash tender, the first denomination in the list is highlighted by default. Speeds up common transactions where the first denomination is the most frequently used. Engine default when not set: false.",
+
+  "#/items/properties/behavior/properties/open_cash_drawer.label": "Open Cash Drawer on Sale",
+  "#/items/properties/behavior/properties/open_cash_drawer.description": "When true, the cash drawer opens automatically when a transaction is finalized with this tender. Enable for cash and foreign currency; disable for card, mobile, voucher, and all other non-cash tenders where no physical cash is exchanged.",
+
+  "#/items/properties/overpayment.label": "Overpayment & Change",
+  "#/items/properties/overpayment.description": "Controls whether a customer can pay more than the transaction total, and what happens with the surplus. If overpayment is not allowed, the cashier cannot enter an amount greater than what is due.",
+
+  "#/items/properties/overpayment/properties/allow_overpayment.label": "Allow Overpayment",
+  "#/items/properties/overpayment/properties/allow_overpayment.description": "When true, the cashier can accept an amount greater than the transaction total (e.g., a customer hands over a €50 note for a €32.50 purchase). This is a prerequisite for returning change or offering cash back. When false, the POS rejects any tendered amount above the amount due.",
+
+  "#/items/properties/overpayment/properties/give_change.label": "Return Change to Customer",
+  "#/items/properties/overpayment/properties/give_change.description": "When true and the customer overpays, the POS calculates the difference and prompts the cashier to return it as change. Requires 'Allow Overpayment' — if the customer cannot overpay, change can never arise.",
+
+  "#/items/properties/overpayment/properties/change_threshold.label": "Change Threshold",
+  "#/items/properties/overpayment/properties/change_threshold.description": "When the change amount exceeds this value, the POS switches to using the 'Alternate Change Tender' to return the surplus instead of the current tender. Useful when a foreign currency tender should return large change amounts in the local currency.",
+
+  "#/items/properties/overpayment/properties/change_tender_id.label": "Alternate Change Tender",
+  "#/items/properties/overpayment/properties/change_tender_id.description": "The ID of the tender used to return change when the change amount exceeds the 'Change Threshold'. Must match an existing tender ID in this configuration. Example: a foreign currency tender might return change as 'CASH_EUR'.",
+
+  "#/items/properties/overpayment/properties/max_cash_back.label": "Maximum Cash Back Amount",
+  "#/items/properties/overpayment/properties/max_cash_back.description": "The maximum amount of cash back the cashier can grant in a single transaction (e.g., a customer on a debit card transaction requests €20 cash back on top of their purchase). Requires overpayment to be allowed, since the customer pays more than their basket total.",
+
+  "#/items/properties/refund.label": "Refund Settings",
+  "#/items/properties/refund.description": "Controls whether and how this tender can be used when processing a return or refund.",
+
+  "#/items/properties/refund/properties/refundable.label": "Can Be Used for Refunds",
+  "#/items/properties/refund/properties/refundable.description": "Required. When true, the cashier can select this tender when processing a refund. When false, refunds to this tender are impossible — no customer can receive their money back via this payment method. The checkout engine has no safe fallback: if this is absent or false, refunds are silently blocked. Set to false only for one-way tenders like coupons, vouchers, or manufacturer discounts that are never refunded.",
+
+  "#/items/properties/refund/properties/skip_amount_prompt.label": "Skip Refund Amount Entry",
+  "#/items/properties/refund/properties/skip_amount_prompt.description": "When true, the POS does not ask the cashier to enter the refund amount — it automatically applies the full refundable amount. Simplifies the refund flow when the amount is always fixed and should not be adjusted by the cashier.",
+
+  "#/items/properties/refund/properties/max_refund_amount.label": "Maximum Refund Amount",
+  "#/items/properties/refund/properties/max_refund_amount.description": "The largest amount that can be refunded to the customer using this tender in a single refund transaction. Refund attempts above this limit are rejected by the POS. Leave unset for no limit.",
+
+  "#/items/properties/refund/properties/min_refund_amount.label": "Minimum Refund Amount",
+  "#/items/properties/refund/properties/min_refund_amount.description": "The smallest amount required to process a refund using this tender. Refund attempts below this amount are rejected by the POS.",
+
+  "#/items/properties/limits.label": "Amount Limits",
+  "#/items/properties/limits.description": "Caps on how much can be tendered. The POS enforces these at the moment the cashier enters the amount.",
+
+  "#/items/properties/limits/properties/max_per_transaction.label": "Maximum per Transaction",
+  "#/items/properties/limits/properties/max_per_transaction.description": "The largest single payment amount accepted for this tender in one transaction. Any attempt to tender above this amount is rejected by the POS.",
+
+  "#/items/properties/limits/properties/min_per_transaction.label": "Minimum per Transaction",
+  "#/items/properties/limits/properties/min_per_transaction.description": "The smallest payment amount accepted for this tender in one transaction. Useful when processing fees make very small payments uneconomical.",
+
+  "#/items/properties/limits/properties/max_per_registration.label": "Maximum per Registration",
+  "#/items/properties/limits/properties/max_per_registration.description": "The maximum amount accepted for a single tender line entry on a transaction (one registration of this tender). This limits how much can be applied in one tender entry, independently of other tender entries in the same transaction.",
+
+  "#/items/properties/rounding.label": "Amount Rounding",
+  "#/items/properties/rounding.description": "Controls how the tendered amount is rounded before it is recorded. Typically used for cash in currencies where the smallest coin in circulation is larger than the currency's minor unit (e.g., rounding to the nearest 0.05 SEK because 1- and 2-öre coins no longer exist).",
+
+  "#/items/properties/rounding/properties/method.label": "Rounding Method",
+  "#/items/properties/rounding/properties/method.description": "The algorithm used to round the tender amount.",
+
+  "#/items/properties/rounding/properties/precision.label": "Rounding Precision",
+  "#/items/properties/rounding/properties/precision.description": "The unit to round to. Examples: 0.05 rounds to the nearest 5 cents; 0.10 to the nearest 10 cents; 1.0 to the nearest whole unit. Only relevant when a rounding method other than 'No Rounding' is selected.",
+
+  "#/items/properties/extra_attributes.label": "Extra Attributes",
+  "#/items/properties/extra_attributes.description": "Custom key-value attributes for POS extensions not covered by the standard fields. Passed directly to the POS as-is. Only use these when instructed by Extenda Retail support.",
+
+  "#/items/properties/extra_attributes/items/properties/name.label": "Name",
+  "#/items/properties/extra_attributes/items/properties/name.description": "The attribute key name as required by the POS extension.",
+
+  "#/items/properties/extra_attributes/items/properties/type.label": "Data Type",
+  "#/items/properties/extra_attributes/items/properties/type.description": "The data type of the value. Used by the POS to parse the value string correctly.",
+
+  "#/items/properties/extra_attributes/items/properties/value.label": "Value",
+  "#/items/properties/extra_attributes/items/properties/value.description": "Always a string regardless of the data type. Examples: 'true' for BOOL, '3.14' for DOUBLE, '42' for INT, 'my text' for STRING."
+}
