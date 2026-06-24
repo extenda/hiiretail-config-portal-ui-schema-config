@@ -2,46 +2,17 @@
     "name": "Navigation Layout",
     "navigation": [
         {
-            "id": "1776693281625-crcexi0",
-            "label": "Exchange Rate",
-            "type": "group",
-            "order": 0,
-            "children": [
-                {
-                    "id": "exr.markup.v1",
-                    "label": "Markup",
-                    "type": "kind",
-                    "order": 0,
-                    "path": "/exr.markup.v1"
-                },
-                {
-                    "id": "exr.exchange-rates.v1",
-                    "label": "List",
-                    "type": "kind",
-                    "order": 1,
-                    "path": "/exr.exchange-rates.v1"
-                },
-                {
-                    "id": "exr.do-import-exchange-rates.v1",
-                    "label": "Auto import",
-                    "type": "kind",
-                    "order": 2,
-                    "path": "/exr.do-import-exchange-rates.v1"
-                }
-            ]
-        },
-        {
             "id": "1776693351335-zyegehb",
-            "label": "Tender",
+            "label": "Tender v2",
             "type": "group",
             "order": 1,
             "children": [
                 {
-                    "id": "che.tender.v1",
+                    "id": "che.tender.v2",
                     "label": "Settings",
                     "type": "kind",
                     "order": 0,
-                    "path": "/che.tender.v1"
+                    "path": "/che.tender.v2"
                 }
             ]
         },
