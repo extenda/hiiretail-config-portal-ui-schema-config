@@ -111,5 +111,14 @@
     "Rounding": "Avrundning",
     "Amount Rounding": "Beloppsavrundning",
     "Advanced": "Avancerat",
-    "Extra Attributes": "Extra attribut"
+    "Extra Attributes": "Extra attribut",
+    "These two fields are required. The checkout engine has no safe fallback — if either is absent the tender is operationally broken. Sensible values have been pre-filled based on your tender type; change them only if you have a specific reason.": "Dessa två fält är obligatoriska. Kassamotorn har ingen säker reservlösning — om något av dem saknas är betalmedlet operativt trasigt. Rimliga värden har förifyllts baserat på din betalmedelstyp; ändra dem endast om du har en specifik anledning.",
+    "Cash: currency is set from the store's country. See Behavior for cash drawer and change settings.": "Kontant: valutan sätts från butikens land. Se Beteende för inställningar för kassalåda och växel.",
+    "Credit/Debit Card: go to Terminal to choose Integrated or Standalone and select your payment provider.": "Kredit-/betalkort: gå till Terminal för att välja Integrerad eller Fristående och välj din betalningsleverantör.",
+    "Mobile Payment: go to Terminal to choose your integration type and mobile payment provider.": "Mobilbetalning: gå till Terminal för att välja din integrationstyp och mobilbetalningsleverantör.",
+    "Electronic Gift Card: go to Terminal to choose Integrated (HiiRetail Gift Card Plugin) or Standalone.": "Elektroniskt presentkort: gå till Terminal för att välja Integrerad (HiiRetail Presentkortsplugin) eller Fristående.",
+    "Organization Charge (B2B): go to Terminal to enable account-based credit limit authorization.": "Organisationsdebitering (B2B): gå till Terminal för att aktivera kontobaserad kreditgränsauktorisering.",
+    "No terminal configuration required for this tender type. The remaining tabs contain optional limits and behavior overrides.": "Ingen terminalkonfiguration krävs för denna betalmedelstyp. Övriga flikar innehåller valfria gränser och beteendeåsidosättningar.",
+    "No terminal configuration is required for this tender type.": "Ingen terminalkonfiguration krävs för denna betalmedelstyp.",
+    "Whether refunds are allowed is configured on the Identity tab.": "Om återbetalningar är tillåtna konfigureras på fliken Identitet."
 }
