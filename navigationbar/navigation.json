@@ -2,32 +2,434 @@
     "name": "Navigation Layout",
     "navigation": [
         {
-            "id": "1776693351335-zyegehb",
-            "label": "Tender v2",
+            "id": "tenders",
+            "label": "Tenders",
             "type": "group",
-            "order": 1,
+            "order": 0,
             "children": [
                 {
                     "id": "che.tender.v2",
-                    "label": "Settings",
+                    "label": "List and create tenders",
                     "type": "kind",
                     "order": 0,
                     "path": "/che.tender.v2"
+                },
+                {
+                    "id": "tenders-reconciliation",
+                    "label": "Reconciliation",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/tenders-reconciliation"
+                },
+                {
+                    "id": "tenders-cash-management",
+                    "label": "Cash Management",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/tenders-cash-management"
                 }
             ]
         },
         {
-            "id": "loy.external-api.v1",
-            "label": "Loyalty",
+            "id": "cha.settings.v1",
+            "label": "Checkout App",
+            "type": "kind",
+            "order": 1,
+            "path": "/cha.settings.v1"
+        },
+        {
+            "id": "price-adjustments",
+            "label": "Price Adjustments",
             "type": "group",
             "order": 2,
             "children": [
                 {
-                    "id": "loy.external-api.v1",
-                    "label": "Configuration",
+                    "id": "price-adjustments-markdowns",
+                    "label": "Markdowns",
                     "type": "kind",
                     "order": 0,
-                    "path": "/loy.external-api.v1"
+                    "path": "/price-adjustments-markdowns"
+                },
+                {
+                    "id": "price-adjustments-discounts",
+                    "label": "Discounts",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/price-adjustments-discounts"
+                },
+                {
+                    "id": "price-adjustments-promotions",
+                    "label": "Promotions",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/price-adjustments-promotions"
+                },
+                {
+                    "id": "price-adjustments-coupons",
+                    "label": "Coupons",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/price-adjustments-coupons"
+                },
+                {
+                    "id": "price-adjustments-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/price-adjustments-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "receipt",
+            "label": "Receipt",
+            "type": "group",
+            "order": 3,
+            "children": [
+                {
+                    "id": "receipt-header-and-footer",
+                    "label": "Header and footer",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/receipt-header-and-footer"
+                },
+                {
+                    "id": "receipt-comments",
+                    "label": "Receipt comments",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/receipt-comments"
+                },
+                {
+                    "id": "receipt-gift-receipt",
+                    "label": "Gift receipt",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/receipt-gift-receipt"
+                },
+                {
+                    "id": "receipt-barcode",
+                    "label": "Barcode",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/receipt-barcode"
+                },
+                {
+                    "id": "receipt-digital-receipt",
+                    "label": "Digital receipt",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/receipt-digital-receipt"
+                }
+            ]
+        },
+        {
+            "id": "refunds",
+            "label": "Refunds",
+            "type": "group",
+            "order": 4,
+            "children": [
+                {
+                    "id": "refunds-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/refunds-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "vat-and-tax",
+            "label": "Vat & Tax",
+            "type": "group",
+            "order": 5,
+            "children": [
+                {
+                    "id": "vat-and-tax-tax-rates",
+                    "label": "Tax Rates",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/vat-and-tax-tax-rates"
+                },
+                {
+                    "id": "vat-and-tax-vat-invoice",
+                    "label": "Vat Invoice",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/vat-and-tax-vat-invoice"
+                },
+                {
+                    "id": "vat-and-tax-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/vat-and-tax-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "roles-and-permissions",
+            "label": "Roles and permissions",
+            "type": "group",
+            "order": 6,
+            "children": [
+                {
+                    "id": "roles-and-permissions-permissions",
+                    "label": "Permissions",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/roles-and-permissions-permissions"
+                },
+                {
+                    "id": "roles-and-permissions-roles",
+                    "label": "Roles",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/roles-and-permissions-roles"
+                },
+                {
+                    "id": "roles-and-permissions-groups",
+                    "label": "Groups",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/roles-and-permissions-groups"
+                }
+            ]
+        },
+        {
+            "id": "item-barcode-plu",
+            "label": "Item, barcode & PLU",
+            "type": "group",
+            "order": 7,
+            "children": [
+                {
+                    "id": "item-barcode-plu-plu-list",
+                    "label": "PLU List",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/item-barcode-plu-plu-list"
+                },
+                {
+                    "id": "item-barcode-plu-types",
+                    "label": "Types",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/item-barcode-plu-types"
+                },
+                {
+                    "id": "item-barcode-plu-mappings",
+                    "label": "Mappings",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/item-barcode-plu-mappings"
+                },
+                {
+                    "id": "item-barcode-plu-virtual-products",
+                    "label": "Virtual products",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/item-barcode-plu-virtual-products"
+                },
+                {
+                    "id": "item-barcode-plu-giftcards",
+                    "label": "Giftcards",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/item-barcode-plu-giftcards"
+                },
+                {
+                    "id": "item-barcode-plu-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 5,
+                    "path": "/item-barcode-plu-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "selfservice",
+            "label": "Selfservice",
+            "type": "group",
+            "order": 8,
+            "children": [
+                {
+                    "id": "selfservice-attendant-app",
+                    "label": "Attendant App",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/selfservice-attendant-app"
+                },
+                {
+                    "id": "selfservice-selfscan",
+                    "label": "Selfscan",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/selfservice-selfscan"
+                },
+                {
+                    "id": "selfservice-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/selfservice-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "legislation-and-fiscalization",
+            "label": "Legislation and fiscalization",
+            "type": "group",
+            "order": 9,
+            "children": [
+                {
+                    "id": "legislation-and-fiscalization-integration",
+                    "label": "Integration",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/legislation-and-fiscalization-integration"
+                },
+                {
+                    "id": "legislation-and-fiscalization-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/legislation-and-fiscalization-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "localization",
+            "label": "Localization",
+            "type": "group",
+            "order": 10,
+            "children": [
+                {
+                    "id": "localization-language-override",
+                    "label": "Language override",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/localization-language-override"
+                },
+                {
+                    "id": "localization-behavior-and-conditions",
+                    "label": "Behavior & conditions",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/localization-behavior-and-conditions"
+                }
+            ]
+        },
+        {
+            "id": "stores-and-hierarchies",
+            "label": "Stores and Hierarchies",
+            "type": "group",
+            "order": 11,
+            "children": [
+                {
+                    "id": "stores-and-hierarchies-stores",
+                    "label": "Stores",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/stores-and-hierarchies-stores"
+                },
+                {
+                    "id": "stores-and-hierarchies-hierarchy",
+                    "label": "Hierarchy",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/stores-and-hierarchies-hierarchy"
+                }
+            ]
+        },
+        {
+            "id": "integrations",
+            "label": "Integrations",
+            "type": "group",
+            "order": 12,
+            "children": [
+                {
+                    "id": "integrations-external-events-event-sources",
+                    "label": "External Events – Event Sources",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/integrations-external-events-event-sources"
+                },
+                {
+                    "id": "integrations-external-events-webhooks",
+                    "label": "External Events – Webhooks",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/integrations-external-events-webhooks"
+                },
+                {
+                    "id": "integrations-external-events-playground",
+                    "label": "External Events – Playground",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/integrations-external-events-playground"
+                },
+                {
+                    "id": "integrations-external-events-event-journal",
+                    "label": "External Events – Event Journal",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/integrations-external-events-event-journal"
+                },
+                {
+                    "id": "integrations-identity-providers",
+                    "label": "Identity Providers",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/integrations-identity-providers"
+                },
+                {
+                    "id": "integrations-hii-connect-eft",
+                    "label": "Hii Connect – EFT",
+                    "type": "kind",
+                    "order": 5,
+                    "path": "/integrations-hii-connect-eft"
+                },
+                {
+                    "id": "integrations-hii-connect-giftcard",
+                    "label": "Hii Connect – Giftcard",
+                    "type": "kind",
+                    "order": 6,
+                    "path": "/integrations-hii-connect-giftcard"
+                },
+                {
+                    "id": "integrations-hii-connect-mobile",
+                    "label": "Hii Connect – Mobile",
+                    "type": "kind",
+                    "order": 7,
+                    "path": "/integrations-hii-connect-mobile"
+                },
+                {
+                    "id": "integrations-hii-connect-loyalty",
+                    "label": "Hii Connect – Loyalty",
+                    "type": "kind",
+                    "order": 8,
+                    "path": "/integrations-hii-connect-loyalty"
+                },
+                {
+                    "id": "integrations-ocms-clients",
+                    "label": "OCMS – Clients",
+                    "type": "kind",
+                    "order": 9,
+                    "path": "/integrations-ocms-clients"
+                },
+                {
+                    "id": "integrations-ocms-templates",
+                    "label": "OCMS – Templates",
+                    "type": "kind",
+                    "order": 10,
+                    "path": "/integrations-ocms-templates"
+                },
+                {
+                    "id": "integrations-ocms-statements",
+                    "label": "OCMS – Statements",
+                    "type": "kind",
+                    "order": 11,
+                    "path": "/integrations-ocms-statements"
                 }
             ]
         }
