@@ -1,0 +1,263 @@
+{
+  "type": "Categorization",
+  "x-autoFill": [],
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Orders and shipments",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Order status",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Choose which HiiRetail order status each Omnium order status becomes. If several Omnium order statuses map to the same HiiRetail order status, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/OrderStatusMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium order status"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail order status"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Shipment status",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Choose which HiiRetail fulfillment status each Omnium shipment status becomes. If several Omnium shipment statuses map to the same HiiRetail fulfillment status, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/ShipmentStatusMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium shipment status"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail fulfillment status"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Shipment method",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Choose how each Omnium shipment method is fulfilled in HiiRetail: pickup in store, home delivery from a store, or home delivery from a warehouse. If several Omnium shipment methods map to the same HiiRetail fulfillment method, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/ShipmentMethodMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium shipment method"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail fulfillment method"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Payments",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Tender ID",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Enter the HiiRetail tender ID for each Omnium payment method, exactly as it is set up in HiiRetail (for example CA or Voucher). If several Omnium payment methods map to the same HiiRetail tender ID, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/TenderIdMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium payment method"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail tender ID"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Tenders without authorization",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "List the HiiRetail tender IDs that are processed without authorization data from Omnium, for example CA (cash) or Voucher. Use the same IDs as in Tender ID above."
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/TenderWithoutAuthorizationData",
+              "label": "Tender ID"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Authorization status",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Mark which Omnium payment statuses mean the payment is authorized: switch on for authorized, off for all others. When a payment is sent back to Omnium, the first status listed for authorized, or for not authorized, is used."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/AuthorizationStatusMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium payment status"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "Counts as authorized"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transaction type",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Choose which HiiRetail transaction type each Omnium payment transaction type becomes. If several Omnium transaction types map to the same HiiRetail transaction type, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/TransactionTypeMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium transaction type"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail transaction type"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Promotions",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Reward type",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Choose which HiiRetail reward type each Omnium promotion reward type becomes. If several Omnium reward types map to the same HiiRetail reward type, the first one listed is sent back to Omnium."
+            },
+            {
+              "type": "ListWithDetail",
+              "scope": "#/properties/RewardTypeMapping",
+              "label": "Mapping",
+              "options": {
+                "detail": {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/source_value",
+                      "label": "Omnium reward type"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/target_value",
+                      "label": "HiiRetail reward type"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
