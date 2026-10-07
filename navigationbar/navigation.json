@@ -432,11 +432,11 @@
                     "path": "/integrations-ocms-statements"
                 },
                 {
-                    "id": "svi.omnium-oms-connector-config.v2",
+                    "id": "svi.omnium-oms-connector-config.v3",
                     "label": "OMS – Omnium",
                     "type": "kind",
                     "order": 12,
-                    "path": "/svi.omnium-oms-connector-config.v2"
+                    "path": "/svi.omnium-oms-connector-config.v3"
                 }
             ]
         }
