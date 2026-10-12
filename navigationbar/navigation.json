@@ -31,11 +31,26 @@
             ]
         },
         {
-            "id": "cha.settings.v1",
+            "id": "checkout-app",
             "label": "Checkout App",
-            "type": "kind",
+            "type": "group",
             "order": 1,
-            "path": "/cha.settings.v1"
+            "children": [
+                {
+                    "id": "cha.settings.v1",
+                    "label": "Settings",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cha.settings.v1"
+                },
+                {
+                    "id": "cha.pos-layout.preview",
+                    "label": "POS buttons and layout (preview)",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/cha.pos-layout.preview"
+                }
+            ]
         },
         {
             "id": "price-adjustments",
