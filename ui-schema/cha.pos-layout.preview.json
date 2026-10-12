@@ -1,0 +1,299 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Main menu",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mainMenu/properties/columns"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mainMenu/properties/hideUnlisted"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mainMenu/properties/hideShortcuts"
+            }
+          ]
+        },
+        {
+          "type": "Label",
+          "text": "Add a button, pick a category under Select type and then the action from that category. When the till shows a button is decided by the checkout from the state of the sale; the note in brackets tells you which: during a sale, between sales, or when a receipt line is selected, and no note means at all times. Leave Select type empty and add buttons inside to make a folder; a folder shows when at least one button inside it shows."
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/mainMenu/properties/buttons",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subtitle"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/action"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/size"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fontSize"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/badge"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Buttons in this folder",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#",
+                      "schema": {
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/buttons",
+                      "options": {
+                        "detail": {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/subtitle"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/action"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/color"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/size"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/fontSize"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "preview": "image"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Payment row",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are shown on the main screen: the first as the small button on the left, the second as the large button on the right. Swap their order to swap Cash and Card. The till shows a button only when the store's checkout offers that tender."
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/paymentRow/properties/buttons",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/tender"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Advanced",
+                  "options": {
+                    "defaultExpanded": false
+                  },
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/command"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
