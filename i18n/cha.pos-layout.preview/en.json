@@ -9,7 +9,7 @@
   "#/properties/mainMenu/properties/hideUnlisted.description": "Off means engine buttons you have not configured are shown after the configured ones.",
   "#/properties/mainMenu/properties/buttons.label": "Buttons",
   "#/properties/mainMenu/properties/buttons/items/properties/id.label": "Id",
-  "#/properties/mainMenu/properties/buttons/items/properties/id.description": "Unique within the layout, for example return.",
+  "#/properties/mainMenu/properties/buttons/items/properties/id.description": "Optional. Only needed to tell buttons apart in a hand-written value.",
   "#/properties/mainMenu/properties/buttons/items/properties/label.label": "Label",
   "#/properties/mainMenu/properties/buttons/items/properties/subtitle.label": "Subtitle",
   "#/properties/mainMenu/properties/buttons/items/properties/subtitle.description": "Small text under the label.",
@@ -254,7 +254,7 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/action/oneOf/6/properties/screenAction.externalLinks.label": "Web links",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/action/oneOf/6/properties/screenAction.externalLinks.description": "Opens the list of web links configured for the store. Shows at all times.",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.label": "Id",
-  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.description": "Unique within the layout, for example return.",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.description": "Optional. Only needed to tell buttons apart in a hand-written value.",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/label.label": "Label",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/subtitle.label": "Subtitle",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/subtitle.description": "Small text under the label.",
@@ -301,5 +301,6 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.description": "Small heading drawn above this button. It starts a new row and groups the buttons after it until the next heading.",
   "#/properties/numpad.label": "Number pad",
   "#/properties/numpad/properties/collapsed.label": "Number pad folded away at start",
-  "#/properties/numpad/properties/collapsed.description": "Starts the till with the number pad hidden to give the buttons more room. The cashier can still open it with the toggle under the buttons."
+  "#/properties/numpad/properties/collapsed.description": "Starts the till with the number pad hidden to give the buttons more room. The cashier can still open it with the toggle under the buttons.",
+  "#/properties/paymentRow/properties/buttons/items/properties/id.description": "Optional. Only needed to tell buttons apart in a hand-written value."
 }

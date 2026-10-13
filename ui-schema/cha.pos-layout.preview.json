@@ -40,7 +40,7 @@
           "text": "Add a button, pick a category under Select type and then the action from that category. When the till shows a button is decided by the checkout from the state of the sale; the note in brackets tells you which: during a sale, between sales, or when a receipt line is selected, and no note means at all times. Leave Select type empty and add buttons inside to make a folder; a folder shows when at least one button inside it shows."
         },
         {
-          "type": "Control",
+          "type": "ListWithDetail",
           "scope": "#/properties/mainMenu/properties/buttons",
           "options": {
             "detail": {
@@ -51,19 +51,11 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/id"
-                    },
-                    {
-                      "type": "Control",
                       "scope": "#/properties/label"
                     },
                     {
                       "type": "Control",
                       "scope": "#/properties/subtitle"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/section"
                     }
                   ]
                 },
@@ -107,11 +99,7 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/section"
                     },
                     {
                       "type": "Control",
@@ -119,6 +107,19 @@
                       "options": {
                         "preview": "image"
                       }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
                     }
                   ]
                 },
@@ -138,7 +139,7 @@
                   },
                   "elements": [
                     {
-                      "type": "Control",
+                      "type": "ListWithDetail",
                       "scope": "#/properties/buttons",
                       "options": {
                         "detail": {
@@ -149,19 +150,11 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
-                                },
-                                {
-                                  "type": "Control",
                                   "scope": "#/properties/label"
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/subtitle"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/section"
                                 }
                               ]
                             },
@@ -205,7 +198,7 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/section"
                                 },
                                 {
                                   "type": "Control",
@@ -215,10 +208,45 @@
                                   }
                                 }
                               ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "Group",
+                              "label": "Advanced",
+                              "options": {
+                                "defaultExpanded": false
+                              },
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
                             }
                           ]
                         }
                       }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Advanced",
+                  "options": {
+                    "defaultExpanded": false
+                  },
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
                     }
                   ]
                 }
@@ -237,25 +265,12 @@
           "text": "Payment buttons show while a sale is open and something is left to pay. The first two are shown on the main screen: the first as the small button on the left, the second as the large button on the right. Swap their order to swap Cash and Card. The till shows a button only when the store's checkout offers that tender."
         },
         {
-          "type": "Control",
+          "type": "ListWithDetail",
           "scope": "#/properties/paymentRow/properties/buttons",
           "options": {
             "detail": {
               "type": "VerticalLayout",
               "elements": [
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/label"
-                    }
-                  ]
-                },
                 {
                   "type": "HorizontalLayout",
                   "elements": [
@@ -278,8 +293,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/label"
                     },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
                     {
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
@@ -296,6 +320,10 @@
                     "defaultExpanded": false
                   },
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/command"
