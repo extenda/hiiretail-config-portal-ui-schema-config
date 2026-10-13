@@ -294,5 +294,12 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.green.label": "Green",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.blue.label": "Blue",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.purple.label": "Purple",
-  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.black.label": "Black"
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.black.label": "Black",
+  "#/properties/mainMenu/properties/buttons/items/properties/section.label": "Section heading",
+  "#/properties/mainMenu/properties/buttons/items/properties/section.description": "Small heading drawn above this button. It starts a new row and groups the buttons after it until the next heading.",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.label": "Section heading",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.description": "Small heading drawn above this button. It starts a new row and groups the buttons after it until the next heading.",
+  "#/properties/numpad.label": "Number pad",
+  "#/properties/numpad/properties/collapsed.label": "Number pad folded away at start",
+  "#/properties/numpad/properties/collapsed.description": "Starts the till with the number pad hidden to give the buttons more room. The cashier can still open it with the toggle under the buttons."
 }
