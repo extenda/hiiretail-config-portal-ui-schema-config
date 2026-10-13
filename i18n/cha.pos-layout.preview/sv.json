@@ -294,5 +294,12 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.green.label": "Grön",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.blue.label": "Blå",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.purple.label": "Lila",
-  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.black.label": "Svart"
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/color.black.label": "Svart",
+  "#/properties/mainMenu/properties/buttons/items/properties/section.label": "Avsnittsrubrik",
+  "#/properties/mainMenu/properties/buttons/items/properties/section.description": "Liten rubrik ovanför knappen. Den börjar en ny rad och grupperar knapparna efter den fram till nästa rubrik.",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.label": "Avsnittsrubrik",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.description": "Liten rubrik ovanför knappen. Den börjar en ny rad och grupperar knapparna efter den fram till nästa rubrik.",
+  "#/properties/numpad.label": "Sifferplatta",
+  "#/properties/numpad/properties/collapsed.label": "Sifferplattan infälld vid start",
+  "#/properties/numpad/properties/collapsed.description": "Kassan startar med sifferplattan dold så att knapparna får mer plats. Kassören kan fortfarande öppna den med knappen under knapparna."
 }

@@ -14,15 +14,24 @@
             },
             {
               "type": "Control",
-              "scope": "#/properties/mainMenu/properties/columns"
-            },
-            {
-              "type": "Control",
               "scope": "#/properties/mainMenu/properties/hideUnlisted"
             },
             {
               "type": "Control",
               "scope": "#/properties/mainMenu/properties/hideShortcuts"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/numpad/properties/collapsed"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mainMenu/properties/columns"
             }
           ]
         },
@@ -51,6 +60,10 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
                     }
                   ]
                 },
@@ -145,6 +158,10 @@
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
                                 }
                               ]
                             },
