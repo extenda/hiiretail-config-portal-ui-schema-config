@@ -42,7 +42,6 @@
   "#/properties/mainMenu/properties/buttons/items/properties/order.description": "Lower numbers come first.",
   "#/properties/mainMenu/properties/buttons/items/properties/prominent.label": "Prominent",
   "#/properties/mainMenu/properties/buttons/items/properties/prominent.description": "Pinned to the top of the grid.",
-  "#/properties/mainMenu/properties/buttons/items/properties/badge.label": "Live badge",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons.label": "Buttons in this folder",
   "#/properties/paymentRow.label": "Payment row",
   "#/properties/paymentRow/properties/buttons.label": "Payment buttons",

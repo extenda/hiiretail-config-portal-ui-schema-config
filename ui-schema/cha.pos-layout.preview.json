@@ -73,10 +73,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/color"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/size"
                     }
                   ]
                 },
@@ -85,11 +81,11 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/size"
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/badge"
+                      "scope": "#/properties/fontSize"
                     }
                   ]
                 },
