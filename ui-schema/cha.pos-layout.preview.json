@@ -55,7 +55,20 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/id"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
                     }
                   ]
                 },
@@ -99,14 +112,11 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/order"
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
-                      "options": {
-                        "preview": "image"
-                      }
+                      "scope": "#/properties/prominent"
                     }
                   ]
                 },
@@ -115,11 +125,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
                     }
                   ]
                 },
@@ -154,7 +163,20 @@
                                 },
                                 {
                                   "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
                                   "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
                                 }
                               ]
                             },
@@ -198,7 +220,7 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/order"
                                 },
                                 {
                                   "type": "Control",
@@ -208,45 +230,10 @@
                                   }
                                 }
                               ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "Group",
-                              "label": "Advanced",
-                              "options": {
-                                "defaultExpanded": false
-                              },
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/id"
-                                }
-                              ]
                             }
                           ]
                         }
                       }
-                    }
-                  ]
-                },
-                {
-                  "type": "Group",
-                  "label": "Advanced",
-                  "options": {
-                    "defaultExpanded": false
-                  },
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
                     }
                   ]
                 }
@@ -297,13 +284,17 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/id"
                     }
                   ]
                 },
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
@@ -320,10 +311,6 @@
                     "defaultExpanded": false
                   },
                   "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
-                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/command"
