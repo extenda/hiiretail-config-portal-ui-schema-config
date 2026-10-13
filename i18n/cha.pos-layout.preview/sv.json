@@ -9,7 +9,7 @@
   "#/properties/mainMenu/properties/hideUnlisted.description": "Av betyder att motorns knappar som du inte konfigurerat visas efter de konfigurerade.",
   "#/properties/mainMenu/properties/buttons.label": "Knappar",
   "#/properties/mainMenu/properties/buttons/items/properties/id.label": "Id",
-  "#/properties/mainMenu/properties/buttons/items/properties/id.description": "Unikt inom layouten, till exempel retur.",
+  "#/properties/mainMenu/properties/buttons/items/properties/id.description": "Unikt inom sin lista, till exempel retur. Butiken och dess kassor matchar knappar på detta id, så behåll det när du ändrar en knapp.",
   "#/properties/mainMenu/properties/buttons/items/properties/label.label": "Text",
   "#/properties/mainMenu/properties/buttons/items/properties/subtitle.label": "Undertext",
   "#/properties/mainMenu/properties/buttons/items/properties/subtitle.description": "Liten text under knapptexten.",
@@ -254,7 +254,7 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/action/oneOf/6/properties/screenAction.externalLinks.label": "Webblänkar",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/action/oneOf/6/properties/screenAction.externalLinks.description": "Öppnar listan med webblänkar som är konfigurerade för butiken. Visas alltid.",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.label": "Id",
-  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.description": "Unikt inom layouten, till exempel retur.",
+  "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/id.description": "Unikt inom sin lista, till exempel retur. Butiken och dess kassor matchar knappar på detta id, så behåll det när du ändrar en knapp.",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/label.label": "Text",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/subtitle.label": "Undertext",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/subtitle.description": "Liten text under knapptexten.",
@@ -301,5 +301,6 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons/items/properties/section.description": "Liten rubrik ovanför knappen. Den börjar en ny rad och grupperar knapparna efter den fram till nästa rubrik.",
   "#/properties/numpad.label": "Sifferplatta",
   "#/properties/numpad/properties/collapsed.label": "Sifferplattan infälld vid start",
-  "#/properties/numpad/properties/collapsed.description": "Kassan startar med sifferplattan dold så att knapparna får mer plats. Kassören kan fortfarande öppna den med knappen under knapparna."
+  "#/properties/numpad/properties/collapsed.description": "Kassan startar med sifferplattan dold så att knapparna får mer plats. Kassören kan fortfarande öppna den med knappen under knapparna.",
+  "#/properties/paymentRow/properties/buttons/items/properties/id.description": "Unikt inom sin lista, till exempel retur. Butiken och dess kassor matchar knappar på detta id, så behåll det när du ändrar en knapp."
 }
