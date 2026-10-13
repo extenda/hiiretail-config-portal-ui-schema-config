@@ -42,7 +42,6 @@
   "#/properties/mainMenu/properties/buttons/items/properties/order.description": "Lägre tal kommer först.",
   "#/properties/mainMenu/properties/buttons/items/properties/prominent.label": "Framhävd",
   "#/properties/mainMenu/properties/buttons/items/properties/prominent.description": "Fäst högst upp i rutnätet.",
-  "#/properties/mainMenu/properties/buttons/items/properties/badge.label": "Live-markering",
   "#/properties/mainMenu/properties/buttons/items/properties/buttons.label": "Knappar i den här mappen",
   "#/properties/paymentRow.label": "Betalrad",
   "#/properties/paymentRow/properties/buttons.label": "Betalknappar",
