@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Category",
-      "label": "Main menu",
+      "label": "General",
       "elements": [
         {
           "type": "HorizontalLayout",
@@ -34,10 +34,16 @@
               "scope": "#/properties/mainMenu/properties/columns"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Always",
+      "elements": [
         {
           "type": "Label",
-          "text": "Add a button, pick a category under Select type and then the action from that category. When the till shows a button is decided by the checkout from the state of the sale; the note in brackets tells you which: during a sale, between sales, or when a receipt line is selected, and no note means at all times. Leave Select type empty and add buttons inside to make a folder; a folder shows when at least one button inside it shows."
+          "text": "Buttons shown in every state, where the checkout allows the action. The other tabs add buttons for one state: between sales, during a sale, with a receipt line selected, or in refund mode. Order and section headings work across the tabs, so give the buttons order numbers that fit together. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
         },
         {
           "type": "ListWithDetail",
@@ -245,11 +251,868 @@
     },
     {
       "type": "Category",
-      "label": "Payment row",
+      "label": "Between sales",
       "elements": [
         {
           "type": "Label",
-          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are shown on the main screen: the first as the small button on the left, the second as the large button on the right. Swap their order to swap Cash and Card. The till shows a button only when the store's checkout offers that tender."
+          "text": "Added to the Always buttons while no sale is open. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+        },
+        {
+          "type": "ListWithDetail",
+          "scope": "#/properties/mainMenu/properties/states/properties/betweenSales",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/action"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/size"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fontSize"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Buttons in this folder",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#",
+                      "schema": {
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "ListWithDetail",
+                      "scope": "#/properties/buttons",
+                      "options": {
+                        "detail": {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/action"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/color"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/size"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/fontSize"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "preview": "image"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "During a sale",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Added to the Always buttons while a sale is open. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+        },
+        {
+          "type": "ListWithDetail",
+          "scope": "#/properties/mainMenu/properties/states/properties/duringSale",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/action"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/size"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fontSize"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Buttons in this folder",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#",
+                      "schema": {
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "ListWithDetail",
+                      "scope": "#/properties/buttons",
+                      "options": {
+                        "detail": {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/action"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/color"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/size"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/fontSize"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "preview": "image"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Line selected",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Added on top of During a sale while a line on the receipt is selected. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+        },
+        {
+          "type": "ListWithDetail",
+          "scope": "#/properties/mainMenu/properties/states/properties/lineSelected",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/action"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/size"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fontSize"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Buttons in this folder",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#",
+                      "schema": {
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "ListWithDetail",
+                      "scope": "#/properties/buttons",
+                      "options": {
+                        "detail": {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/action"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/color"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/size"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/fontSize"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "preview": "image"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Refund mode",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "With buttons here, refund mode shows the Always buttons plus these. Leave it empty to keep the checkout's own refund menu, including its way out of refund mode. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+        },
+        {
+          "type": "ListWithDetail",
+          "scope": "#/properties/mainMenu/properties/states/properties/refund",
+          "options": {
+            "detail": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/label"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/id"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subtitle"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/action"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/icon"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/size"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fontSize"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/prominent"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/imageUrl",
+                      "options": {
+                        "preview": "image"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Buttons in this folder",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#",
+                      "schema": {
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "ListWithDetail",
+                      "scope": "#/properties/buttons",
+                      "options": {
+                        "detail": {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/id"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/subtitle"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/section"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/action"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/color"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/size"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/fontSize"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/order"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "preview": "image"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Payment row",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/paymentRow/properties/hideUnlisted"
+            }
+          ]
+        },
+        {
+          "type": "Label",
+          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first the small one on the left, the second the large one on the right. The rest open under Other in the order listed here. Turn on Hide tenders not listed here to show only these; add a tender back by adding it to the list. The till shows a button only when the store's checkout offers that tender."
         },
         {
           "type": "ListWithDetail",
