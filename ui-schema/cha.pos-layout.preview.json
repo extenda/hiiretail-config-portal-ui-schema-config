@@ -6,23 +6,66 @@
       "label": "General",
       "elements": [
         {
-          "type": "HorizontalLayout",
+          "type": "Label",
+          "text": "This page sets up the buttons on the POS main screen for the store or workstation picked above. Always holds the buttons shown in every state of the till; Between sales, During a sale, Line selected and Refund mode add buttons for that state only. Payment row sets the payment buttons and which tenders show under Other.",
+          "i18n": "layout.general.intro"
+        },
+        {
+          "type": "Label",
+          "text": "Sections group buttons under a small heading: add the sections you want below and pick one on each button. Order numbers start at 1 and count inside a section. Every button gets the icon of its action automatically; Icon and Picture only replace it. A workstation inherits the store's layout, and a change on a workstation applies to that till only.",
+          "i18n": "layout.general.rules"
+        },
+        {
+          "type": "Group",
+          "label": "Sections",
+          "i18n": "layout.general.sections",
           "elements": [
             {
-              "type": "Control",
-              "scope": "#/properties/enabled"
+              "type": "Label",
+              "text": "Use only the sections you need, up to 8. A section you have not added here shows no heading, and buttons in it come first, before the first section.",
+              "i18n": "layout.general.sectionsNote"
             },
             {
-              "type": "Control",
-              "scope": "#/properties/mainMenu/properties/hideUnlisted"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/mainMenu/properties/hideShortcuts"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/numpad/properties/collapsed"
+              "type": "ListWithDetail",
+              "scope": "#/properties/mainMenu/properties/sections",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/heading",
+                          "options": {
+                            "showUnfocusedDescription": true
+                          }
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/slot",
+                          "options": {
+                            "showUnfocusedDescription": true
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/order",
+                          "options": {
+                            "showUnfocusedDescription": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
@@ -31,7 +74,55 @@
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/mainMenu/properties/columns"
+              "scope": "#/properties/mainMenu/properties/columns",
+              "options": {
+                "showUnfocusedDescription": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Switches for this preview",
+          "i18n": "layout.general.switches",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/enabled",
+                  "options": {
+                    "showUnfocusedDescription": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mainMenu/properties/hideUnlisted",
+                  "options": {
+                    "showUnfocusedDescription": true
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mainMenu/properties/hideShortcuts",
+                  "options": {
+                    "showUnfocusedDescription": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/numpad/properties/collapsed",
+                  "options": {
+                    "showUnfocusedDescription": true
+                  }
+                }
+              ]
             }
           ]
         }
@@ -43,7 +134,8 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Buttons shown in every state, where the checkout allows the action. The other tabs add buttons for one state: between sales, during a sale, with a receipt line selected, or in refund mode. Order and section headings work across the tabs, so give the buttons order numbers that fit together. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+          "text": "Buttons shown in every state, where the checkout allows the action. Pick Select type and Action first. Leave Select type empty and add buttons inside to make a folder.",
+          "i18n": "layout.always.intro"
         },
         {
           "type": "ListWithDetail",
@@ -57,11 +149,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/action",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -70,11 +161,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/subtitle"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -83,7 +180,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/action"
+                      "scope": "#/properties/subtitle",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -92,11 +199,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/icon"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -105,11 +218,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/size"
+                      "scope": "#/properties/size",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/fontSize",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -118,11 +237,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/prominent",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -133,6 +258,7 @@
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -165,11 +291,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/label"
+                                  "scope": "#/properties/action",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
+                                  "scope": "#/properties/id",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -178,11 +322,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/subtitle"
+                                  "scope": "#/properties/subtitle",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/color",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -191,20 +353,17 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/action"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/icon"
+                                  "scope": "#/properties/size",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/color"
+                                  "scope": "#/properties/fontSize",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -213,25 +372,16 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/size"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/fontSize"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/order",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/imageUrl",
                                   "options": {
+                                    "showUnfocusedDescription": true,
                                     "preview": "image"
                                   }
                                 }
@@ -246,6 +396,255 @@
               ]
             }
           }
+        },
+        {
+          "type": "Group",
+          "label": "Action guide: what each action does",
+          "i18n": "layout.guide",
+          "options": {
+            "defaultExpanded": false
+          },
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+              "i18n": "layout.guide.note"
+            },
+            {
+              "type": "Group",
+              "label": "Sale",
+              "i18n": "layout.guide.saleAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
+                  "i18n": "layout.guide.suspendOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
+                  "i18n": "layout.guide.retrieveOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.cancelOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.voidLine"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.quantity"
+                },
+                {
+                  "type": "Label",
+                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
+                  "i18n": "layout.guide.repeatLastItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
+                  "i18n": "layout.guide.manualDepartment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.tare"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
+                  "i18n": "layout.guide.returnFromReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
+                  "i18n": "layout.guide.findReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
+                  "i18n": "layout.guide.receiptComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.lineComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
+                  "i18n": "layout.guide.returnWithoutReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
+                  "i18n": "layout.guide.complaint"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLineAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLinePercent"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.discountOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.removeLineDiscount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.changePrice"
+                },
+                {
+                  "type": "Label",
+                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+                  "i18n": "layout.guide.priceCheck"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Customer",
+              "i18n": "layout.guide.customerAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.loyaltyVoucher"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
+                  "i18n": "layout.guide.externalCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customerCardNumber"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
+                  "i18n": "layout.guide.retrieveCustomerOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
+                  "i18n": "layout.guide.b2bCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
+                  "i18n": "layout.guide.customerOrderSearch"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
+                  "i18n": "layout.guide.openCashDrawer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidIn"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidOut"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
+                  "i18n": "layout.guide.giftCardBalance"
+                },
+                {
+                  "type": "Label",
+                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
+                  "i18n": "layout.guide.issueGiftCard"
+                },
+                {
+                  "type": "Label",
+                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
+                  "i18n": "layout.guide.reloadGiftCard"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Find an item: Opens the item search. Shows at all times.",
+                  "i18n": "layout.guide.findItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
+                  "i18n": "layout.guide.pluMenu"
+                },
+                {
+                  "type": "Label",
+                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
+                  "i18n": "layout.guide.variantSearch"
+                },
+                {
+                  "type": "Label",
+                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
+                  "i18n": "layout.guide.externalLinks"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -255,7 +654,8 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Added to the Always buttons while no sale is open. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+          "text": "Added to the Always buttons while no sale is open. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "i18n": "layout.betweenSales.intro"
         },
         {
           "type": "ListWithDetail",
@@ -269,11 +669,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/action",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -282,11 +681,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/subtitle"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -295,7 +700,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/action"
+                      "scope": "#/properties/subtitle",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -304,11 +719,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/icon"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -317,11 +738,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/size"
+                      "scope": "#/properties/size",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/fontSize",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -330,11 +757,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/prominent",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -345,6 +778,7 @@
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -377,11 +811,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/label"
+                                  "scope": "#/properties/action",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
+                                  "scope": "#/properties/id",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -390,11 +842,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/subtitle"
+                                  "scope": "#/properties/subtitle",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/color",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -403,20 +873,17 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/action"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/icon"
+                                  "scope": "#/properties/size",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/color"
+                                  "scope": "#/properties/fontSize",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -425,25 +892,16 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/size"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/fontSize"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/order",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/imageUrl",
                                   "options": {
+                                    "showUnfocusedDescription": true,
                                     "preview": "image"
                                   }
                                 }
@@ -458,6 +916,255 @@
               ]
             }
           }
+        },
+        {
+          "type": "Group",
+          "label": "Action guide: what each action does",
+          "i18n": "layout.guide",
+          "options": {
+            "defaultExpanded": false
+          },
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+              "i18n": "layout.guide.note"
+            },
+            {
+              "type": "Group",
+              "label": "Sale",
+              "i18n": "layout.guide.saleAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
+                  "i18n": "layout.guide.suspendOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
+                  "i18n": "layout.guide.retrieveOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.cancelOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.voidLine"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.quantity"
+                },
+                {
+                  "type": "Label",
+                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
+                  "i18n": "layout.guide.repeatLastItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
+                  "i18n": "layout.guide.manualDepartment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.tare"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
+                  "i18n": "layout.guide.returnFromReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
+                  "i18n": "layout.guide.findReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
+                  "i18n": "layout.guide.receiptComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.lineComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
+                  "i18n": "layout.guide.returnWithoutReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
+                  "i18n": "layout.guide.complaint"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLineAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLinePercent"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.discountOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.removeLineDiscount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.changePrice"
+                },
+                {
+                  "type": "Label",
+                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+                  "i18n": "layout.guide.priceCheck"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Customer",
+              "i18n": "layout.guide.customerAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.loyaltyVoucher"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
+                  "i18n": "layout.guide.externalCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customerCardNumber"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
+                  "i18n": "layout.guide.retrieveCustomerOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
+                  "i18n": "layout.guide.b2bCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
+                  "i18n": "layout.guide.customerOrderSearch"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
+                  "i18n": "layout.guide.openCashDrawer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidIn"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidOut"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
+                  "i18n": "layout.guide.giftCardBalance"
+                },
+                {
+                  "type": "Label",
+                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
+                  "i18n": "layout.guide.issueGiftCard"
+                },
+                {
+                  "type": "Label",
+                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
+                  "i18n": "layout.guide.reloadGiftCard"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Find an item: Opens the item search. Shows at all times.",
+                  "i18n": "layout.guide.findItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
+                  "i18n": "layout.guide.pluMenu"
+                },
+                {
+                  "type": "Label",
+                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
+                  "i18n": "layout.guide.variantSearch"
+                },
+                {
+                  "type": "Label",
+                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
+                  "i18n": "layout.guide.externalLinks"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -467,7 +1174,8 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Added to the Always buttons while a sale is open. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+          "text": "Added to the Always buttons while a sale is open. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "i18n": "layout.duringSale.intro"
         },
         {
           "type": "ListWithDetail",
@@ -481,11 +1189,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/action",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -494,11 +1201,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/subtitle"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -507,7 +1220,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/action"
+                      "scope": "#/properties/subtitle",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -516,11 +1239,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/icon"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -529,11 +1258,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/size"
+                      "scope": "#/properties/size",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/fontSize",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -542,11 +1277,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/prominent",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -557,6 +1298,7 @@
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -589,11 +1331,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/label"
+                                  "scope": "#/properties/action",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
+                                  "scope": "#/properties/id",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -602,11 +1362,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/subtitle"
+                                  "scope": "#/properties/subtitle",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/color",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -615,20 +1393,17 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/action"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/icon"
+                                  "scope": "#/properties/size",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/color"
+                                  "scope": "#/properties/fontSize",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -637,25 +1412,16 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/size"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/fontSize"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/order",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/imageUrl",
                                   "options": {
+                                    "showUnfocusedDescription": true,
                                     "preview": "image"
                                   }
                                 }
@@ -670,6 +1436,255 @@
               ]
             }
           }
+        },
+        {
+          "type": "Group",
+          "label": "Action guide: what each action does",
+          "i18n": "layout.guide",
+          "options": {
+            "defaultExpanded": false
+          },
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+              "i18n": "layout.guide.note"
+            },
+            {
+              "type": "Group",
+              "label": "Sale",
+              "i18n": "layout.guide.saleAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
+                  "i18n": "layout.guide.suspendOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
+                  "i18n": "layout.guide.retrieveOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.cancelOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.voidLine"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.quantity"
+                },
+                {
+                  "type": "Label",
+                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
+                  "i18n": "layout.guide.repeatLastItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
+                  "i18n": "layout.guide.manualDepartment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.tare"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
+                  "i18n": "layout.guide.returnFromReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
+                  "i18n": "layout.guide.findReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
+                  "i18n": "layout.guide.receiptComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.lineComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
+                  "i18n": "layout.guide.returnWithoutReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
+                  "i18n": "layout.guide.complaint"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLineAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLinePercent"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.discountOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.removeLineDiscount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.changePrice"
+                },
+                {
+                  "type": "Label",
+                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+                  "i18n": "layout.guide.priceCheck"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Customer",
+              "i18n": "layout.guide.customerAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.loyaltyVoucher"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
+                  "i18n": "layout.guide.externalCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customerCardNumber"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
+                  "i18n": "layout.guide.retrieveCustomerOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
+                  "i18n": "layout.guide.b2bCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
+                  "i18n": "layout.guide.customerOrderSearch"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
+                  "i18n": "layout.guide.openCashDrawer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidIn"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidOut"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
+                  "i18n": "layout.guide.giftCardBalance"
+                },
+                {
+                  "type": "Label",
+                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
+                  "i18n": "layout.guide.issueGiftCard"
+                },
+                {
+                  "type": "Label",
+                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
+                  "i18n": "layout.guide.reloadGiftCard"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Find an item: Opens the item search. Shows at all times.",
+                  "i18n": "layout.guide.findItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
+                  "i18n": "layout.guide.pluMenu"
+                },
+                {
+                  "type": "Label",
+                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
+                  "i18n": "layout.guide.variantSearch"
+                },
+                {
+                  "type": "Label",
+                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
+                  "i18n": "layout.guide.externalLinks"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -679,7 +1694,8 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Added on top of During a sale while a line on the receipt is selected. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+          "text": "Added on top of During a sale while a line on the receipt is selected. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "i18n": "layout.lineSelected.intro"
         },
         {
           "type": "ListWithDetail",
@@ -693,11 +1709,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/action",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -706,11 +1721,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/subtitle"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -719,7 +1740,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/action"
+                      "scope": "#/properties/subtitle",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -728,11 +1759,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/icon"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -741,11 +1778,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/size"
+                      "scope": "#/properties/size",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/fontSize",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -754,11 +1797,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/prominent",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -769,6 +1818,7 @@
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -801,11 +1851,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/label"
+                                  "scope": "#/properties/action",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
+                                  "scope": "#/properties/id",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -814,11 +1882,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/subtitle"
+                                  "scope": "#/properties/subtitle",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/color",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -827,20 +1913,17 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/action"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/icon"
+                                  "scope": "#/properties/size",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/color"
+                                  "scope": "#/properties/fontSize",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -849,25 +1932,16 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/size"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/fontSize"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/order",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/imageUrl",
                                   "options": {
+                                    "showUnfocusedDescription": true,
                                     "preview": "image"
                                   }
                                 }
@@ -882,6 +1956,255 @@
               ]
             }
           }
+        },
+        {
+          "type": "Group",
+          "label": "Action guide: what each action does",
+          "i18n": "layout.guide",
+          "options": {
+            "defaultExpanded": false
+          },
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+              "i18n": "layout.guide.note"
+            },
+            {
+              "type": "Group",
+              "label": "Sale",
+              "i18n": "layout.guide.saleAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
+                  "i18n": "layout.guide.suspendOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
+                  "i18n": "layout.guide.retrieveOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.cancelOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.voidLine"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.quantity"
+                },
+                {
+                  "type": "Label",
+                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
+                  "i18n": "layout.guide.repeatLastItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
+                  "i18n": "layout.guide.manualDepartment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.tare"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
+                  "i18n": "layout.guide.returnFromReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
+                  "i18n": "layout.guide.findReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
+                  "i18n": "layout.guide.receiptComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.lineComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
+                  "i18n": "layout.guide.returnWithoutReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
+                  "i18n": "layout.guide.complaint"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLineAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLinePercent"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.discountOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.removeLineDiscount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.changePrice"
+                },
+                {
+                  "type": "Label",
+                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+                  "i18n": "layout.guide.priceCheck"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Customer",
+              "i18n": "layout.guide.customerAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.loyaltyVoucher"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
+                  "i18n": "layout.guide.externalCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customerCardNumber"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
+                  "i18n": "layout.guide.retrieveCustomerOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
+                  "i18n": "layout.guide.b2bCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
+                  "i18n": "layout.guide.customerOrderSearch"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
+                  "i18n": "layout.guide.openCashDrawer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidIn"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidOut"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
+                  "i18n": "layout.guide.giftCardBalance"
+                },
+                {
+                  "type": "Label",
+                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
+                  "i18n": "layout.guide.issueGiftCard"
+                },
+                {
+                  "type": "Label",
+                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
+                  "i18n": "layout.guide.reloadGiftCard"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Find an item: Opens the item search. Shows at all times.",
+                  "i18n": "layout.guide.findItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
+                  "i18n": "layout.guide.pluMenu"
+                },
+                {
+                  "type": "Label",
+                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
+                  "i18n": "layout.guide.variantSearch"
+                },
+                {
+                  "type": "Label",
+                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
+                  "i18n": "layout.guide.externalLinks"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -891,7 +2214,8 @@
       "elements": [
         {
           "type": "Label",
-          "text": "With buttons here, refund mode shows the Always buttons plus these. Leave it empty to keep the checkout's own refund menu, including its way out of refund mode. The note in brackets after an action says when the checkout allows it; a button in the wrong tab simply does not show. Leave Select type empty and add buttons inside to make a folder."
+          "text": "With buttons here, refund mode shows the Always buttons plus these. Leave it empty to keep the checkout's own refund menu, including its way out of refund mode. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "i18n": "layout.refund.intro"
         },
         {
           "type": "ListWithDetail",
@@ -905,11 +2229,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/action",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -918,11 +2241,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/subtitle"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -931,7 +2260,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/action"
+                      "scope": "#/properties/subtitle",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -940,11 +2279,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/icon"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -953,11 +2298,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/size"
+                      "scope": "#/properties/size",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/fontSize"
+                      "scope": "#/properties/fontSize",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -966,11 +2317,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/prominent"
+                      "scope": "#/properties/prominent",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -981,6 +2338,7 @@
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -1013,11 +2371,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/label"
+                                  "scope": "#/properties/action",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/label",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/id"
+                                  "scope": "#/properties/id",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -1026,11 +2402,29 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/subtitle"
+                                  "scope": "#/properties/subtitle",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/icon",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/section"
+                                  "scope": "#/properties/color",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -1039,20 +2433,17 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/action"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/icon"
+                                  "scope": "#/properties/size",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/color"
+                                  "scope": "#/properties/fontSize",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 }
                               ]
                             },
@@ -1061,25 +2452,16 @@
                               "elements": [
                                 {
                                   "type": "Control",
-                                  "scope": "#/properties/size"
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/fontSize"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "HorizontalLayout",
-                              "elements": [
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/order"
+                                  "scope": "#/properties/order",
+                                  "options": {
+                                    "showUnfocusedDescription": true
+                                  }
                                 },
                                 {
                                   "type": "Control",
                                   "scope": "#/properties/imageUrl",
                                   "options": {
+                                    "showUnfocusedDescription": true,
                                     "preview": "image"
                                   }
                                 }
@@ -1094,6 +2476,255 @@
               ]
             }
           }
+        },
+        {
+          "type": "Group",
+          "label": "Action guide: what each action does",
+          "i18n": "layout.guide",
+          "options": {
+            "defaultExpanded": false
+          },
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+              "i18n": "layout.guide.note"
+            },
+            {
+              "type": "Group",
+              "label": "Sale",
+              "i18n": "layout.guide.saleAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
+                  "i18n": "layout.guide.suspendOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
+                  "i18n": "layout.guide.retrieveOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.cancelOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.voidLine"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.quantity"
+                },
+                {
+                  "type": "Label",
+                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
+                  "i18n": "layout.guide.repeatLastItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
+                  "i18n": "layout.guide.manualDepartment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.tare"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
+                  "i18n": "layout.guide.returnFromReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
+                  "i18n": "layout.guide.findReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
+                  "i18n": "layout.guide.receiptComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.lineComment"
+                },
+                {
+                  "type": "Label",
+                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
+                  "i18n": "layout.guide.returnWithoutReceipt"
+                },
+                {
+                  "type": "Label",
+                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
+                  "i18n": "layout.guide.complaint"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLineAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.discountLinePercent"
+                },
+                {
+                  "type": "Label",
+                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.discountOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.removeLineDiscount"
+                },
+                {
+                  "type": "Label",
+                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
+                  "i18n": "layout.guide.changePrice"
+                },
+                {
+                  "type": "Label",
+                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+                  "i18n": "layout.guide.priceCheck"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Customer",
+              "i18n": "layout.guide.customerAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.loyaltyVoucher"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
+                  "i18n": "layout.guide.externalCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
+                  "i18n": "layout.guide.customerCardNumber"
+                },
+                {
+                  "type": "Label",
+                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
+                  "i18n": "layout.guide.retrieveCustomerOrder"
+                },
+                {
+                  "type": "Label",
+                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
+                  "i18n": "layout.guide.b2bCustomer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
+                  "i18n": "layout.guide.customerOrderSearch"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
+                  "i18n": "layout.guide.openCashDrawer"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidIn"
+                },
+                {
+                  "type": "Label",
+                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
+                  "i18n": "layout.guide.paidOut"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
+                  "i18n": "layout.guide.giftCardBalance"
+                },
+                {
+                  "type": "Label",
+                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
+                  "i18n": "layout.guide.issueGiftCard"
+                },
+                {
+                  "type": "Label",
+                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
+                  "i18n": "layout.guide.reloadGiftCard"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "Find an item: Opens the item search. Shows at all times.",
+                  "i18n": "layout.guide.findItem"
+                },
+                {
+                  "type": "Label",
+                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
+                  "i18n": "layout.guide.pluMenu"
+                },
+                {
+                  "type": "Label",
+                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
+                  "i18n": "layout.guide.variantSearch"
+                },
+                {
+                  "type": "Label",
+                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
+                  "i18n": "layout.guide.externalLinks"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1102,17 +2733,9 @@
       "label": "Payment row",
       "elements": [
         {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/paymentRow/properties/hideUnlisted"
-            }
-          ]
-        },
-        {
           "type": "Label",
-          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first is the small one on the left, the second is the large one on the right. The rest open under Other in the order listed here. Turn on Hide tenders not listed here to show only these; add a tender back by adding it to the list. The till shows a button only when the store's checkout offers that tender."
+          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first is the small one on the left, the second is the large one on the right. The rest open under Other in the order listed here. The till shows a button only when the store's checkout offers that tender.",
+          "i18n": "layout.payment.intro"
         },
         {
           "type": "ListWithDetail",
@@ -1126,15 +2749,10 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/tender"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/icon"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/color"
+                      "scope": "#/properties/tender",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -1143,11 +2761,17 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/label"
+                      "scope": "#/properties/label",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/id"
+                      "scope": "#/properties/id",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -1156,12 +2780,35 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/order"
+                      "scope": "#/properties/icon",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/color",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     },
                     {
                       "type": "Control",
                       "scope": "#/properties/imageUrl",
                       "options": {
+                        "showUnfocusedDescription": true,
                         "preview": "image"
                       }
                     }
@@ -1176,13 +2823,28 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/command"
+                      "scope": "#/properties/command",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 }
               ]
             }
           }
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/paymentRow/properties/hideUnlisted",
+              "options": {
+                "showUnfocusedDescription": true
+              }
+            }
+          ]
         }
       ]
     }
