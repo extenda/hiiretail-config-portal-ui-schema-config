@@ -44,7 +44,7 @@
                         },
                         {
                           "type": "Control",
-                          "scope": "#/properties/slot",
+                          "scope": "#/properties/order",
                           "options": {
                             "showUnfocusedDescription": true
                           }
@@ -56,7 +56,7 @@
                       "elements": [
                         {
                           "type": "Control",
-                          "scope": "#/properties/order",
+                          "scope": "#/properties/slot",
                           "options": {
                             "showUnfocusedDescription": true
                           }
@@ -134,7 +134,7 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Buttons shown in every state, where the checkout allows the action. Pick Select type and Action first. Leave Select type empty and add buttons inside to make a folder.",
+          "text": "Buttons shown in every state, where the checkout allows the action. Pick Select type and Action first; the Action guide tab says what each action does. Leave Select type empty and add buttons inside to make a folder.",
           "i18n": "layout.always.intro"
         },
         {
@@ -187,9 +187,10 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section",
+                      "scope": "#/properties/imageUrl",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "preview": "image"
                       }
                     }
                   ]
@@ -197,6 +198,13 @@
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/icon",
@@ -241,13 +249,6 @@
                       "options": {
                         "showUnfocusedDescription": true
                       }
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
                     }
                   ]
                 },
@@ -256,10 +257,9 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
+                      "scope": "#/properties/prominent",
                       "options": {
-                        "showUnfocusedDescription": true,
-                        "preview": "image"
+                        "showUnfocusedDescription": true
                       }
                     }
                   ]
@@ -326,6 +326,14 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "showUnfocusedDescription": true,
+                                    "preview": "image"
+                                  }
                                 }
                               ]
                             },
@@ -376,14 +384,6 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/imageUrl",
-                                  "options": {
-                                    "showUnfocusedDescription": true,
-                                    "preview": "image"
-                                  }
                                 }
                               ]
                             }
@@ -396,255 +396,6 @@
               ]
             }
           }
-        },
-        {
-          "type": "Group",
-          "label": "Action guide: what each action does",
-          "i18n": "layout.guide",
-          "options": {
-            "defaultExpanded": false
-          },
-          "elements": [
-            {
-              "type": "Label",
-              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
-              "i18n": "layout.guide.note"
-            },
-            {
-              "type": "Group",
-              "label": "Sale",
-              "i18n": "layout.guide.saleAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
-                  "i18n": "layout.guide.suspendOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
-                  "i18n": "layout.guide.retrieveOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.cancelOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.voidLine"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.quantity"
-                },
-                {
-                  "type": "Label",
-                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
-                  "i18n": "layout.guide.repeatLastItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
-                  "i18n": "layout.guide.manualDepartment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.tare"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Returns and receipts",
-              "i18n": "layout.guide.receiptAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
-                  "i18n": "layout.guide.returnFromReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
-                  "i18n": "layout.guide.findReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
-                  "i18n": "layout.guide.receiptComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.lineComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
-                  "i18n": "layout.guide.returnWithoutReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
-                  "i18n": "layout.guide.complaint"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Discounts and prices",
-              "i18n": "layout.guide.priceAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLineAmount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLinePercent"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.discountOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.removeLineDiscount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.changePrice"
-                },
-                {
-                  "type": "Label",
-                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
-                  "i18n": "layout.guide.priceCheck"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Customer",
-              "i18n": "layout.guide.customerAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.loyaltyVoucher"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
-                  "i18n": "layout.guide.externalCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customerCardNumber"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
-                  "i18n": "layout.guide.retrieveCustomerOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
-                  "i18n": "layout.guide.b2bCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
-                  "i18n": "layout.guide.customerOrderSearch"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Cash drawer",
-              "i18n": "layout.guide.cashAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
-                  "i18n": "layout.guide.openCashDrawer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidIn"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidOut"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Gift cards",
-              "i18n": "layout.guide.giftCardAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
-                  "i18n": "layout.guide.giftCardBalance"
-                },
-                {
-                  "type": "Label",
-                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
-                  "i18n": "layout.guide.issueGiftCard"
-                },
-                {
-                  "type": "Label",
-                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
-                  "i18n": "layout.guide.reloadGiftCard"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Lookups and screens",
-              "i18n": "layout.guide.screenAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Find an item: Opens the item search. Shows at all times.",
-                  "i18n": "layout.guide.findItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
-                  "i18n": "layout.guide.pluMenu"
-                },
-                {
-                  "type": "Label",
-                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
-                  "i18n": "layout.guide.variantSearch"
-                },
-                {
-                  "type": "Label",
-                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
-                  "i18n": "layout.guide.externalLinks"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -707,9 +458,10 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section",
+                      "scope": "#/properties/imageUrl",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "preview": "image"
                       }
                     }
                   ]
@@ -717,6 +469,13 @@
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/icon",
@@ -761,13 +520,6 @@
                       "options": {
                         "showUnfocusedDescription": true
                       }
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
                     }
                   ]
                 },
@@ -776,10 +528,9 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
+                      "scope": "#/properties/prominent",
                       "options": {
-                        "showUnfocusedDescription": true,
-                        "preview": "image"
+                        "showUnfocusedDescription": true
                       }
                     }
                   ]
@@ -846,6 +597,14 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "showUnfocusedDescription": true,
+                                    "preview": "image"
+                                  }
                                 }
                               ]
                             },
@@ -896,14 +655,6 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/imageUrl",
-                                  "options": {
-                                    "showUnfocusedDescription": true,
-                                    "preview": "image"
-                                  }
                                 }
                               ]
                             }
@@ -916,255 +667,6 @@
               ]
             }
           }
-        },
-        {
-          "type": "Group",
-          "label": "Action guide: what each action does",
-          "i18n": "layout.guide",
-          "options": {
-            "defaultExpanded": false
-          },
-          "elements": [
-            {
-              "type": "Label",
-              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
-              "i18n": "layout.guide.note"
-            },
-            {
-              "type": "Group",
-              "label": "Sale",
-              "i18n": "layout.guide.saleAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
-                  "i18n": "layout.guide.suspendOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
-                  "i18n": "layout.guide.retrieveOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.cancelOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.voidLine"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.quantity"
-                },
-                {
-                  "type": "Label",
-                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
-                  "i18n": "layout.guide.repeatLastItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
-                  "i18n": "layout.guide.manualDepartment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.tare"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Returns and receipts",
-              "i18n": "layout.guide.receiptAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
-                  "i18n": "layout.guide.returnFromReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
-                  "i18n": "layout.guide.findReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
-                  "i18n": "layout.guide.receiptComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.lineComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
-                  "i18n": "layout.guide.returnWithoutReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
-                  "i18n": "layout.guide.complaint"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Discounts and prices",
-              "i18n": "layout.guide.priceAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLineAmount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLinePercent"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.discountOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.removeLineDiscount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.changePrice"
-                },
-                {
-                  "type": "Label",
-                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
-                  "i18n": "layout.guide.priceCheck"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Customer",
-              "i18n": "layout.guide.customerAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.loyaltyVoucher"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
-                  "i18n": "layout.guide.externalCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customerCardNumber"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
-                  "i18n": "layout.guide.retrieveCustomerOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
-                  "i18n": "layout.guide.b2bCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
-                  "i18n": "layout.guide.customerOrderSearch"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Cash drawer",
-              "i18n": "layout.guide.cashAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
-                  "i18n": "layout.guide.openCashDrawer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidIn"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidOut"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Gift cards",
-              "i18n": "layout.guide.giftCardAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
-                  "i18n": "layout.guide.giftCardBalance"
-                },
-                {
-                  "type": "Label",
-                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
-                  "i18n": "layout.guide.issueGiftCard"
-                },
-                {
-                  "type": "Label",
-                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
-                  "i18n": "layout.guide.reloadGiftCard"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Lookups and screens",
-              "i18n": "layout.guide.screenAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Find an item: Opens the item search. Shows at all times.",
-                  "i18n": "layout.guide.findItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
-                  "i18n": "layout.guide.pluMenu"
-                },
-                {
-                  "type": "Label",
-                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
-                  "i18n": "layout.guide.variantSearch"
-                },
-                {
-                  "type": "Label",
-                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
-                  "i18n": "layout.guide.externalLinks"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1227,9 +729,10 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section",
+                      "scope": "#/properties/imageUrl",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "preview": "image"
                       }
                     }
                   ]
@@ -1237,6 +740,13 @@
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/icon",
@@ -1281,13 +791,6 @@
                       "options": {
                         "showUnfocusedDescription": true
                       }
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
                     }
                   ]
                 },
@@ -1296,10 +799,9 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
+                      "scope": "#/properties/prominent",
                       "options": {
-                        "showUnfocusedDescription": true,
-                        "preview": "image"
+                        "showUnfocusedDescription": true
                       }
                     }
                   ]
@@ -1366,6 +868,14 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "showUnfocusedDescription": true,
+                                    "preview": "image"
+                                  }
                                 }
                               ]
                             },
@@ -1416,14 +926,6 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/imageUrl",
-                                  "options": {
-                                    "showUnfocusedDescription": true,
-                                    "preview": "image"
-                                  }
                                 }
                               ]
                             }
@@ -1436,255 +938,6 @@
               ]
             }
           }
-        },
-        {
-          "type": "Group",
-          "label": "Action guide: what each action does",
-          "i18n": "layout.guide",
-          "options": {
-            "defaultExpanded": false
-          },
-          "elements": [
-            {
-              "type": "Label",
-              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
-              "i18n": "layout.guide.note"
-            },
-            {
-              "type": "Group",
-              "label": "Sale",
-              "i18n": "layout.guide.saleAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
-                  "i18n": "layout.guide.suspendOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
-                  "i18n": "layout.guide.retrieveOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.cancelOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.voidLine"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.quantity"
-                },
-                {
-                  "type": "Label",
-                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
-                  "i18n": "layout.guide.repeatLastItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
-                  "i18n": "layout.guide.manualDepartment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.tare"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Returns and receipts",
-              "i18n": "layout.guide.receiptAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
-                  "i18n": "layout.guide.returnFromReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
-                  "i18n": "layout.guide.findReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
-                  "i18n": "layout.guide.receiptComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.lineComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
-                  "i18n": "layout.guide.returnWithoutReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
-                  "i18n": "layout.guide.complaint"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Discounts and prices",
-              "i18n": "layout.guide.priceAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLineAmount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLinePercent"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.discountOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.removeLineDiscount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.changePrice"
-                },
-                {
-                  "type": "Label",
-                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
-                  "i18n": "layout.guide.priceCheck"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Customer",
-              "i18n": "layout.guide.customerAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.loyaltyVoucher"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
-                  "i18n": "layout.guide.externalCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customerCardNumber"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
-                  "i18n": "layout.guide.retrieveCustomerOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
-                  "i18n": "layout.guide.b2bCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
-                  "i18n": "layout.guide.customerOrderSearch"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Cash drawer",
-              "i18n": "layout.guide.cashAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
-                  "i18n": "layout.guide.openCashDrawer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidIn"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidOut"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Gift cards",
-              "i18n": "layout.guide.giftCardAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
-                  "i18n": "layout.guide.giftCardBalance"
-                },
-                {
-                  "type": "Label",
-                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
-                  "i18n": "layout.guide.issueGiftCard"
-                },
-                {
-                  "type": "Label",
-                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
-                  "i18n": "layout.guide.reloadGiftCard"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Lookups and screens",
-              "i18n": "layout.guide.screenAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Find an item: Opens the item search. Shows at all times.",
-                  "i18n": "layout.guide.findItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
-                  "i18n": "layout.guide.pluMenu"
-                },
-                {
-                  "type": "Label",
-                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
-                  "i18n": "layout.guide.variantSearch"
-                },
-                {
-                  "type": "Label",
-                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
-                  "i18n": "layout.guide.externalLinks"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1747,9 +1000,10 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section",
+                      "scope": "#/properties/imageUrl",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "preview": "image"
                       }
                     }
                   ]
@@ -1757,6 +1011,13 @@
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/icon",
@@ -1801,13 +1062,6 @@
                       "options": {
                         "showUnfocusedDescription": true
                       }
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
                     }
                   ]
                 },
@@ -1816,10 +1070,9 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
+                      "scope": "#/properties/prominent",
                       "options": {
-                        "showUnfocusedDescription": true,
-                        "preview": "image"
+                        "showUnfocusedDescription": true
                       }
                     }
                   ]
@@ -1886,6 +1139,14 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "showUnfocusedDescription": true,
+                                    "preview": "image"
+                                  }
                                 }
                               ]
                             },
@@ -1936,14 +1197,6 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/imageUrl",
-                                  "options": {
-                                    "showUnfocusedDescription": true,
-                                    "preview": "image"
-                                  }
                                 }
                               ]
                             }
@@ -1956,255 +1209,6 @@
               ]
             }
           }
-        },
-        {
-          "type": "Group",
-          "label": "Action guide: what each action does",
-          "i18n": "layout.guide",
-          "options": {
-            "defaultExpanded": false
-          },
-          "elements": [
-            {
-              "type": "Label",
-              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
-              "i18n": "layout.guide.note"
-            },
-            {
-              "type": "Group",
-              "label": "Sale",
-              "i18n": "layout.guide.saleAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
-                  "i18n": "layout.guide.suspendOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
-                  "i18n": "layout.guide.retrieveOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.cancelOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.voidLine"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.quantity"
-                },
-                {
-                  "type": "Label",
-                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
-                  "i18n": "layout.guide.repeatLastItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
-                  "i18n": "layout.guide.manualDepartment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.tare"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Returns and receipts",
-              "i18n": "layout.guide.receiptAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
-                  "i18n": "layout.guide.returnFromReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
-                  "i18n": "layout.guide.findReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
-                  "i18n": "layout.guide.receiptComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.lineComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
-                  "i18n": "layout.guide.returnWithoutReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
-                  "i18n": "layout.guide.complaint"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Discounts and prices",
-              "i18n": "layout.guide.priceAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLineAmount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLinePercent"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.discountOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.removeLineDiscount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.changePrice"
-                },
-                {
-                  "type": "Label",
-                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
-                  "i18n": "layout.guide.priceCheck"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Customer",
-              "i18n": "layout.guide.customerAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.loyaltyVoucher"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
-                  "i18n": "layout.guide.externalCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customerCardNumber"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
-                  "i18n": "layout.guide.retrieveCustomerOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
-                  "i18n": "layout.guide.b2bCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
-                  "i18n": "layout.guide.customerOrderSearch"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Cash drawer",
-              "i18n": "layout.guide.cashAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
-                  "i18n": "layout.guide.openCashDrawer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidIn"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidOut"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Gift cards",
-              "i18n": "layout.guide.giftCardAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
-                  "i18n": "layout.guide.giftCardBalance"
-                },
-                {
-                  "type": "Label",
-                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
-                  "i18n": "layout.guide.issueGiftCard"
-                },
-                {
-                  "type": "Label",
-                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
-                  "i18n": "layout.guide.reloadGiftCard"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Lookups and screens",
-              "i18n": "layout.guide.screenAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Find an item: Opens the item search. Shows at all times.",
-                  "i18n": "layout.guide.findItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
-                  "i18n": "layout.guide.pluMenu"
-                },
-                {
-                  "type": "Label",
-                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
-                  "i18n": "layout.guide.variantSearch"
-                },
-                {
-                  "type": "Label",
-                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
-                  "i18n": "layout.guide.externalLinks"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -2214,7 +1218,7 @@
       "elements": [
         {
           "type": "Label",
-          "text": "With buttons here, refund mode shows the Always buttons plus these. Leave it empty to keep the checkout's own refund menu, including its way out of refund mode. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "text": "Refund mode is what the till shows after Return without receipt: the checkout's own refund menu with Exit refund mode, Void, Cancel order, receipt comments, customer registration and gift receipt. Empty is normal: the till then shows that menu as it is. Buttons added here show in refund mode next to the Always buttons, and the checkout's own refund buttons always stay, so Exit refund mode never disappears. Return from a receipt opens its own return dialog and does not use this tab. A button in a tab whose state the checkout does not allow for its action simply does not show.",
           "i18n": "layout.refund.intro"
         },
         {
@@ -2267,9 +1271,10 @@
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/section",
+                      "scope": "#/properties/imageUrl",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "preview": "image"
                       }
                     }
                   ]
@@ -2277,6 +1282,13 @@
                 {
                   "type": "HorizontalLayout",
                   "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/section",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    },
                     {
                       "type": "Control",
                       "scope": "#/properties/icon",
@@ -2321,13 +1333,6 @@
                       "options": {
                         "showUnfocusedDescription": true
                       }
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/prominent",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
                     }
                   ]
                 },
@@ -2336,10 +1341,9 @@
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/imageUrl",
+                      "scope": "#/properties/prominent",
                       "options": {
-                        "showUnfocusedDescription": true,
-                        "preview": "image"
+                        "showUnfocusedDescription": true
                       }
                     }
                   ]
@@ -2406,6 +1410,14 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/imageUrl",
+                                  "options": {
+                                    "showUnfocusedDescription": true,
+                                    "preview": "image"
+                                  }
                                 }
                               ]
                             },
@@ -2456,14 +1468,6 @@
                                   "options": {
                                     "showUnfocusedDescription": true
                                   }
-                                },
-                                {
-                                  "type": "Control",
-                                  "scope": "#/properties/imageUrl",
-                                  "options": {
-                                    "showUnfocusedDescription": true,
-                                    "preview": "image"
-                                  }
                                 }
                               ]
                             }
@@ -2476,255 +1480,6 @@
               ]
             }
           }
-        },
-        {
-          "type": "Group",
-          "label": "Action guide: what each action does",
-          "i18n": "layout.guide",
-          "options": {
-            "defaultExpanded": false
-          },
-          "elements": [
-            {
-              "type": "Label",
-              "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
-              "i18n": "layout.guide.note"
-            },
-            {
-              "type": "Group",
-              "label": "Sale",
-              "i18n": "layout.guide.saleAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
-                  "i18n": "layout.guide.suspendOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.",
-                  "i18n": "layout.guide.retrieveOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.cancelOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.voidLine"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.quantity"
-                },
-                {
-                  "type": "Label",
-                  "text": "Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.",
-                  "i18n": "layout.guide.repeatLastItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "Manual department sale: Sells on a department without an item. Shows at all times.",
-                  "i18n": "layout.guide.manualDepartment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.tare"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Returns and receipts",
-              "i18n": "layout.guide.receiptAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
-                  "i18n": "layout.guide.returnFromReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a receipt: Opens the receipt search. Shows at all times.",
-                  "i18n": "layout.guide.findReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.",
-                  "i18n": "layout.guide.receiptComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.lineComment"
-                },
-                {
-                  "type": "Label",
-                  "text": "Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.",
-                  "i18n": "layout.guide.returnWithoutReceipt"
-                },
-                {
-                  "type": "Label",
-                  "text": "Complaint: Starts a complaint on scanned items. Shows at all times.",
-                  "i18n": "layout.guide.complaint"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Discounts and prices",
-              "i18n": "layout.guide.priceAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLineAmount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.discountLinePercent"
-                },
-                {
-                  "type": "Label",
-                  "text": "Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.discountOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.removeLineDiscount"
-                },
-                {
-                  "type": "Label",
-                  "text": "Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.",
-                  "i18n": "layout.guide.changePrice"
-                },
-                {
-                  "type": "Label",
-                  "text": "Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
-                  "i18n": "layout.guide.priceCheck"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Customer",
-              "i18n": "layout.guide.customerAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.loyaltyVoucher"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.",
-                  "i18n": "layout.guide.externalCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.",
-                  "i18n": "layout.guide.customerCardNumber"
-                },
-                {
-                  "type": "Label",
-                  "text": "Retrieve customer order: Picks up a customer order. Shows at all times.",
-                  "i18n": "layout.guide.retrieveCustomerOrder"
-                },
-                {
-                  "type": "Label",
-                  "text": "Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.",
-                  "i18n": "layout.guide.b2bCustomer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Find a customer order: Opens the customer order search. Shows at all times.",
-                  "i18n": "layout.guide.customerOrderSearch"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Cash drawer",
-              "i18n": "layout.guide.cashAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
-                  "i18n": "layout.guide.openCashDrawer"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid in: Registers money put into the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidIn"
-                },
-                {
-                  "type": "Label",
-                  "text": "Paid out: Registers money taken out of the drawer. Shows at all times.",
-                  "i18n": "layout.guide.paidOut"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Gift cards",
-              "i18n": "layout.guide.giftCardAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
-                  "i18n": "layout.guide.giftCardBalance"
-                },
-                {
-                  "type": "Label",
-                  "text": "Issue gift card: Sells a new gift card. Shows at all times.",
-                  "i18n": "layout.guide.issueGiftCard"
-                },
-                {
-                  "type": "Label",
-                  "text": "Reload gift card: Adds money to a gift card. Shows at all times.",
-                  "i18n": "layout.guide.reloadGiftCard"
-                }
-              ]
-            },
-            {
-              "type": "Group",
-              "label": "Lookups and screens",
-              "i18n": "layout.guide.screenAction",
-              "elements": [
-                {
-                  "type": "Label",
-                  "text": "Find an item: Opens the item search. Shows at all times.",
-                  "i18n": "layout.guide.findItem"
-                },
-                {
-                  "type": "Label",
-                  "text": "PLU menu: Opens the picture menu of items without barcode. Shows at all times.",
-                  "i18n": "layout.guide.pluMenu"
-                },
-                {
-                  "type": "Label",
-                  "text": "Browse categories: Opens the category browser with item variants. Shows at all times.",
-                  "i18n": "layout.guide.variantSearch"
-                },
-                {
-                  "type": "Label",
-                  "text": "Web links: Opens the list of web links configured for the store. Shows at all times.",
-                  "i18n": "layout.guide.externalLinks"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -2734,8 +1489,18 @@
       "elements": [
         {
           "type": "Label",
-          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first is the small one on the left, the second is the large one on the right. The rest open under Other in the order listed here. The till shows a button only when the store's checkout offers that tender.",
+          "text": "The payment row shows while a sale is open and something is left to pay. It always has three buttons: two quick tenders and Other. The till shows a tender only when the store's checkout offers it.",
           "i18n": "layout.payment.intro"
+        },
+        {
+          "type": "Label",
+          "text": "Quick buttons: the tenders with Order 1 and Order 2 sit on the main screen. Order 1 is the small button on the left, Order 2 the large button on the right.",
+          "i18n": "layout.payment.quick"
+        },
+        {
+          "type": "Label",
+          "text": "Other: every tender from Order 3 up opens under Other, in this order. With Hide tenders not listed here (at the bottom) on, Other shows only these; off, the checkout's remaining tenders follow after them.",
+          "i18n": "layout.payment.other"
         },
         {
           "type": "ListWithDetail",
@@ -2843,6 +1608,102 @@
               "options": {
                 "showUnfocusedDescription": true
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Action guide",
+      "i18n": "layout.guide",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "The note in brackets says when the checkout allows the action: during a sale, between sales or with a receipt line selected. No note means at all times.",
+          "i18n": "layout.guide.note"
+        },
+        {
+          "type": "Group",
+          "label": "Sale",
+          "i18n": "layout.guide.saleAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.  •  Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.  •  Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.  •  Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.  •  Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.  •  Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.  •  Manual department sale: Sells on a department without an item. Shows at all times.  •  Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+              "i18n": "layout.guide.saleAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Returns and receipts",
+          "i18n": "layout.guide.receiptAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.  •  Find a receipt: Opens the receipt search. Shows at all times.  •  Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.  •  Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.  •  Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.  •  Complaint: Starts a complaint on scanned items. Shows at all times.",
+              "i18n": "layout.guide.receiptAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Discounts and prices",
+          "i18n": "layout.guide.priceAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.  •  Discount on line, percent (line selected): Gives a percent discount on the selected line. Shows when a receipt line is selected.  •  Discount on whole order (during a sale): Gives a discount on the whole sale. Shows while a sale is open.  •  Remove discount from line (line selected): Removes a discount from the selected line. Shows when a receipt line is selected.  •  Change price of line (line selected): Overrides the price of the selected line. Shows when a receipt line is selected.  •  Check a price: Shows the price of a scanned item without selling it. Shows at all times.",
+              "i18n": "layout.guide.priceAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer",
+          "i18n": "layout.guide.customerAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.  •  Loyalty voucher (during a sale): Uses a loyalty voucher on the sale. Shows while a sale is open.  •  Register external customer (during a sale): Registers a customer from an external system. Shows while a sale is open.  •  Register customer card (during a sale): Registers a customer card number on the sale. Shows while a sale is open.  •  Retrieve customer order: Picks up a customer order. Shows at all times.  •  Business customer: Opens the business customer (B2B) screen to put a company on the sale. Shows at all times.  •  Find a customer order: Opens the customer order search. Shows at all times.",
+              "i18n": "layout.guide.customerAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Cash drawer",
+          "i18n": "layout.guide.cashAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.  •  Paid in: Registers money put into the drawer. Shows at all times.  •  Paid out: Registers money taken out of the drawer. Shows at all times.",
+              "i18n": "layout.guide.cashAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Gift cards",
+          "i18n": "layout.guide.giftCardAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.  •  Issue gift card: Sells a new gift card. Shows at all times.  •  Reload gift card: Adds money to a gift card. Shows at all times.",
+              "i18n": "layout.guide.giftCardAction"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Lookups and screens",
+          "i18n": "layout.guide.screenAction",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Find an item: Opens the item search. Shows at all times.  •  PLU menu: Opens the picture menu of items without barcode. Shows at all times.  •  Browse categories: Opens the category browser with item variants. Shows at all times.  •  Web links: Opens the list of web links configured for the store. Shows at all times.",
+              "i18n": "layout.guide.screenAction"
             }
           ]
         }
