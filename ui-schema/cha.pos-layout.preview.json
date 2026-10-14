@@ -145,7 +145,9 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "HorizontalLayout",
+                  "type": "Group",
+                  "label": "What this button does",
+                  "i18n": "layout.button.action",
                   "elements": [
                     {
                       "type": "Control",
@@ -287,7 +289,9 @@
                           "type": "VerticalLayout",
                           "elements": [
                             {
-                              "type": "HorizontalLayout",
+                              "type": "Group",
+                              "label": "What this button does",
+                              "i18n": "layout.button.action",
                               "elements": [
                                 {
                                   "type": "Control",
@@ -416,7 +420,9 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "HorizontalLayout",
+                  "type": "Group",
+                  "label": "What this button does",
+                  "i18n": "layout.button.action",
                   "elements": [
                     {
                       "type": "Control",
@@ -558,7 +564,9 @@
                           "type": "VerticalLayout",
                           "elements": [
                             {
-                              "type": "HorizontalLayout",
+                              "type": "Group",
+                              "label": "What this button does",
+                              "i18n": "layout.button.action",
                               "elements": [
                                 {
                                   "type": "Control",
@@ -687,7 +695,9 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "HorizontalLayout",
+                  "type": "Group",
+                  "label": "What this button does",
+                  "i18n": "layout.button.action",
                   "elements": [
                     {
                       "type": "Control",
@@ -829,7 +839,9 @@
                           "type": "VerticalLayout",
                           "elements": [
                             {
-                              "type": "HorizontalLayout",
+                              "type": "Group",
+                              "label": "What this button does",
+                              "i18n": "layout.button.action",
                               "elements": [
                                 {
                                   "type": "Control",
@@ -958,7 +970,9 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "HorizontalLayout",
+                  "type": "Group",
+                  "label": "What this button does",
+                  "i18n": "layout.button.action",
                   "elements": [
                     {
                       "type": "Control",
@@ -1100,7 +1114,9 @@
                           "type": "VerticalLayout",
                           "elements": [
                             {
-                              "type": "HorizontalLayout",
+                              "type": "Group",
+                              "label": "What this button does",
+                              "i18n": "layout.button.action",
                               "elements": [
                                 {
                                   "type": "Control",
@@ -1229,7 +1245,9 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "HorizontalLayout",
+                  "type": "Group",
+                  "label": "What this button does",
+                  "i18n": "layout.button.action",
                   "elements": [
                     {
                       "type": "Control",
@@ -1371,7 +1389,9 @@
                           "type": "VerticalLayout",
                           "elements": [
                             {
-                              "type": "HorizontalLayout",
+                              "type": "Group",
+                              "label": "What this button does",
+                              "i18n": "layout.button.action",
                               "elements": [
                                 {
                                   "type": "Control",
