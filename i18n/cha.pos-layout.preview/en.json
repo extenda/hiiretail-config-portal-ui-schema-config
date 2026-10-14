@@ -45,7 +45,7 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons.label": "Buttons in this folder",
   "#/properties/paymentRow.label": "Payment row",
   "#/properties/paymentRow/properties/buttons.label": "Payment buttons",
-  "#/properties/paymentRow/properties/buttons.description": "Tenders in the order the till shows them. The first two are the quick buttons on the main screen: the first the small one on the left, the second the large one on the right. The rest open under Other.",
+  "#/properties/paymentRow/properties/buttons.description": "Tenders in the order the till shows them. The first two are the quick buttons on the main screen: the first is the small one on the left, the second is the large one on the right. The rest open under Other.",
   "#/properties/paymentRow/properties/buttons/items/properties/id.label": "Id",
   "#/properties/paymentRow/properties/buttons/items/properties/tender.label": "Tender",
   "#/properties/paymentRow/properties/buttons/items/properties/tender.description": "The way of paying this button stands for. Pick from the list.",

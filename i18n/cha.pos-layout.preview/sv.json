@@ -45,7 +45,7 @@
   "#/properties/mainMenu/properties/buttons/items/properties/buttons.label": "Knappar i den här mappen",
   "#/properties/paymentRow.label": "Betalrad",
   "#/properties/paymentRow/properties/buttons.label": "Betalknappar",
-  "#/properties/paymentRow/properties/buttons.description": "Betalsätt i den ordning kassan visar dem. De två första är snabbknapparna på huvudskärmen: den första den lilla till vänster, den andra den stora till höger. Resten öppnas under Andra betalmedel.",
+  "#/properties/paymentRow/properties/buttons.description": "Betalsätt i den ordning kassan visar dem. De två första är snabbknapparna på huvudskärmen: den första är den lilla till vänster, den andra är den stora till höger. Resten öppnas under Andra betalmedel.",
   "#/properties/paymentRow/properties/buttons/items/properties/id.label": "Id",
   "#/properties/paymentRow/properties/buttons/items/properties/tender.label": "Betalsätt",
   "#/properties/paymentRow/properties/buttons/items/properties/tender.description": "Betalsättet knappen står för. Välj i listan.",

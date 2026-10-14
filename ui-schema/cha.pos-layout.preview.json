@@ -1112,7 +1112,7 @@
         },
         {
           "type": "Label",
-          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first the small one on the left, the second the large one on the right. The rest open under Other in the order listed here. Turn on Hide tenders not listed here to show only these; add a tender back by adding it to the list. The till shows a button only when the store's checkout offers that tender."
+          "text": "Payment buttons show while a sale is open and something is left to pay. The first two are the quick buttons on the main screen: the first is the small one on the left, the second is the large one on the right. The rest open under Other in the order listed here. Turn on Hide tenders not listed here to show only these; add a tender back by adding it to the list. The till shows a button only when the store's checkout offers that tender."
         },
         {
           "type": "ListWithDetail",
