@@ -413,11 +413,8 @@
             {
               "type": "Group",
               "label": "Sale",
+              "i18n": "layout.guide.saleAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/0/properties/saleAction"
-                },
                 {
                   "type": "Label",
                   "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
@@ -463,11 +460,8 @@
             {
               "type": "Group",
               "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/1/properties/receiptAction"
-                },
                 {
                   "type": "Label",
                   "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
@@ -503,11 +497,8 @@
             {
               "type": "Group",
               "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/2/properties/priceAction"
-                },
                 {
                   "type": "Label",
                   "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
@@ -543,11 +534,8 @@
             {
               "type": "Group",
               "label": "Customer",
+              "i18n": "layout.guide.customerAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/3/properties/customerAction"
-                },
                 {
                   "type": "Label",
                   "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
@@ -588,11 +576,8 @@
             {
               "type": "Group",
               "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/4/properties/cashAction"
-                },
                 {
                   "type": "Label",
                   "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
@@ -613,11 +598,8 @@
             {
               "type": "Group",
               "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/5/properties/giftCardAction"
-                },
                 {
                   "type": "Label",
                   "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
@@ -638,11 +620,8 @@
             {
               "type": "Group",
               "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/6/properties/screenAction"
-                },
                 {
                   "type": "Label",
                   "text": "Find an item: Opens the item search. Shows at all times.",
@@ -954,11 +933,8 @@
             {
               "type": "Group",
               "label": "Sale",
+              "i18n": "layout.guide.saleAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/0/properties/saleAction"
-                },
                 {
                   "type": "Label",
                   "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
@@ -1004,11 +980,8 @@
             {
               "type": "Group",
               "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/1/properties/receiptAction"
-                },
                 {
                   "type": "Label",
                   "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
@@ -1044,11 +1017,8 @@
             {
               "type": "Group",
               "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/2/properties/priceAction"
-                },
                 {
                   "type": "Label",
                   "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
@@ -1084,11 +1054,8 @@
             {
               "type": "Group",
               "label": "Customer",
+              "i18n": "layout.guide.customerAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/3/properties/customerAction"
-                },
                 {
                   "type": "Label",
                   "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
@@ -1129,11 +1096,8 @@
             {
               "type": "Group",
               "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/4/properties/cashAction"
-                },
                 {
                   "type": "Label",
                   "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
@@ -1154,11 +1118,8 @@
             {
               "type": "Group",
               "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/5/properties/giftCardAction"
-                },
                 {
                   "type": "Label",
                   "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
@@ -1179,11 +1140,8 @@
             {
               "type": "Group",
               "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/6/properties/screenAction"
-                },
                 {
                   "type": "Label",
                   "text": "Find an item: Opens the item search. Shows at all times.",
@@ -1495,11 +1453,8 @@
             {
               "type": "Group",
               "label": "Sale",
+              "i18n": "layout.guide.saleAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/0/properties/saleAction"
-                },
                 {
                   "type": "Label",
                   "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
@@ -1545,11 +1500,8 @@
             {
               "type": "Group",
               "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/1/properties/receiptAction"
-                },
                 {
                   "type": "Label",
                   "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
@@ -1585,11 +1537,8 @@
             {
               "type": "Group",
               "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/2/properties/priceAction"
-                },
                 {
                   "type": "Label",
                   "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
@@ -1625,11 +1574,8 @@
             {
               "type": "Group",
               "label": "Customer",
+              "i18n": "layout.guide.customerAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/3/properties/customerAction"
-                },
                 {
                   "type": "Label",
                   "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
@@ -1670,11 +1616,8 @@
             {
               "type": "Group",
               "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/4/properties/cashAction"
-                },
                 {
                   "type": "Label",
                   "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
@@ -1695,11 +1638,8 @@
             {
               "type": "Group",
               "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/5/properties/giftCardAction"
-                },
                 {
                   "type": "Label",
                   "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
@@ -1720,11 +1660,8 @@
             {
               "type": "Group",
               "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/6/properties/screenAction"
-                },
                 {
                   "type": "Label",
                   "text": "Find an item: Opens the item search. Shows at all times.",
@@ -2036,11 +1973,8 @@
             {
               "type": "Group",
               "label": "Sale",
+              "i18n": "layout.guide.saleAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/0/properties/saleAction"
-                },
                 {
                   "type": "Label",
                   "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
@@ -2086,11 +2020,8 @@
             {
               "type": "Group",
               "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/1/properties/receiptAction"
-                },
                 {
                   "type": "Label",
                   "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
@@ -2126,11 +2057,8 @@
             {
               "type": "Group",
               "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/2/properties/priceAction"
-                },
                 {
                   "type": "Label",
                   "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
@@ -2166,11 +2094,8 @@
             {
               "type": "Group",
               "label": "Customer",
+              "i18n": "layout.guide.customerAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/3/properties/customerAction"
-                },
                 {
                   "type": "Label",
                   "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
@@ -2211,11 +2136,8 @@
             {
               "type": "Group",
               "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/4/properties/cashAction"
-                },
                 {
                   "type": "Label",
                   "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
@@ -2236,11 +2158,8 @@
             {
               "type": "Group",
               "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/5/properties/giftCardAction"
-                },
                 {
                   "type": "Label",
                   "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
@@ -2261,11 +2180,8 @@
             {
               "type": "Group",
               "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/6/properties/screenAction"
-                },
                 {
                   "type": "Label",
                   "text": "Find an item: Opens the item search. Shows at all times.",
@@ -2577,11 +2493,8 @@
             {
               "type": "Group",
               "label": "Sale",
+              "i18n": "layout.guide.saleAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/0/properties/saleAction"
-                },
                 {
                   "type": "Label",
                   "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.",
@@ -2627,11 +2540,8 @@
             {
               "type": "Group",
               "label": "Returns and receipts",
+              "i18n": "layout.guide.receiptAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/1/properties/receiptAction"
-                },
                 {
                   "type": "Label",
                   "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.",
@@ -2667,11 +2577,8 @@
             {
               "type": "Group",
               "label": "Discounts and prices",
+              "i18n": "layout.guide.priceAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/2/properties/priceAction"
-                },
                 {
                   "type": "Label",
                   "text": "Discount on line, amount (line selected): Gives an amount discount on the selected line. Shows when a receipt line is selected.",
@@ -2707,11 +2614,8 @@
             {
               "type": "Group",
               "label": "Customer",
+              "i18n": "layout.guide.customerAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/3/properties/customerAction"
-                },
                 {
                   "type": "Label",
                   "text": "Customer (during a sale): Finds or registers the loyalty member on the sale. Shows while a sale is open.",
@@ -2752,11 +2656,8 @@
             {
               "type": "Group",
               "label": "Cash drawer",
+              "i18n": "layout.guide.cashAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/4/properties/cashAction"
-                },
                 {
                   "type": "Label",
                   "text": "Open cash drawer: Opens the cash drawer without a sale. Shows at all times.",
@@ -2777,11 +2678,8 @@
             {
               "type": "Group",
               "label": "Gift cards",
+              "i18n": "layout.guide.giftCardAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/5/properties/giftCardAction"
-                },
                 {
                   "type": "Label",
                   "text": "Gift card balance: Shows the balance of a gift card. Shows at all times.",
@@ -2802,11 +2700,8 @@
             {
               "type": "Group",
               "label": "Lookups and screens",
+              "i18n": "layout.guide.screenAction",
               "elements": [
-                {
-                  "type": "Label",
-                  "i18n": "layout.guide.#/properties/mainMenu/properties/buttons/items/properties/action/oneOf/6/properties/screenAction"
-                },
                 {
                   "type": "Label",
                   "text": "Find an item: Opens the item search. Shows at all times.",
