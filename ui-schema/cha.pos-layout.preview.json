@@ -204,7 +204,13 @@
                       "type": "Control",
                       "scope": "#/properties/section",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "enumSource": {
+                          "type": "formField",
+                          "path": "mainMenu.sections",
+                          "valueKey": "slot",
+                          "labelKey": "heading"
+                        }
                       }
                     },
                     {
@@ -479,7 +485,13 @@
                       "type": "Control",
                       "scope": "#/properties/section",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "enumSource": {
+                          "type": "formField",
+                          "path": "mainMenu.sections",
+                          "valueKey": "slot",
+                          "labelKey": "heading"
+                        }
                       }
                     },
                     {
@@ -754,7 +766,13 @@
                       "type": "Control",
                       "scope": "#/properties/section",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "enumSource": {
+                          "type": "formField",
+                          "path": "mainMenu.sections",
+                          "valueKey": "slot",
+                          "labelKey": "heading"
+                        }
                       }
                     },
                     {
@@ -1029,7 +1047,13 @@
                       "type": "Control",
                       "scope": "#/properties/section",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "enumSource": {
+                          "type": "formField",
+                          "path": "mainMenu.sections",
+                          "valueKey": "slot",
+                          "labelKey": "heading"
+                        }
                       }
                     },
                     {
@@ -1304,7 +1328,13 @@
                       "type": "Control",
                       "scope": "#/properties/section",
                       "options": {
-                        "showUnfocusedDescription": true
+                        "showUnfocusedDescription": true,
+                        "enumSource": {
+                          "type": "formField",
+                          "path": "mainMenu.sections",
+                          "valueKey": "slot",
+                          "labelKey": "heading"
+                        }
                       }
                     },
                     {
