@@ -1631,7 +1631,7 @@
                 },
                 {
                   "type": "Group",
-                  "label": "Advanced",
+                  "label": "Custom commands",
                   "options": {
                     "defaultExpanded": false
                   },
