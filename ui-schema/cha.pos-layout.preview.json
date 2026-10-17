@@ -1680,7 +1680,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.  •  Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.  •  Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.  •  Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.  •  Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.  •  Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.  •  Manual department sale: Sells on a department without an item. Shows at all times.  •  Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.",
+              "text": "Suspend order (during a sale): Parks the current sale so it can be picked up later. Shows while a sale is open.  •  Retrieve suspended order (between sales): Picks up a parked sale. Shows when no sale is open.  •  Cancel order (during a sale): Cancels the whole current sale. Shows while a sale is open.  •  Void selected line (line selected): Removes the selected line from the receipt. Shows when a receipt line is selected.  •  Change quantity (line selected): Changes the quantity of the selected line. Shows when a receipt line is selected.  •  Repeat last item (during a sale): Adds the last item once more. Shows while a sale is open.  •  Manual department sale: Sells on a department without an item. Shows at all times.  •  Tare (line selected): Sets the tare for a weighed item. Shows when a receipt line is selected.  •  Read RFID: Reads the garment tags on the RFID reader and adds the items to the sale. Shows only on tills where the RFID reader is switched on.",
               "i18n": "layout.guide.saleAction"
             }
           ]
@@ -1692,7 +1692,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.  •  Find a receipt: Opens the receipt search. Shows at all times.  •  Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.  •  Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.  •  Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.  •  Complaint: Starts a complaint on scanned items. Shows at all times.",
+              "text": "Return from a receipt: Opens the receipt search so the cashier can pick the receipt and the items to return. Shows at all times.  •  Find a receipt: Opens the receipt search. Shows at all times.  •  Receipt comment (during a sale): Adds a comment to the receipt. Shows while a sale is open.  •  Comment on line (line selected): Adds a comment to the selected line. Shows when a receipt line is selected.  •  Return without receipt: Starts a return of scanned items without a receipt. Shows at all times.  •  Complaint: Starts a complaint on scanned items. Shows at all times.  •  Exchange: Opens the receipt search; the return that follows becomes an exchange, where the cashier adds what the customer takes instead and settles the difference. Shows at all times.",
               "i18n": "layout.guide.receiptAction"
             }
           ]
@@ -1752,7 +1752,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Find an item: Opens the item search. Shows at all times.  •  PLU menu: Opens the picture menu of items without barcode. Shows at all times.  •  Browse categories: Opens the category browser with item variants. Shows at all times.  •  Web links: Opens the list of web links configured for the store. Shows at all times.",
+              "text": "Find an item: Opens the item search. Shows at all times.  •  PLU menu: Opens the picture menu of items without barcode. Shows at all times.  •  Browse categories: Opens the category browser with item variants. Shows at all times.  •  Web links: Opens the list of web links configured for the store. Shows at all times.  •  Active promotions: Opens the list of the store's promotions running today, with items to add to the sale. Shows at all times.",
               "i18n": "layout.guide.screenAction"
             }
           ]
