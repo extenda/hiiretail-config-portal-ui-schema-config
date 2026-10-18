@@ -7,7 +7,7 @@
       "elements": [
         {
           "type": "Label",
-          "text": "This page sets up the buttons on the POS main screen for the store or workstation picked above. Always holds the buttons shown in every state of the till; Between sales, During a sale, Line selected and Refund mode add buttons for that state only. Payment row sets the payment buttons and which tenders show under Other.",
+          "text": "This page sets up the buttons on the POS main screen for the store or workstation picked above. Always holds the buttons shown in every state of the till; Between sales, During a sale, Line selected and Return mode add buttons for that state only. Payment row sets the payment buttons and which tenders show under Other.",
           "i18n": "layout.general.intro"
         },
         {
@@ -1254,11 +1254,11 @@
     },
     {
       "type": "Category",
-      "label": "Refund mode",
+      "label": "Return mode",
       "elements": [
         {
           "type": "Label",
-          "text": "Refund mode is what the till shows after Return without receipt: the checkout's own refund menu with Exit refund mode, Void, Cancel order, receipt comments, customer registration and gift receipt. Empty is normal: the till then shows that menu as it is. Buttons added here show in refund mode next to the Always buttons, and the checkout's own refund buttons always stay, so Exit refund mode never disappears. Return from a receipt opens its own return dialog and does not use this tab. A button in a tab whose state the checkout does not allow for its action simply does not show.",
+          "text": "Return mode is what the till shows after Return without receipt: the checkout's own return menu with Exit refund mode, Void, Cancel order, receipt comments, customer registration and gift receipt. Empty is normal: the till then shows that menu as it is. Buttons added here show in return mode next to the Always buttons, and the checkout's own return buttons always stay, so Exit refund mode never disappears. Return from a receipt opens its own return dialog and does not use this tab. A button in a tab whose state the checkout does not allow for its action simply does not show.",
           "i18n": "layout.refund.intro"
         },
         {
