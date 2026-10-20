@@ -215,6 +215,18 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/icon",
                       "options": {
                         "showUnfocusedDescription": true
@@ -242,18 +254,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/fontSize",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/order",
                       "options": {
                         "showUnfocusedDescription": true
                       }
@@ -496,6 +496,18 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/icon",
                       "options": {
                         "showUnfocusedDescription": true
@@ -523,18 +535,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/fontSize",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/order",
                       "options": {
                         "showUnfocusedDescription": true
                       }
@@ -777,6 +777,18 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/icon",
                       "options": {
                         "showUnfocusedDescription": true
@@ -804,18 +816,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/fontSize",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/order",
                       "options": {
                         "showUnfocusedDescription": true
                       }
@@ -1058,6 +1058,18 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/icon",
                       "options": {
                         "showUnfocusedDescription": true
@@ -1085,18 +1097,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/fontSize",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/order",
                       "options": {
                         "showUnfocusedDescription": true
                       }
@@ -1339,6 +1339,18 @@
                     },
                     {
                       "type": "Control",
+                      "scope": "#/properties/order",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
                       "scope": "#/properties/icon",
                       "options": {
                         "showUnfocusedDescription": true
@@ -1366,18 +1378,6 @@
                     {
                       "type": "Control",
                       "scope": "#/properties/fontSize",
-                      "options": {
-                        "showUnfocusedDescription": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/order",
                       "options": {
                         "showUnfocusedDescription": true
                       }
