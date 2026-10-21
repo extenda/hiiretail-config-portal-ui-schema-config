@@ -53,10 +53,39 @@
             ]
         },
         {
-            "id": "price-adjustments",
-            "label": "Price Adjustments",
+            "id": "promotions",
+            "label": "Promotions",
             "type": "group",
             "order": 2,
+            "children": [
+                {
+                    "id": "pro.configuration.v2",
+                    "label": "Conflict resolution",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/pro.configuration.v2"
+                },
+                {
+                    "id": "pro.campaign-price-limits.v1",
+                    "label": "Campaign price limits",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/pro.campaign-price-limits.v1"
+                },
+                {
+                    "id": "price-adjustments-promotions",
+                    "label": "Campaigns",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/price-adjustments-promotions"
+                }
+            ]
+        },
+        {
+            "id": "pricing-and-discounts",
+            "label": "Pricing & discounts",
+            "type": "group",
+            "order": 3,
             "children": [
                 {
                     "id": "price-adjustments-markdowns",
@@ -73,24 +102,17 @@
                     "path": "/price-adjustments-discounts"
                 },
                 {
-                    "id": "price-adjustments-promotions",
-                    "label": "Promotions",
-                    "type": "kind",
-                    "order": 2,
-                    "path": "/price-adjustments-promotions"
-                },
-                {
                     "id": "price-adjustments-coupons",
                     "label": "Coupons",
                     "type": "kind",
-                    "order": 3,
+                    "order": 2,
                     "path": "/price-adjustments-coupons"
                 },
                 {
                     "id": "price-adjustments-behavior-and-conditions",
                     "label": "Behavior & conditions",
                     "type": "kind",
-                    "order": 4,
+                    "order": 3,
                     "path": "/price-adjustments-behavior-and-conditions"
                 }
             ]
@@ -99,7 +121,7 @@
             "id": "receipt",
             "label": "Receipt",
             "type": "group",
-            "order": 3,
+            "order": 4,
             "children": [
                 {
                     "id": "receipt-header-and-footer",
@@ -142,13 +164,20 @@
             "id": "refunds",
             "label": "Refunds",
             "type": "group",
-            "order": 4,
+            "order": 5,
             "children": [
+                {
+                    "id": "che.refund-rules.v1",
+                    "label": "Refund periods",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/che.refund-rules.v1"
+                },
                 {
                     "id": "refunds-behavior-and-conditions",
                     "label": "Behavior & conditions",
                     "type": "kind",
-                    "order": 0,
+                    "order": 1,
                     "path": "/refunds-behavior-and-conditions"
                 }
             ]
@@ -157,7 +186,7 @@
             "id": "vat-and-tax",
             "label": "Vat & Tax",
             "type": "group",
-            "order": 5,
+            "order": 6,
             "children": [
                 {
                     "id": "vat-and-tax-tax-rates",
@@ -186,7 +215,7 @@
             "id": "roles-and-permissions",
             "label": "Roles and permissions",
             "type": "group",
-            "order": 6,
+            "order": 7,
             "children": [
                 {
                     "id": "roles-and-permissions-permissions",
@@ -215,7 +244,7 @@
             "id": "item-barcode-plu",
             "label": "Item, barcode & PLU",
             "type": "group",
-            "order": 7,
+            "order": 8,
             "children": [
                 {
                     "id": "item-barcode-plu-plu-list",
@@ -265,7 +294,7 @@
             "id": "selfservice",
             "label": "Selfservice",
             "type": "group",
-            "order": 8,
+            "order": 9,
             "children": [
                 {
                     "id": "selfservice-attendant-app",
@@ -294,7 +323,7 @@
             "id": "legislation-and-fiscalization",
             "label": "Legislation and fiscalization",
             "type": "group",
-            "order": 9,
+            "order": 10,
             "children": [
                 {
                     "id": "legislation-and-fiscalization-integration",
@@ -316,7 +345,7 @@
             "id": "localization",
             "label": "Localization",
             "type": "group",
-            "order": 10,
+            "order": 11,
             "children": [
                 {
                     "id": "localization-language-override",
@@ -338,7 +367,7 @@
             "id": "stores-and-hierarchies",
             "label": "Stores and Hierarchies",
             "type": "group",
-            "order": 11,
+            "order": 12,
             "children": [
                 {
                     "id": "stores-and-hierarchies-stores",
@@ -360,7 +389,7 @@
             "id": "integrations",
             "label": "Integrations",
             "type": "group",
-            "order": 12,
+            "order": 13,
             "children": [
                 {
                     "id": "integrations-external-events-event-sources",

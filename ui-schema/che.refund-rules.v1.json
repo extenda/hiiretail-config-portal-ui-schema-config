@@ -1,0 +1,26 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            { "type": "Control", "scope": "#/properties/id", "label": "ID" },
+            { "type": "Control", "scope": "#/properties/refundPeriodDays", "label": "Refund Period Days" }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            { "type": "Control", "scope": "#/properties/extendedPeriodStartDate", "label": "Extended Period Start Date" },
+            { "type": "Control", "scope": "#/properties/extendedPeriodEndDate", "label": "Extended Period End Date" }
+          ]
+        },
+        { "type": "Control", "scope": "#/properties/disabled", "label": "Disabled" }
+      ]
+    }
+  }
+}

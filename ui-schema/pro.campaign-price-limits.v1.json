@@ -1,0 +1,19 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/maxDiscountPercent", "label": "Max Discount Percent" },
+        { "type": "Control", "scope": "#/properties/maxDiscountPercentSeverity", "label": "Max Discount Percent Severity" }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/minMarginPercent", "label": "Min Margin Percent" },
+        { "type": "Control", "scope": "#/properties/minMarginPercentSeverity", "label": "Min Margin Percent Severity" }
+      ]
+    }
+  ]
+}
