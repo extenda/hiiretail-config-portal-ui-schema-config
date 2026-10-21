@@ -51,7 +51,7 @@
             },
             {
               "type": "Label",
-              "text": "Before: in a 1:1 conflict between these two, both rewards are allowed to trigger after each other â€” the promotion type's reward is triggered before the conflicting type's.",
+              "text": "Before: in a 1:1 conflict between these two, both rewards are allowed to trigger after each other — the promotion type's reward is triggered before the conflicting type's.",
               "rule": {
                 "effect": "SHOW",
                 "condition": {
@@ -64,7 +64,7 @@
             },
             {
               "type": "Label",
-              "text": "Disqualifies: in a 1:1 conflict, the promotion type disqualifies the conflicting type â€” only the promotion type's reward is triggered.",
+              "text": "Disqualifies: in a 1:1 conflict, the promotion type disqualifies the conflicting type — only the promotion type's reward is triggered.",
               "rule": {
                 "effect": "SHOW",
                 "condition": {
