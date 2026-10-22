@@ -483,6 +483,21 @@
                     "path": "/svi.omnium-oms-connector-config.v3"
                 }
             ]
+        },
+        {
+            "id": "demand",
+            "label": "Demand",
+            "type": "group",
+            "order": 14,
+            "children": [
+                {
+                    "id": "dmd.demand-calculation.v1",
+                    "label": "Demand Calculation",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/dmd.demand-calculation.v1"
+                }
+            ]
         }
     ]
 }
