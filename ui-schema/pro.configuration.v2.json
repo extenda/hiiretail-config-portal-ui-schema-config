@@ -1,0 +1,88 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/conflictResolution/properties/types",
+      "label": "Promotion Types"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/conflictResolution/properties/relations",
+      "label": "Conflict Rules",
+      "options": {
+        "detail": {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/id",
+              "label": "ID"
+            },
+            {
+              "type": "Label",
+              "text": "Promotion Type and Conflicting Type must each exactly match one of the Promotion Types listed above. A value that does not match any listed type will have no effect."
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/promotionType",
+                  "label": "Promotion Type",
+                  "options": {
+                    "enumPath": "#/properties/conflictResolution/properties/types"
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/conflictingType",
+                  "label": "Conflicting Type",
+                  "options": {
+                    "enumPath": "#/properties/conflictResolution/properties/types"
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/strategy",
+                  "label": "Strategy"
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Before: in a 1:1 conflict between these two, both rewards are allowed to trigger after each other — the promotion type's reward is triggered before the conflicting type's.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/strategy",
+                  "schema": {
+                    "const": "BEFORE"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Label",
+              "text": "Disqualifies: in a 1:1 conflict, the promotion type disqualifies the conflicting type — only the promotion type's reward is triggered.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/strategy",
+                  "schema": {
+                    "const": "DISQUALIFIES"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/conflictResolution/properties/validFrom",
+      "label": "Valid From"
+    }
+  ]
+}
