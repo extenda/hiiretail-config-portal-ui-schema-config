@@ -1,0 +1,120 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "VerticalLayout",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/name", "label": "Name" },
+        {
+          "type": "Control",
+          "scope": "#/properties/basket/properties/items",
+          "label": "Basket Items",
+          "options": {
+            "detail": {
+              "type": "Categorization",
+              "elements": [
+                {
+                  "type": "Category",
+                  "label": "Identity",
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        { "type": "Control", "scope": "#/properties/itemId", "label": "Item ID" },
+                        { "type": "Control", "scope": "#/properties/modelId", "label": "Model ID" },
+                        { "type": "Control", "scope": "#/properties/itemCategory", "label": "Item Category" }
+                      ]
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/name",
+                      "label": "Name",
+                      "options": { "multi": true }
+                    }
+                  ]
+                },
+                {
+                  "type": "Category",
+                  "label": "Pricing & Quantity",
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        { "type": "Control", "scope": "#/properties/unitPrice", "label": "Unit Price" },
+                        { "type": "Control", "scope": "#/properties/purchasePrice", "label": "Purchase Price" }
+                      ]
+                    },
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        { "type": "Control", "scope": "#/properties/quantity", "label": "Quantity" },
+                        { "type": "Control", "scope": "#/properties/salesUnitOfMeasure", "label": "Sales Unit of Measure" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Category",
+                  "label": "GS1 Identifiers",
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/gs1Identifier/properties/bestBeforeDate",
+                          "label": "Best Before Date"
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/gs1Identifier/properties/expirationDate",
+                          "label": "Expiration Date"
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/gs1Identifier/properties/batchNumber",
+                          "label": "Batch Number"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Category",
+                  "label": "Additional Properties",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/additionalProperties",
+                      "label": "Additional Properties",
+                      "options": {
+                        "detail": {
+                          "type": "HorizontalLayout",
+                          "elements": [
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/id",
+                              "label": "Property ID",
+                              "options": { "multi": true }
+                            },
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/value",
+                              "label": "Value",
+                              "options": { "multi": true }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

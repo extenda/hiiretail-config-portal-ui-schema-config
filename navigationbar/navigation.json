@@ -67,17 +67,17 @@
                 },
                 {
                     "id": "pro.campaign-price-limits.v1",
-                    "label": "Campaign price limits",
+                    "label": "Promotion price limits",
                     "type": "kind",
                     "order": 1,
                     "path": "/pro.campaign-price-limits.v1"
                 },
                 {
-                    "id": "price-adjustments-promotions",
-                    "label": "Campaigns",
+                    "id": "pro.playground-basket.v1",
+                    "label": "Playground baskets",
                     "type": "kind",
                     "order": 2,
-                    "path": "/price-adjustments-promotions"
+                    "path": "/pro.playground-basket.v1"
                 }
             ]
         },
