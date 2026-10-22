@@ -20,10 +20,6 @@
               "label": "ID"
             },
             {
-              "type": "Label",
-              "text": "Promotion Type and Conflicting Type must each exactly match one of the Promotion Types listed above. A value that does not match any listed type will have no effect."
-            },
-            {
               "type": "HorizontalLayout",
               "elements": [
                 {
@@ -31,7 +27,10 @@
                   "scope": "#/properties/promotionType",
                   "label": "Promotion Type",
                   "options": {
-                    "enumPath": "#/properties/conflictResolution/properties/types"
+                    "enumSource": {
+                      "type": "formField",
+                      "path": "conflictResolution.types"
+                    }
                   }
                 },
                 {
@@ -39,7 +38,10 @@
                   "scope": "#/properties/conflictingType",
                   "label": "Conflicting Type",
                   "options": {
-                    "enumPath": "#/properties/conflictResolution/properties/types"
+                    "enumSource": {
+                      "type": "formField",
+                      "path": "conflictResolution.types"
+                    }
                   }
                 },
                 {
@@ -82,7 +84,10 @@
     {
       "type": "Control",
       "scope": "#/properties/conflictResolution/properties/validFrom",
-      "label": "Valid From"
+      "label": "Valid From",
+      "options": {
+        "saveFormat": "iso-utc"
+      }
     }
   ]
 }
