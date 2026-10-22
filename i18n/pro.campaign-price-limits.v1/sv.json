@@ -1,0 +1,15 @@
+{
+  "root.label": "Prisgränser för kampanjer",
+
+  "#/properties/maxDiscountPercent.label": "Högsta rabatt i procent",
+  "#/properties/maxDiscountPercent.description": "Högsta tillåtna rabatt som andel av artikelns aktuella pris (0–100).",
+
+  "#/properties/maxDiscountPercentSeverity.label": "Åtgärd vid för hög rabatt",
+  "#/properties/maxDiscountPercentSeverity.description": "Om en överskriden högsta rabatt ska blockera kampanjen (error) eller endast varna den som skapar den (warn).",
+
+  "#/properties/minMarginPercent.label": "Lägsta marginal i procent",
+  "#/properties/minMarginPercent.description": "Lägsta tillåtna marginal som andel över inköpspriset. Till exempel innebär 10 att kampanjpriset måste vara minst inköpspris × 1,10.",
+
+  "#/properties/minMarginPercentSeverity.label": "Åtgärd vid för låg marginal",
+  "#/properties/minMarginPercentSeverity.description": "Om en underskriden lägsta marginal ska blockera kampanjen (error) eller endast varna den som skapar den (warn)."
+}

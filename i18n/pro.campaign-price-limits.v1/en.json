@@ -1,0 +1,15 @@
+{
+  "root.label": "Promotion Price Limits",
+
+  "#/properties/maxDiscountPercent.label": "Max Discount Percent",
+  "#/properties/maxDiscountPercent.description": "Maximum allowed discount as a percentage of the item's current price (0–100).",
+
+  "#/properties/maxDiscountPercentSeverity.label": "Max Discount Percent Severity",
+  "#/properties/maxDiscountPercentSeverity.description": "Whether exceeding the maximum discount blocks the promotion outright (error) or only warns the author (warn).",
+
+  "#/properties/minMarginPercent.label": "Min Margin Percent",
+  "#/properties/minMarginPercent.description": "Minimum required margin as a percentage above purchase price. For example, 10 means the promotion price must be at least purchase price × 1.10.",
+
+  "#/properties/minMarginPercentSeverity.label": "Min Margin Percent Severity",
+  "#/properties/minMarginPercentSeverity.description": "Whether violating the minimum margin blocks the promotion outright (error) or only warns the author (warn)."
+}
