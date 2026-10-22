@@ -1,0 +1,30 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/salesAverageWindowInWeeks"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/trendWeeksAhead"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/minTrendFactor"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/maxTrendFactor"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/minCategoryQuantityPerWindow"
+    }
+  ]
+}
