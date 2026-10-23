@@ -492,7 +492,7 @@
             "children": [
                 {
                     "id": "dmd.demand-calculation.v1",
-                    "label": "Demand Calculation",
+                    "label": "Demand calculation",
                     "type": "kind",
                     "order": 0,
                     "path": "/dmd.demand-calculation.v1"
