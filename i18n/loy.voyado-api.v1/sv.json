@@ -1,0 +1,14 @@
+{
+    "#.label": "Voyado-koppling",
+    "#/oneOf/0.title": "Voyado-API",
+    "#/oneOf/1.title": "Inte konfigurerad",
+    "#/properties/baseUrl.label": "Bas-URL",
+    "#/properties/baseUrl.description": "Bas-URL för Voyado-API:et",
+    "#/properties/timeout.label": "Tidsgräns",
+    "#/properties/timeout.description": "Tidsgräns för begäran i millisekunder",
+    "#/properties/enabledBalancePoints.label": "Saldopoäng",
+    "#/properties/enabledBalancePoints.description": "Hämta medlemmens saldopoäng från Voyado-API:et",
+    "#/properties/authenticationConfig.label": "Autentisering",
+    "#/properties/authenticationConfig/properties/key.label": "API-nyckel",
+    "#/properties/authenticationConfig/properties/key.description": "API-nyckel som används för att autentisera mot Voyado-API:et"
+}

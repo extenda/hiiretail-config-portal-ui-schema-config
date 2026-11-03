@@ -1,0 +1,14 @@
+{
+    "#.label": "Voyado connector",
+    "#/oneOf/0.title": "Voyado API",
+    "#/oneOf/1.title": "Not configured",
+    "#/properties/baseUrl.label": "Base URL",
+    "#/properties/baseUrl.description": "Base URL of the Voyado API",
+    "#/properties/timeout.label": "Timeout",
+    "#/properties/timeout.description": "Request timeout in milliseconds",
+    "#/properties/enabledBalancePoints.label": "Balance points",
+    "#/properties/enabledBalancePoints.description": "Request the member's balance points from the Voyado API",
+    "#/properties/authenticationConfig.label": "Authentication",
+    "#/properties/authenticationConfig/properties/key.label": "API key",
+    "#/properties/authenticationConfig/properties/key.description": "API key used to authenticate with the Voyado API"
+}

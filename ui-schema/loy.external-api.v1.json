@@ -1,5 +1,13 @@
 {
   "type": "VerticalLayout",
+  "options": {
+    "activeWhen": {
+      "kind": "loy.routing-api.v1",
+      "path": "connector",
+      "equals": "UNIFIED_SPI",
+      "whenMissing": "UNIFIED_SPI"
+    }
+  },
   "elements": [
     {
       "type": "Control",

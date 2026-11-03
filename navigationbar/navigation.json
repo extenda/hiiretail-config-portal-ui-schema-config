@@ -448,38 +448,52 @@
                     "path": "/integrations-hii-connect-mobile"
                 },
                 {
-                    "id": "integrations-hii-connect-loyalty",
-                    "label": "Hii Connect – Loyalty",
+                    "id": "loy.routing-api.v1",
+                    "label": "Hii Connect – Loyalty – Routing",
                     "type": "kind",
                     "order": 8,
-                    "path": "/integrations-hii-connect-loyalty"
+                    "path": "/loy.routing-api.v1"
+                },
+                {
+                    "id": "loy.external-api.v1",
+                    "label": "Hii Connect – Loyalty – SPI",
+                    "type": "kind",
+                    "order": 9,
+                    "path": "/loy.external-api.v1"
+                },
+                {
+                    "id": "loy.voyado-api.v1",
+                    "label": "Hii Connect – Loyalty – Voyado",
+                    "type": "kind",
+                    "order": 10,
+                    "path": "/loy.voyado-api.v1"
                 },
                 {
                     "id": "integrations-ocms-clients",
                     "label": "OCMS – Clients",
                     "type": "kind",
-                    "order": 9,
+                    "order": 11,
                     "path": "/integrations-ocms-clients"
                 },
                 {
                     "id": "integrations-ocms-templates",
                     "label": "OCMS – Templates",
                     "type": "kind",
-                    "order": 10,
+                    "order": 12,
                     "path": "/integrations-ocms-templates"
                 },
                 {
                     "id": "integrations-ocms-statements",
                     "label": "OCMS – Statements",
                     "type": "kind",
-                    "order": 11,
+                    "order": 13,
                     "path": "/integrations-ocms-statements"
                 },
                 {
                     "id": "svi.omnium-oms-connector-config.v3",
                     "label": "OMS – Omnium",
                     "type": "kind",
-                    "order": 12,
+                    "order": 14,
                     "path": "/svi.omnium-oms-connector-config.v3"
                 }
             ]

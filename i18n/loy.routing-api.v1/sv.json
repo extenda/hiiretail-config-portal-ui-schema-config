@@ -1,0 +1,6 @@
+{
+    "#.label": "Lojalitetskoppling",
+    "#.description": "Vilken lojalitetskoppling som hanterar lojalitetsförfrågningar för det här målet. Unified SPI-kopplingen använder inställningarna för Unified SPI-kopplingen, Voyado-kopplingen använder inställningarna för Voyado-kopplingen.",
+    "#/oneOf/0.title": "Voyado",
+    "#/oneOf/1.title": "Unified SPI"
+}

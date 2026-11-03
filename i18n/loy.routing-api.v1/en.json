@@ -1,0 +1,6 @@
+{
+    "#.label": "Loyalty connector",
+    "#.description": "Which loyalty connector handles loyalty requests for this target. The Unified SPI connector uses the Unified SPI connector settings, the Voyado connector uses the Voyado connector settings.",
+    "#/oneOf/0.title": "Voyado",
+    "#/oneOf/1.title": "Unified SPI"
+}

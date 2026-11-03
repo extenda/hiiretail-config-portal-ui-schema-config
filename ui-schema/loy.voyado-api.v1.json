@@ -1,0 +1,18 @@
+{
+  "type": "VerticalLayout",
+  "options": {
+    "activeWhen": {
+      "kind": "loy.routing-api.v1",
+      "path": "connector",
+      "equals": "VOYADO",
+      "whenMissing": "UNIFIED_SPI"
+    }
+  },
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#",
+      "label": "Voyado connector"
+    }
+  ]
+}
