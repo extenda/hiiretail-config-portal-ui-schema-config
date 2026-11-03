@@ -498,6 +498,25 @@
                     "path": "/dmd.demand-calculation.v1"
                 }
             ]
+        },
+        {
+            "id": "erpos",
+            "label": "ERPOS",
+            "type": "group",
+            "order": 15,
+            "children": [
+                {
+                    "id": "pos-config",
+                    "label": "POS config",
+                    "type": "app",
+                    "appId": "pos-config",
+                    "order": 0,
+                    "icon": "settings",
+                    "permissions": [
+                        "ccc.configuration.get"
+                    ]
+                }
+            ]
         }
     ]
 }
