@@ -2,5 +2,7 @@
     "#.label": "Lojalitetskoppling",
     "#.description": "Vilken lojalitetskoppling som hanterar lojalitetsförfrågningar för det här målet. Unified SPI-kopplingen använder inställningarna för Unified SPI-kopplingen, Voyado-kopplingen använder inställningarna för Voyado-kopplingen.",
     "#/oneOf/0.title": "Voyado",
-    "#/oneOf/1.title": "Unified SPI"
+    "#/oneOf/1.title": "Unified SPI",
+    "#/oneOf/0.description": "Lojalitetsförfrågningar går till Voyado-kopplingen. Dess inställningar finns under Hii Connect – Loyalty – Voyado.",
+    "#/oneOf/1.description": "Lojalitetsförfrågningar går till Unified SPI-kopplingen. Dess inställningar finns under Hii Connect – Loyalty – SPI."
 }

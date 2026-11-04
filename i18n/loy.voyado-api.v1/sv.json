@@ -1,14 +1,17 @@
 {
     "#.label": "Voyado-koppling",
+    "#.description": "Anslutning till Voyado via Voyado-kopplingen. Används när lojalitetsroutningen är inställd på Voyado.",
     "#/oneOf/0.title": "Voyado-API",
+    "#/oneOf/0.description": "Lojalitetsförfrågningar skickas till Voyados API med en API-nyckel.",
     "#/oneOf/1.title": "Inte konfigurerad",
+    "#/oneOf/1.description": "Ingen Voyado-anslutning är inställd för det här målet.",
     "#/properties/baseUrl.label": "Bas-URL",
-    "#/properties/baseUrl.description": "Bas-URL för Voyado-API:et",
-    "#/properties/timeout.label": "Tidsgräns",
-    "#/properties/timeout.description": "Tidsgräns för begäran i millisekunder",
-    "#/properties/enabledBalancePoints.label": "Saldopoäng",
-    "#/properties/enabledBalancePoints.description": "Hämta medlemmens saldopoäng från Voyado-API:et",
+    "#/properties/baseUrl.description": "Adress till ert Voyado-API, till exempel https://yourcompany.voyado.com/api.",
+    "#/properties/timeout.label": "Tidsgräns (ms)",
+    "#/properties/timeout.description": "Hur länge vi väntar på svar från Voyado, i millisekunder.",
+    "#/properties/enabledBalancePoints.label": "Visa poängsaldo",
+    "#/properties/enabledBalancePoints.description": "Hämta medlemmens poängsaldo från Voyado.",
     "#/properties/authenticationConfig.label": "Autentisering",
     "#/properties/authenticationConfig/properties/key.label": "API-nyckel",
-    "#/properties/authenticationConfig/properties/key.description": "API-nyckel som används för att autentisera mot Voyado-API:et"
+    "#/properties/authenticationConfig/properties/key.description": "API-nyckel som skapats i Voyado för den här integrationen."
 }

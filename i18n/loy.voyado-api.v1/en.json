@@ -1,14 +1,17 @@
 {
     "#.label": "Voyado connector",
+    "#.description": "Connection to Voyado through the Voyado connector. Used when loyalty routing is set to Voyado.",
     "#/oneOf/0.title": "Voyado API",
+    "#/oneOf/0.description": "Loyalty requests are sent to the Voyado API with an API key.",
     "#/oneOf/1.title": "Not configured",
+    "#/oneOf/1.description": "No Voyado connection is set for this target.",
     "#/properties/baseUrl.label": "Base URL",
-    "#/properties/baseUrl.description": "Base URL of the Voyado API",
-    "#/properties/timeout.label": "Timeout",
-    "#/properties/timeout.description": "Request timeout in milliseconds",
-    "#/properties/enabledBalancePoints.label": "Balance points",
-    "#/properties/enabledBalancePoints.description": "Request the member's balance points from the Voyado API",
+    "#/properties/baseUrl.description": "Address of your Voyado API, for example https://yourcompany.voyado.com/api.",
+    "#/properties/timeout.label": "Timeout (ms)",
+    "#/properties/timeout.description": "How long to wait for Voyado to answer, in milliseconds.",
+    "#/properties/enabledBalancePoints.label": "Show balance points",
+    "#/properties/enabledBalancePoints.description": "Fetch the member's points balance from Voyado.",
     "#/properties/authenticationConfig.label": "Authentication",
     "#/properties/authenticationConfig/properties/key.label": "API key",
-    "#/properties/authenticationConfig/properties/key.description": "API key used to authenticate with the Voyado API"
+    "#/properties/authenticationConfig/properties/key.description": "API key created in Voyado for this integration."
 }
