@@ -1,331 +1,6 @@
 {
   "type": "ListWithDetail",
   "scope": "#",
-  "x-autoFill": [
-    {
-      "description": "Foreign currency chosen: ask for the currency (empty until picked). Leaving foreign currency removes it, because every other type uses the store's own currency.",
-      "when": {
-        "scope": "#/properties/type/properties/kind",
-        "schema": {
-          "const": "foreignCurrency"
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/currency",
-          "value": ""
-        }
-      ]
-    },
-    {
-      "description": "Cash-like type chosen: offer overpayment. Leaving a cash-like type removes the setting, because the other types always take the exact amount.",
-      "when": {
-        "scope": "#/properties/type/properties/kind",
-        "schema": {
-          "enum": [
-            "cash",
-            "foreignCurrency",
-            "giftCertificate",
-            "voucher",
-            "check"
-          ]
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/behavior/properties/exactAmountOnly",
-          "value": false
-        }
-      ]
-    },
-    {
-      "description": "No split payment on a cash-like type: the tender must take the exact amount. Switching it off removes the forced value.",
-      "when": {
-        "scope": "#",
-        "schema": {
-          "allOf": [
-            {
-              "type": "object",
-              "required": [
-                "type"
-              ],
-              "properties": {
-                "type": {
-                  "type": "object",
-                  "required": [
-                    "kind"
-                  ],
-                  "properties": {
-                    "kind": {
-                      "enum": [
-                        "cash",
-                        "foreignCurrency",
-                        "giftCertificate",
-                        "voucher",
-                        "check"
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "type": "object",
-              "required": [
-                "behavior"
-              ],
-              "properties": {
-                "behavior": {
-                  "type": "object",
-                  "required": [
-                    "exclusive"
-                  ],
-                  "properties": {
-                    "exclusive": {
-                      "const": true
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/behavior/properties/exactAmountOnly",
-          "value": true
-        }
-      ]
-    },
-    {
-      "description": "Change and rounding exist only for a cash-like type that is not limited to the exact amount. They are removed when the type changes or 'Exact Amount Only' is switched on, and offered again otherwise. Must run after the no-split-payment rule.",
-      "when": {
-        "scope": "#",
-        "schema": {
-          "allOf": [
-            {
-              "type": "object",
-              "required": [
-                "type"
-              ],
-              "properties": {
-                "type": {
-                  "type": "object",
-                  "required": [
-                    "kind"
-                  ],
-                  "properties": {
-                    "kind": {
-                      "enum": [
-                        "cash",
-                        "foreignCurrency",
-                        "giftCertificate",
-                        "voucher",
-                        "check"
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "not": {
-                "type": "object",
-                "required": [
-                  "behavior"
-                ],
-                "properties": {
-                  "behavior": {
-                    "type": "object",
-                    "required": [
-                      "exactAmountOnly"
-                    ],
-                    "properties": {
-                      "exactAmountOnly": {
-                        "const": true
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/change",
-          "value": {}
-        },
-        {
-          "scope": "#/properties/rounding",
-          "value": {}
-        }
-      ]
-    },
-    {
-      "description": "Types where cancelling can be blocked. Leaving them removes the setting, which the other types do not allow.",
-      "when": {
-        "scope": "#",
-        "schema": {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "type": "object",
-              "required": [
-                "kind"
-              ],
-              "properties": {
-                "kind": {
-                  "enum": [
-                    "giftCertificate",
-                    "voucher",
-                    "check",
-                    "coupon",
-                    "manufacturerCoupon",
-                    "organizationCharge",
-                    "houseAccount",
-                    "foodStamp",
-                    "wicCheck"
-                  ]
-                }
-              },
-              "not": {
-                "type": "object",
-                "required": [
-                  "creditCheck"
-                ],
-                "properties": {
-                  "creditCheck": {
-                    "const": true
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/behavior/properties/blockCancel",
-          "value": false
-        }
-      ]
-    },
-    {
-      "description": "Types that can pay the remaining amount automatically. Leaving them removes the setting.",
-      "when": {
-        "scope": "#",
-        "schema": {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "type": "object",
-              "required": [
-                "kind"
-              ],
-              "properties": {
-                "kind": {
-                  "enum": [
-                    "creditDebit",
-                    "mobile",
-                    "electronicGiftCard",
-                    "organizationCharge",
-                    "houseAccount",
-                    "check",
-                    "foreignCurrency",
-                    "foodStamp",
-                    "wicCheck"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/behavior/properties/payRemainingAmount",
-          "value": false
-        }
-      ]
-    },
-    {
-      "description": "Types that can refund. Leaving them, or choosing standalone mobile, removes the refund settings.",
-      "when": {
-        "scope": "#",
-        "schema": {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "type": "object",
-              "required": [
-                "kind"
-              ],
-              "properties": {
-                "kind": {
-                  "enum": [
-                    "cash",
-                    "foreignCurrency",
-                    "creditDebit",
-                    "mobile",
-                    "electronicGiftCard",
-                    "organizationCharge",
-                    "houseAccount",
-                    "giftCertificate",
-                    "voucher",
-                    "check"
-                  ]
-                }
-              },
-              "not": {
-                "type": "object",
-                "required": [
-                  "integration"
-                ],
-                "properties": {
-                  "integration": {
-                    "const": "STANDALONE"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/refund",
-          "value": {}
-        }
-      ]
-    },
-    {
-      "description": "Cash always allows refunds: clear 'Block Refunds' carried over from another type, so the cash refund limits stay visible. Must run after the refund rule.",
-      "when": {
-        "scope": "#/properties/type/properties/kind",
-        "schema": {
-          "const": "cash"
-        }
-      },
-      "set": [
-        {
-          "scope": "#/properties/refund/properties/blockRefunds",
-          "value": false
-        }
-      ]
-    }
-  ],
   "options": {
     "detail": {
       "type": "Categorization",
@@ -373,14 +48,6 @@
                     "itemsPath": "value",
                     "valueKey": "id",
                     "labelKey": "id"
-                  },
-                  "display": {
-                    "columns": [
-                      {
-                        "key": "config.isDefaultCurrency",
-                        "label": "Store currency"
-                      }
-                    ]
                   }
                 }
               }
@@ -418,10 +85,28 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "Control",
-                  "scope": "#/properties/behavior/properties/exactAmountOnly",
+                  "type": "Label",
+                  "text": "No split payment always takes the exact amount.",
                   "rule": {
-                    "effect": "DISABLE",
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/behavior/properties/exactAmountOnly"
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
                     "condition": {
                       "scope": "#/properties/behavior/properties/exclusive",
                       "schema": {
@@ -531,7 +216,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "No change is given, because 'Exact Amount Only' is on.",
+              "text": "No change is given, because the tender takes the exact amount.",
               "rule": {
                 "effect": "SHOW",
                 "condition": {
@@ -543,48 +228,71 @@
               }
             },
             {
+              "type": "Label",
+              "text": "No change is given, because 'No Split Payment' always takes the exact amount.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/exclusive",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "Label",
-                  "text": "Leave everything empty to give all change in the store's default cash tender."
-                },
-                {
-                  "type": "Label",
-                  "text": "The alternate change tender list shows the tenders saved for this target. Save a new tender before choosing it here. Choose a cash, foreign currency, gift certificate, voucher or check tender."
-                },
-                {
-                  "type": "Control",
-                  "scope": "#/properties/change/properties/tenderId",
-                  "options": {
-                    "enumSource": {
-                      "type": "request",
-                      "request": {
-                        "url": "{api:ccc-api}/api/v1/config/che.tender.v3/values/{target.path}"
-                      },
-                      "response": {
-                        "itemsPath": "value",
-                        "valueKey": "id",
-                        "labelKey": "name"
-                      },
-                      "display": {
-                        "secondaryLabelKey": "type.kind"
-                      }
-                    }
-                  }
-                },
-                {
-                  "type": "HorizontalLayout",
+                  "type": "VerticalLayout",
                   "elements": [
                     {
-                      "type": "Control",
-                      "scope": "#/properties/change/properties/threshold"
+                      "type": "Label",
+                      "text": "Leave everything empty to give all change in the store's default cash tender. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate, voucher or check tender."
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/change/properties/autoCompleteLimit"
+                      "scope": "#/properties/change/properties/tenderId",
+                      "options": {
+                        "enumSource": {
+                          "type": "request",
+                          "request": {
+                            "url": "{api:ccc-api}/api/v1/config/che.tender.v3/values/{target.path}"
+                          },
+                          "response": {
+                            "itemsPath": "value",
+                            "valueKey": "id",
+                            "labelKey": "name"
+                          },
+                          "display": {
+                            "secondaryLabelKey": "type.kind"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/change/properties/threshold"
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/change/properties/autoCompleteLimit"
+                        }
+                      ]
                     }
-                  ]
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ],
               "rule": {
@@ -635,56 +343,65 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "Control",
-                  "scope": "#/properties/refund/properties/blockRefunds",
-                  "rule": {
-                    "effect": "HIDE",
-                    "condition": {
-                      "scope": "#/properties/type/properties/kind",
-                      "schema": {
-                        "const": "cash"
-                      }
-                    }
-                  }
+                  "type": "Label",
+                  "text": "On cash, change is paid out as a refund: cash always allows refunds, and the maximum refund also limits change."
                 },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/refund/properties/skipAmountPrompt"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/refund/properties/maxAmount"
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "const": "cash"
+                  }
+                }
+              }
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
                 {
                   "type": "VerticalLayout",
                   "elements": [
                     {
                       "type": "Control",
-                      "scope": "#/properties/refund/properties/skipAmountPrompt"
+                      "scope": "#/properties/refund/properties/blockRefunds"
                     },
                     {
-                      "type": "HorizontalLayout",
+                      "type": "VerticalLayout",
                       "elements": [
                         {
                           "type": "Control",
-                          "scope": "#/properties/refund/properties/maxAmount"
+                          "scope": "#/properties/refund/properties/skipAmountPrompt"
                         },
                         {
-                          "type": "Control",
-                          "scope": "#/properties/refund/properties/minAmount",
-                          "rule": {
-                            "effect": "HIDE",
-                            "condition": {
-                              "scope": "#/properties/type/properties/kind",
-                              "schema": {
-                                "const": "cash"
-                              }
+                          "type": "HorizontalLayout",
+                          "elements": [
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/refund/properties/maxAmount"
+                            },
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/refund/properties/minAmount"
                             }
-                          }
+                          ]
                         }
-                      ]
-                    },
-                    {
-                      "type": "Label",
-                      "text": "On cash, change is paid out as a refund: the maximum refund also limits change, and cash always allows refunds.",
+                      ],
                       "rule": {
-                        "effect": "SHOW",
+                        "effect": "HIDE",
                         "condition": {
-                          "scope": "#/properties/type/properties/kind",
+                          "scope": "#/properties/refund/properties/blockRefunds",
                           "schema": {
-                            "const": "cash"
+                            "const": true
                           }
                         }
                       }
@@ -693,9 +410,9 @@
                   "rule": {
                     "effect": "HIDE",
                     "condition": {
-                      "scope": "#/properties/refund/properties/blockRefunds",
+                      "scope": "#/properties/type/properties/kind",
                       "schema": {
-                        "const": true
+                        "const": "cash"
                       }
                     }
                   }
@@ -775,59 +492,32 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Rounding is not available with 'Exact Amount Only': a rounded amount above the amount due would be rejected.",
-              "rule": {
-                "effect": "SHOW",
-                "condition": {
-                  "scope": "#/properties/behavior/properties/exactAmountOnly",
-                  "schema": {
-                    "const": true
-                  }
-                }
-              }
+              "text": "Leave empty for no rounding. Choose a method and the smallest coin in use to round amounts paid with this tender."
             },
             {
-              "type": "VerticalLayout",
+              "type": "HorizontalLayout",
               "elements": [
                 {
-                  "type": "Label",
-                  "text": "Leave empty for no rounding. Choose a method and the smallest coin in use to round amounts paid with this tender."
+                  "type": "Control",
+                  "scope": "#/properties/rounding/properties/method"
                 },
                 {
-                  "type": "HorizontalLayout",
-                  "elements": [
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/rounding/properties/method"
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/rounding/properties/precision",
-                      "rule": {
-                        "effect": "SHOW",
-                        "condition": {
-                          "scope": "#/properties/rounding/properties/method",
-                          "schema": {
-                            "enum": [
-                              "MATHEMATICAL",
-                              "ROUND_HALF_DOWN"
-                            ]
-                          }
-                        }
+                  "type": "Control",
+                  "scope": "#/properties/rounding/properties/precision",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/rounding/properties/method",
+                      "schema": {
+                        "enum": [
+                          "MATHEMATICAL",
+                          "ROUND_HALF_DOWN"
+                        ]
                       }
                     }
-                  ]
-                }
-              ],
-              "rule": {
-                "effect": "HIDE",
-                "condition": {
-                  "scope": "#/properties/behavior/properties/exactAmountOnly",
-                  "schema": {
-                    "const": true
                   }
                 }
-              }
+              ]
             }
           ],
           "rule": {
