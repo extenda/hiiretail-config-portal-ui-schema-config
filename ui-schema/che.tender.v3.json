@@ -294,6 +294,21 @@
           "value": {}
         }
       ]
+    },
+    {
+      "description": "Cash always allows refunds: clear 'Block Refunds' carried over from another type, so the cash refund limits stay visible. Must run after the refund rule.",
+      "when": {
+        "scope": "#/properties/type/properties/kind",
+        "schema": {
+          "const": "cash"
+        }
+      },
+      "set": [
+        {
+          "scope": "#/properties/refund/properties/blockRefunds",
+          "value": false
+        }
+      ]
     }
   ],
   "options": {
