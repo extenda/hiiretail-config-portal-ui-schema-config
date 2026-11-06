@@ -28,7 +28,7 @@
   "#/items/properties/behavior/properties/blockCancel.label": "Block Cancelling the Sale",
   "#/items/properties/behavior/properties/blockCancel.description": "When on, a sale that contains this tender cannot be cancelled and the tender line cannot be voided; the sale can only be completed. Ignored for cash, foreign currency, cards, mobile payments, electronic gift cards, loyalty points and organization charge with credit check: after money has been taken the cashier must always have a way back.",
   "#/items/properties/behavior/properties/payRemainingAmount.label": "Pay Remaining Amount Automatically",
-  "#/items/properties/behavior/properties/payRemainingAmount.description": "When on and no amount is given, the till uses the full remaining amount and skips the amount prompt. Intended for terminals and unmanned checkouts. Ignored for cash, gift certificates, vouchers, coupons and loyalty points, which pay their own value.",
+  "#/items/properties/behavior/properties/payRemainingAmount.description": "When on and no amount is given, the till uses the full remaining amount and skips the amount prompt. Intended for terminals and unmanned checkouts. Ignored for cash, gift certificates, vouchers, coupons, manufacturer coupons and loyalty points, which pay their own value.",
   "#/items/properties/behavior/properties/prefillAmount.label": "Pre-fill Amount Prompt",
   "#/items/properties/behavior/properties/prefillAmount.description": "When on, the amount prompt on interactive tills starts with the remaining amount instead of zero.",
   "#/items/properties/behavior/properties/cashDrawer.label": "Cash Drawer",
