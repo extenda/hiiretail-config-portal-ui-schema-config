@@ -1,0 +1,11 @@
+{
+  "#.label": "Swish (preview)",
+  "Your Swish business details for Swish payments at the checkout. Set them once on the tenant or a store. The Swish payment method itself is added on the tender.": "Your Swish business details for Swish payments at the checkout. Set them once on the tenant or a store. The Swish payment method itself is added on the tender.",
+  "#/properties/environment.label": "Environment",
+  "#/properties/environment.description": "Where payments are sent. Production means real Swish payments. Sandbox and Simulator are test environments where no real money moves. Switch to Production only when the store is ready to go live.",
+  "Live mode: real Swish payments. Use it only in live stores.": "Live mode: real Swish payments. Use it only in live stores.",
+  "#/properties/organizationNumber.label": "Organisation number",
+  "#/properties/organizationNumber.description": "Your company's organisation number, as registered with Swish.",
+  "#/properties/swishNumber.label": "Swish number",
+  "#/properties/swishNumber.description": "The Swish number for business that receives the payments."
+}

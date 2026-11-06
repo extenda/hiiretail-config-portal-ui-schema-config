@@ -434,25 +434,61 @@
                     "path": "/integrations-identity-providers"
                 },
                 {
-                    "id": "integrations-hii-connect-eft",
-                    "label": "Hii Connect – EFT",
-                    "type": "kind",
+                    "id": "hii-connect",
+                    "label": "Hii Connect",
+                    "type": "group",
                     "order": 5,
-                    "path": "/integrations-hii-connect-eft"
-                },
-                {
-                    "id": "integrations-hii-connect-giftcard",
-                    "label": "Hii Connect – Giftcard",
-                    "type": "kind",
-                    "order": 6,
-                    "path": "/integrations-hii-connect-giftcard"
-                },
-                {
-                    "id": "integrations-hii-connect-mobile",
-                    "label": "Hii Connect – Mobile",
-                    "type": "kind",
-                    "order": 7,
-                    "path": "/integrations-hii-connect-mobile"
+                    "children": [
+                        {
+                            "id": "cpy.payment-router-card.v2",
+                            "label": "Card payment routing (preview)",
+                            "type": "kind",
+                            "order": 0,
+                            "path": "/cpy.payment-router-card.v2"
+                        },
+                        {
+                            "id": "cpy.payment-router-giftcard.v2",
+                            "label": "Gift card routing (preview)",
+                            "type": "kind",
+                            "order": 1,
+                            "path": "/cpy.payment-router-giftcard.v2"
+                        },
+                        {
+                            "id": "cpy.hps-adyen-cloud-config.v1",
+                            "label": "Adyen (cloud) – account (preview)",
+                            "type": "kind",
+                            "order": 2,
+                            "path": "/cpy.hps-adyen-cloud-config.v1"
+                        },
+                        {
+                            "id": "cpy.hps-adyen-cloud-config-workstation.v1",
+                            "label": "Adyen (cloud) – terminals (preview)",
+                            "type": "kind",
+                            "order": 3,
+                            "path": "/cpy.hps-adyen-cloud-config-workstation.v1"
+                        },
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config.v1",
+                            "label": "Adyen (local) – settings (preview)",
+                            "type": "kind",
+                            "order": 4,
+                            "path": "/cpy.hiiconnect-adyen-local-config.v1"
+                        },
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config-workstation.v1",
+                            "label": "Adyen (local) – terminals (preview)",
+                            "type": "kind",
+                            "order": 5,
+                            "path": "/cpy.hiiconnect-adyen-local-config-workstation.v1"
+                        },
+                        {
+                            "id": "cpy.hps-payment-mobile-swish.v1",
+                            "label": "Swish (preview)",
+                            "type": "kind",
+                            "order": 6,
+                            "path": "/cpy.hps-payment-mobile-swish.v1"
+                        }
+                    ]
                 },
                 {
                     "id": "integrations-hii-connect-loyalty",

@@ -1,0 +1,9 @@
+{
+  "#.label": "Adyen (cloud) – terminaler (förhandsvisning)",
+  "Register the Adyen terminal used at a checkout. Set this on one checkout at a time, because each checkout has its own terminal. The Adyen account details come from “Adyen (cloud) – account”.": "Registrera Adyen-terminalen som används i en kassa. Ställ in detta på en kassa i taget, eftersom varje kassa har sin egen terminal. Adyen-kontouppgifterna kommer från ”Adyen (cloud) – account”.",
+  "#/properties/terminalId.label": "Terminal-ID",
+  "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789, som det visas i ditt Adyen-kundområde.",
+  "#/properties/transactionRouting.label": "Hur betalningen når terminalen",
+  "#/properties/transactionRouting.description": "CLOUD: betalningen går via Adyens moln till terminalen, som behöver internetanslutning. LOCAL_APP: betalningen lämnas över till appen Adyen Payments på kassans Android-enhet, till exempel för Tap to Pay.",
+  "LOCAL_APP also needs the “Tap to Pay” section under “Adyen (cloud) – account” to be filled in.": "LOCAL_APP kräver också att avsnittet ”Tap to Pay” under ”Adyen (cloud) – account” är ifyllt."
+}

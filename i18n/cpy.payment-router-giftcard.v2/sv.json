@@ -1,0 +1,17 @@
+{
+  "#.label": "Dirigering av presentkort (förhandsvisning)",
+  "#/properties/id.label": "Postens namn",
+  "#/properties/id.description": "Ett namn på posten, till exempel ”Retain24”. Måste vara unikt på sidan.",
+  "#/properties/prefixLow.label": "Kortnummer från",
+  "#/properties/prefixLow.description": "De första siffrorna i det lägsta kortnumret i intervallet, till exempel 600649.",
+  "#/properties/prefixHigh.label": "Kortnummer till",
+  "#/properties/prefixHigh.description": "De första siffrorna i det högsta kortnumret i intervallet. Använd samma siffror som ”från” för ett enskilt prefix.",
+  "#/properties/panLength.label": "Kortnumrets längd",
+  "#/properties/panLength.description": "Det totala antalet siffror på kortet, till exempel 16.",
+  "Gift cards are recognised by the first digits of the card number and by its length. Each entry sends the cards it covers to one gift card provider.": "Presentkort känns igen på kortnumrets första siffror och dess längd. Varje post skickar korten den omfattar till en presentkortsleverantör.",
+  "#/properties/connector.label": "Presentkortsleverantör",
+  "#/properties/connector.description": "Leverantören som hanterar presentkort i intervallen nedan. NONE betyder att korten inte hanteras av Hii Connect.",
+  "Make sure ranges do not overlap, within an entry or between entries. The portal does not check this, and an overlap can send a card to the wrong provider.": "Se till att intervallen inte överlappar, varken inom en post eller mellan poster. Portalen kontrollerar inte detta, och en överlappning kan skicka ett kort till fel leverantör.",
+  "#/properties/ranges.label": "Kortnummerintervall",
+  "#/properties/ranges.description": "Kortnumren som den här leverantören hanterar."
+}

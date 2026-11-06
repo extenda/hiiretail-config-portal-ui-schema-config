@@ -1,0 +1,37 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Your Swish business details for Swish payments at the checkout. Set them once on the tenant or a store. The Swish payment method itself is added on the tender."
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/environment",
+      "label": "Environment"
+    },
+    {
+      "type": "Label",
+      "text": "Live mode: real Swish payments. Use it only in live stores.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/environment",
+          "schema": {
+            "const": "PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/organizationNumber",
+      "label": "Organisation number"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/swishNumber",
+      "label": "Swish number"
+    }
+  ]
+}

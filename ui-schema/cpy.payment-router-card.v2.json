@@ -1,0 +1,109 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Choose which card payment provider takes card payments from a checkout. Set it on the tenant, a group or a store to apply to every checkout below it, then change single checkouts where needed."
+    },
+    {
+      "type": "Label",
+      "text": "A checkout can use only one provider at a time. Card terminals that run through an app on the checkout (Adyen local) do not use this page: they are chosen on the tender."
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/connector",
+      "label": "Card payment provider"
+    },
+    {
+      "type": "Label",
+      "text": "Next step: enter your Adyen account once under “Adyen (cloud) – account”, then register each checkout's terminal under “Adyen (cloud) – terminals”.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "ADYEN_CLOUD"
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "Next step: the Worldline Terminal API account and terminals are set up in the Worldline connector configuration app.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "WOTAPI"
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "Next step: this provider's account and terminals are not on this portal yet. Use the older Hii Connect payment configuration app.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "enum": [
+              "NETS_CLOUD",
+              "SOFTPAY",
+              "VIVA",
+              "WIPAY"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "Card payments from this checkout will not be sent through Hii Connect.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "NONE"
+          }
+        }
+      }
+    },
+    {
+      "type": "Group",
+      "label": "What the options mean",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "NONE: no cloud card provider. Use it for checkouts without card payments, or with a terminal that runs through an app on the checkout."
+        },
+        {
+          "type": "Label",
+          "text": "ADYEN_CLOUD: Adyen terminals reached through Adyen's cloud. Needs an Adyen account and a terminal ID per checkout."
+        },
+        {
+          "type": "Label",
+          "text": "NETS_CLOUD: Nets (Nexi) card terminals reached through the cloud."
+        },
+        {
+          "type": "Label",
+          "text": "SOFTPAY: Softpay, for card payments with tap to pay on a phone or tablet."
+        },
+        {
+          "type": "Label",
+          "text": "VIVA: Viva payment terminals."
+        },
+        {
+          "type": "Label",
+          "text": "WIPAY: Worldline WIPay terminals."
+        },
+        {
+          "type": "Label",
+          "text": "WOTAPI: Worldline terminals through the Worldline Terminal API."
+        }
+      ]
+    }
+  ]
+}

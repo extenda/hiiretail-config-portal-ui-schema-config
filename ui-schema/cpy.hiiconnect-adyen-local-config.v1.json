@@ -1,0 +1,109 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Settings for Adyen terminals that talk to the checkout over the store network, through an app that runs on the checkout. Set them once on the tenant or a store. Each checkout's own terminal is entered under “Adyen (local) – terminals”. Which tenders use Adyen local is chosen on the tender, not here."
+    },
+    {
+      "type": "Group",
+      "label": "Connection to Adyen",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Label",
+          "text": "Live mode: real cards are charged. Use it only in live stores.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "PRODUCTION"
+              }
+            }
+          }
+        },
+        {
+          "type": "Label",
+          "text": "Test mode: Adyen's test system answers. No real money moves.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "SANDBOX"
+              }
+            }
+          }
+        },
+        {
+          "type": "Label",
+          "text": "Simulator mode: Extenda Retail's simulator answers instead of Adyen. Nothing reaches a terminal.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "MOCK"
+              }
+            }
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/apiKey",
+          "label": "API key"
+        },
+        {
+          "type": "Label",
+          "text": "After a terminal has been pointed at a checkout, restart the terminal or run a forced configuration update from Adyen. Until then it keeps its old settings."
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Encryption key",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "The key you share with Adyen to protect the messages between the checkout and the terminal. It must match the key set for the terminals in Adyen."
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyIdentifier",
+          "label": "Key name"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyPassphrase",
+          "label": "Key passphrase"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyVersion",
+          "label": "Key version"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Receipts and status messages",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/receiptLineWidth",
+          "label": "Receipt line width"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/webhookPort",
+          "label": "Status message port"
+        }
+      ]
+    }
+  ]
+}

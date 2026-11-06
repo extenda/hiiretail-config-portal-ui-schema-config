@@ -1,0 +1,32 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Register the Adyen terminal used at a checkout. Set this on one checkout at a time, because each checkout has its own terminal. The Adyen account details come from “Adyen (cloud) – account”."
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/terminalId",
+      "label": "Terminal ID"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionRouting",
+      "label": "How the payment reaches the terminal"
+    },
+    {
+      "type": "Label",
+      "text": "LOCAL_APP also needs the “Tap to Pay” section under “Adyen (cloud) – account” to be filled in.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/transactionRouting",
+          "schema": {
+            "const": "LOCAL_APP"
+          }
+        }
+      }
+    }
+  ]
+}

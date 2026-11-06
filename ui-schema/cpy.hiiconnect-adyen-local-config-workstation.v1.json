@@ -1,0 +1,19 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Tell a checkout which Adyen terminal to use. Set this on one checkout at a time, because each checkout has its own terminal. The shared settings come from “Adyen (local) – settings”."
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/terminalId",
+      "label": "Terminal ID"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/terminalIpAddress",
+      "label": "Terminal IP address"
+    }
+  ]
+}

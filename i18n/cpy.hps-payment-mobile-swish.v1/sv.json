@@ -1,0 +1,11 @@
+{
+  "#.label": "Swish (förhandsvisning)",
+  "Your Swish business details for Swish payments at the checkout. Set them once on the tenant or a store. The Swish payment method itself is added on the tender.": "Dina Swish-företagsuppgifter för Swish-betalningar i kassan. Ställ in dem en gång på tenanten eller en butik. Själva Swish-betalmedlet läggs till på betalmedlet.",
+  "#/properties/environment.label": "Miljö",
+  "#/properties/environment.description": "Dit betalningarna skickas. Production betyder riktiga Swish-betalningar. Sandbox och Simulator är testmiljöer där inga riktiga pengar flyttas. Byt till Production först när butiken är redo att gå live.",
+  "Live mode: real Swish payments. Use it only in live stores.": "Live-läge: riktiga Swish-betalningar. Använd bara i butiker som är live.",
+  "#/properties/organizationNumber.label": "Organisationsnummer",
+  "#/properties/organizationNumber.description": "Ditt företags organisationsnummer, som det är registrerat hos Swish.",
+  "#/properties/swishNumber.label": "Swishnummer",
+  "#/properties/swishNumber.description": "Swishnumret för företag som tar emot betalningarna."
+}
