@@ -1,6 +1,6 @@
 {
   "#.label": "Adyen (local) – terminaler (förhandsvisning)",
-  "Tell a checkout which Adyen terminal to use. Set this on one checkout at a time, because each checkout has its own terminal. The shared settings come from “Adyen (local) – settings”.": "Tala om för en kassa vilken Adyen-terminal den ska använda. Ställ in detta på en kassa i taget, eftersom varje kassa har sin egen terminal. De gemensamma inställningarna kommer från ”Adyen (local) – settings”.",
+  "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Adyen (local) – settings”.": "Tala om för en kassa vilken Adyen-terminal den ska använda. Använd målväljaren högst upp för att välja en kassa, eftersom varje kassa har sin egen terminal. Ett värde som sätts på en butik, en grupp eller tenanten skulle gälla alla kassor under, vilket du nästan aldrig vill. De gemensamma inställningarna kommer från ”Adyen (local) – settings”.",
   "#/properties/terminalId.label": "Terminal-ID",
   "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789, som det visas i ditt Adyen-kundområde.",
   "#/properties/terminalIpAddress.label": "Terminalens IP-adress",

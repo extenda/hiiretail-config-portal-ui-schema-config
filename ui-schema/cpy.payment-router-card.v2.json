@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Label",
-      "text": "Choose which card payment provider takes card payments from a checkout. Set it on the tenant, a group or a store to apply to every checkout below it, then change single checkouts where needed."
+      "text": "Choose which card payment provider takes card payments from a checkout. Use the target finder at the top to pick where this applies: the tenant, a group, a store or a single checkout. A value set higher up applies to every checkout below it, unless a checkout has its own."
     },
     {
       "type": "Label",

@@ -1,6 +1,6 @@
 {
   "#.label": "Adyen (local) – terminals (preview)",
-  "Tell a checkout which Adyen terminal to use. Set this on one checkout at a time, because each checkout has its own terminal. The shared settings come from “Adyen (local) – settings”.": "Tell a checkout which Adyen terminal to use. Set this on one checkout at a time, because each checkout has its own terminal. The shared settings come from “Adyen (local) – settings”.",
+  "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Adyen (local) – settings”.": "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Adyen (local) – settings”.",
   "#/properties/terminalId.label": "Terminal ID",
   "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789, as shown in your Adyen customer area.",
   "#/properties/terminalIpAddress.label": "Terminal IP address",

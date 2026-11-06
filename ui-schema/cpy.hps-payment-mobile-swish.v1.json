@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Label",
-      "text": "Your Swish business details for Swish payments at the checkout. Set them once on the tenant or a store. The Swish payment method itself is added on the tender."
+      "text": "Your Swish business details for Swish payments at the checkout. Use the target finder at the top to pick the tenant, a group or a store. Every checkout below uses them unless it has its own. The Swish payment method itself is added on the tender."
     },
     {
       "type": "Control",

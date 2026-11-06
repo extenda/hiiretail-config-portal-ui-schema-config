@@ -1,6 +1,6 @@
 {
   "#.label": "Adyen (cloud) – terminals (preview)",
-  "Register the Adyen terminal used at a checkout. Set this on one checkout at a time, because each checkout has its own terminal. The Adyen account details come from “Adyen (cloud) – account”.": "Register the Adyen terminal used at a checkout. Set this on one checkout at a time, because each checkout has its own terminal. The Adyen account details come from “Adyen (cloud) – account”.",
+  "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Adyen (cloud) – account”.": "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Adyen (cloud) – account”.",
   "#/properties/terminalId.label": "Terminal ID",
   "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789, as shown in your Adyen customer area.",
   "#/properties/transactionRouting.label": "How the payment reaches the terminal",
