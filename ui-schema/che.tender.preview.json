@@ -1,0 +1,555 @@
+{
+  "type": "ListWithDetail",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "Tender",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/id"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/name"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/type"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/currency",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "const": "foreignCurrency"
+                  }
+                }
+              },
+              "options": {
+                "enumSource": {
+                  "type": "request",
+                  "request": {
+                    "url": "{api:ccc-api}/api/v1/config/cur.currencies.v1/values/{target.path}"
+                  },
+                  "response": {
+                    "itemsPath": "value",
+                    "valueKey": "id",
+                    "labelKey": "id"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Label",
+              "text": "Choose the tender type first. The other tabs offer only what makes sense for that type, and every setting left empty uses the default for the type. Payment plugins, provider codes and the store currency are added automatically by Store Data."
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/restrictionRuleId"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/description",
+              "options": {
+                "multi": true
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/disabled"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "At the Till",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/defaultTender"
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "No split payment always takes the exact amount.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/behavior/properties/exactAmountOnly"
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "enum": [
+                      "cash",
+                      "foreignCurrency",
+                      "giftCertificate",
+                      "voucher",
+                      "check"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/exclusive"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/lockTransaction"
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/behavior/properties/blockCancel",
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/type/properties/creditCheck",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "enum": [
+                      "giftCertificate",
+                      "voucher",
+                      "check",
+                      "coupon",
+                      "manufacturerCoupon",
+                      "organizationCharge",
+                      "houseAccount",
+                      "foodStamp",
+                      "wicCheck"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/payRemainingAmount",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "enum": [
+                      "creditDebit",
+                      "mobile",
+                      "electronicGiftCard",
+                      "organizationCharge",
+                      "houseAccount",
+                      "check",
+                      "foreignCurrency",
+                      "foodStamp",
+                      "wicCheck"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/prefillAmount"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/cashDrawer"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Change",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "No change is given, because the tender takes the exact amount.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/exactAmountOnly",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
+              "type": "Label",
+              "text": "No change is given, because 'No Split Payment' always takes the exact amount.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/exclusive",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Label",
+                      "text": "Leave everything empty to give all change in the store's default cash tender. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate or voucher tender."
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/change/properties/tenderId",
+                      "options": {
+                        "enumSource": {
+                          "type": "request",
+                          "request": {
+                            "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
+                          },
+                          "response": {
+                            "itemsPath": "value",
+                            "valueKey": "id",
+                            "labelKey": "name"
+                          },
+                          "display": {
+                            "secondaryLabelKey": "type.kind"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/change/properties/threshold"
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/change/properties/autoCompleteLimit"
+                        }
+                      ]
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "HIDE",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/exactAmountOnly",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ],
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/type/properties/kind",
+              "schema": {
+                "enum": [
+                  "cash",
+                  "foreignCurrency",
+                  "giftCertificate",
+                  "voucher",
+                  "check"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "Category",
+          "label": "Refunds",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Standalone mobile payments cannot be refunded at the till: a mobile refund needs the original app payment.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/integration",
+                  "schema": {
+                    "const": "STANDALONE"
+                  }
+                }
+              }
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "On cash, change is paid out as a refund: cash always allows refunds, and the maximum refund also limits change."
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/refund/properties/skipAmountPrompt"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/refund/properties/maxAmount"
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "const": "cash"
+                  }
+                }
+              }
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/refund/properties/blockRefunds"
+                    },
+                    {
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/refund/properties/skipAmountPrompt"
+                        },
+                        {
+                          "type": "HorizontalLayout",
+                          "elements": [
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/refund/properties/maxAmount"
+                            },
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/refund/properties/minAmount"
+                            }
+                          ]
+                        }
+                      ],
+                      "rule": {
+                        "effect": "HIDE",
+                        "condition": {
+                          "scope": "#/properties/refund/properties/blockRefunds",
+                          "schema": {
+                            "const": true
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/type/properties/kind",
+                      "schema": {
+                        "const": "cash"
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "HIDE",
+                "condition": {
+                  "scope": "#/properties/type/properties/integration",
+                  "schema": {
+                    "const": "STANDALONE"
+                  }
+                }
+              }
+            }
+          ],
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/type/properties/kind",
+              "schema": {
+                "enum": [
+                  "cash",
+                  "foreignCurrency",
+                  "creditDebit",
+                  "mobile",
+                  "electronicGiftCard",
+                  "organizationCharge",
+                  "houseAccount",
+                  "giftCertificate",
+                  "voucher"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "Category",
+          "label": "Limits",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Leave a limit empty for no limit."
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/limits/properties/maxPerSale"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/limits/properties/maxPerEntry"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/limits/properties/minPerEntry",
+              "rule": {
+                "effect": "HIDE",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "const": "cash"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Rounding",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Leave empty for no rounding. Choose a method and the smallest coin in use to round amounts paid with this tender."
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/rounding/properties/method"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/rounding/properties/precision",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/rounding/properties/method",
+                      "schema": {
+                        "enum": [
+                          "MATHEMATICAL",
+                          "ROUND_HALF_DOWN"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/type/properties/kind",
+              "schema": {
+                "enum": [
+                  "cash",
+                  "foreignCurrency",
+                  "giftCertificate",
+                  "voucher",
+                  "check"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "Category",
+          "label": "Advanced",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "Extra attributes are only for settings Extenda Retail support asks you to add. Everything this form offers must be set in the form, not here."
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/extraAttributes"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
