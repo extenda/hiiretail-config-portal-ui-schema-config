@@ -1,0 +1,139 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Your Adyen account details for card terminals reached through Adyen's cloud. Use the target finder at the top to pick the tenant, a group or a store. Every checkout below uses these details unless it has its own, for example to use another Adyen account. Each checkout's terminal is registered under “Adyen (cloud) – terminals”."
+    },
+    {
+      "type": "Group",
+      "label": "Connection to Adyen",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Label",
+          "text": "Live mode: real cards are charged. Use it only in live stores.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "PRODUCTION"
+              }
+            }
+          }
+        },
+        {
+          "type": "Label",
+          "text": "Test mode: Adyen's test system answers. No real money moves.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "SANDBOX"
+              }
+            }
+          }
+        },
+        {
+          "type": "Label",
+          "text": "Simulator mode: Extenda Retail's simulator answers instead of Adyen. Nothing reaches a terminal.",
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/environment",
+              "schema": {
+                "const": "MOCK"
+              }
+            }
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/apiKey",
+          "label": "API key"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Payment results (webhook)",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Adyen reports the result of every payment back to Hii Connect through a webhook. Create the webhook in your Adyen customer area first, then copy its details here."
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/webhook/properties/url",
+          "label": "Webhook ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/webhook/properties/username",
+          "label": "Webhook username"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/webhook/properties/password",
+          "label": "Webhook password"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Tap to Pay on phone or tablet (optional)",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Fill this in only if checkouts take payments with Tap to Pay on an Android phone or tablet, that is, a terminal set to “Adyen Payments app” under “Adyen (cloud) – terminals”. Otherwise leave the whole section empty. If you fill in one field, fill in every required field."
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/softpos/properties/merchantId",
+          "label": "Merchant account ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/softpos/properties/storeId",
+          "label": "Store ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/softpos/properties/softposApiKey",
+          "label": "Tap to Pay API key"
+        },
+        {
+          "type": "Group",
+          "label": "Encryption key",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "The key you share with Adyen to protect the messages between the checkout and the device."
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyIdentifier",
+              "label": "Key name"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyPassphrase",
+              "label": "Key passphrase"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyVersion",
+              "label": "Key version"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
