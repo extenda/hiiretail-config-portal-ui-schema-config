@@ -248,7 +248,7 @@
                   "elements": [
                     {
                       "type": "Label",
-                      "text": "Leave everything empty to give all change in the store's default cash tender. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate, voucher or check tender."
+                      "text": "Leave everything empty to give all change in the store's default cash tender. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate or voucher tender."
                     },
                     {
                       "type": "Control",
@@ -257,7 +257,7 @@
                         "enumSource": {
                           "type": "request",
                           "request": {
-                            "url": "{api:ccc-api}/api/v1/config/che.tender.v3/values/{target.path}"
+                            "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
                           },
                           "response": {
                             "itemsPath": "value",
@@ -443,8 +443,7 @@
                   "organizationCharge",
                   "houseAccount",
                   "giftCertificate",
-                  "voucher",
-                  "check"
+                  "voucher"
                 ]
               }
             }

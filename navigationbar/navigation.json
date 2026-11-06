@@ -15,17 +15,24 @@
                     "path": "/che.tender.v2"
                 },
                 {
+                    "id": "che.tender.preview",
+                    "label": "List and create tenders (new, preview)",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/che.tender.preview"
+                },
+                {
                     "id": "tenders-reconciliation",
                     "label": "Reconciliation",
                     "type": "kind",
-                    "order": 1,
+                    "order": 2,
                     "path": "/tenders-reconciliation"
                 },
                 {
                     "id": "tenders-cash-management",
                     "label": "Cash Management",
                     "type": "kind",
-                    "order": 2,
+                    "order": 3,
                     "path": "/tenders-cash-management"
                 }
             ]
