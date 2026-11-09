@@ -6,16 +6,12 @@
       "type": "VerticalLayout",
       "elements": [
         {
-          "type": "Label",
-          "text": "Gift cards are recognised by the first digits of the card number and by its length. Each entry sends the cards it covers to one gift card provider."
-        },
-        {
           "type": "HorizontalLayout",
           "elements": [
             {
               "type": "Control",
               "scope": "#/properties/id",
-              "label": "Entry name"
+              "label": "Entry"
             },
             {
               "type": "Control",
@@ -23,10 +19,6 @@
               "label": "Gift card provider"
             }
           ]
-        },
-        {
-          "type": "Label",
-          "text": "Make sure ranges do not overlap, within an entry or between entries. The portal does not check this, and an overlap can send a card to the wrong provider."
         },
         {
           "type": "Control",
@@ -39,22 +31,22 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/id",
-                  "label": "Range name"
+                  "label": "Range"
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/prefixLow",
-                  "label": "Card numbers from"
+                  "label": "From"
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/prefixHigh",
-                  "label": "Card numbers to"
+                  "label": "To"
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/panLength",
-                  "label": "Card number length"
+                  "label": "Length"
                 }
               ]
             }

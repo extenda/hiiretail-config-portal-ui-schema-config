@@ -1,19 +1,9 @@
 {
-  "#.label": "Card payment routing (preview)",
-  "Choose which card payment provider takes card payments from a checkout. Use the target finder at the top to pick where this applies: the tenant, a group, a store or a single checkout. A value set higher up applies to every checkout below it, unless a checkout has its own.": "Choose which card payment provider takes card payments from a checkout. Use the target finder at the top to pick where this applies: the tenant, a group, a store or a single checkout. A value set higher up applies to every checkout below it, unless a checkout has its own.",
-  "A checkout can use only one provider at a time. Card terminals that run through an app on the checkout (Adyen local) do not use this page: they are chosen on the tender.": "A checkout can use only one provider at a time. Card terminals that run through an app on the checkout (Adyen local) do not use this page: they are chosen on the tender.",
+  "#.label": "Card payments (preview)",
   "#/properties/connector.label": "Card payment provider",
-  "#/properties/connector.description": "The provider that handles card payments from this checkout through Hii Connect in the cloud. Choose NONE if this checkout should not send card payments through Hii Connect.",
-  "Next step: enter your Adyen account once under “Payments – Adyen cloud account”, then register each checkout's terminal under “Payments – Adyen cloud terminals”.": "Next step: enter your Adyen account once under “Payments – Adyen cloud account”, then register each checkout's terminal under “Payments – Adyen cloud terminals”.",
-  "Next step: the Worldline Terminal API account and terminals are set up in the Worldline connector configuration app.": "Next step: the Worldline Terminal API account and terminals are set up in the Worldline connector configuration app.",
-  "Next step: this provider's account and terminals are not on this portal yet. Use the older Hii Connect payment configuration app.": "Next step: this provider's account and terminals are not on this portal yet. Use the older Hii Connect payment configuration app.",
-  "Card payments from this checkout will not be sent through Hii Connect.": "Card payments from this checkout will not be sent through Hii Connect.",
-  "NONE: no cloud card provider. Use it for checkouts without card payments, or with a terminal that runs through an app on the checkout.": "NONE: no cloud card provider. Use it for checkouts without card payments, or with a terminal that runs through an app on the checkout.",
-  "ADYEN_CLOUD: Adyen terminals reached through Adyen's cloud. Needs an Adyen account and a terminal ID per checkout.": "ADYEN_CLOUD: Adyen terminals reached through Adyen's cloud. Needs an Adyen account and a terminal ID per checkout.",
-  "NETS_CLOUD: Nets (Nexi) card terminals reached through the cloud.": "NETS_CLOUD: Nets (Nexi) card terminals reached through the cloud.",
-  "SOFTPAY: Softpay, for card payments with tap to pay on a phone or tablet.": "SOFTPAY: Softpay, for card payments with tap to pay on a phone or tablet.",
-  "VIVA: Viva payment terminals.": "VIVA: Viva payment terminals.",
-  "WIPAY: Worldline WIPay terminals.": "WIPAY: Worldline WIPay terminals.",
-  "WOTAPI: Worldline terminals through the Worldline Terminal API.": "WOTAPI: Worldline terminals through the Worldline Terminal API.",
-  "What the options mean": "What the options mean"
+  "#/properties/connector.description": "Who takes card payments from a checkout through Hii Connect. A checkout uses one provider at a time. A value set higher up applies to every checkout below it unless a checkout has its own. NONE: no provider. ADYEN_CLOUD: Adyen terminals through Adyen's cloud. NETS_CLOUD: Nets (Nexi). SOFTPAY: Softpay tap to pay. VIVA: Viva. WIPAY: Worldline WIPay. WOTAPI: Worldline Terminal API. Adyen local is chosen on the tender.",
+  "Next: set up Adyen cloud, then its terminals.": "Next: set up Adyen cloud, then its terminals.",
+  "Set up in the Worldline connector app.": "Set up in the Worldline connector app.",
+  "Not on this portal yet. Use the older Hii Connect payment app.": "Not on this portal yet. Use the older Hii Connect payment app.",
+  "No card payments through Hii Connect from here.": "No card payments through Hii Connect from here."
 }

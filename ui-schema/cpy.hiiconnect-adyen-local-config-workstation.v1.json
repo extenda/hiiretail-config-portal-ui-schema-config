@@ -2,18 +2,19 @@
   "type": "VerticalLayout",
   "elements": [
     {
-      "type": "Label",
-      "text": "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Payments – Adyen local settings”."
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/terminalId",
-      "label": "Terminal ID"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/terminalIpAddress",
-      "label": "Terminal IP address"
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/terminalId",
+          "label": "Terminal ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/terminalIpAddress",
+          "label": "IP address"
+        }
+      ]
     }
   ]
 }

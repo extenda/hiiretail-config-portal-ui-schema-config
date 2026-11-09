@@ -1,9 +1,8 @@
 {
   "#.label": "Adyen cloud terminals (preview)",
-  "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Payments – Adyen cloud account”.": "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Payments – Adyen cloud account”.",
   "#/properties/terminalId.label": "Terminal ID",
-  "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789, as shown in your Adyen customer area.",
-  "#/properties/transactionRouting.label": "How the payment reaches the terminal",
-  "#/properties/transactionRouting.description": "CLOUD: the payment goes through Adyen's cloud to the terminal, which needs an internet connection. LOCAL_APP: the payment is handed to the Adyen Payments app on this checkout's Android device, for example for Tap to Pay.",
-  "LOCAL_APP also needs the “Tap to Pay” section under “Payments – Adyen cloud account” to be filled in.": "LOCAL_APP also needs the “Tap to Pay” section under “Payments – Adyen cloud account” to be filled in."
+  "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789. Each checkout has its own terminal, so set this on one checkout. A value set higher up applies to every checkout below it.",
+  "#/properties/transactionRouting.label": "Payment route",
+  "#/properties/transactionRouting.description": "CLOUD: through Adyen's cloud, needs internet. LOCAL_APP: through the Adyen Payments app on the checkout's Android device.",
+  "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings.": "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings."
 }

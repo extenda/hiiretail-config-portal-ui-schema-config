@@ -1,9 +1,8 @@
 {
   "#.label": "Adyen cloud-terminaler (förhandsvisning)",
-  "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Payments – Adyen cloud account”.": "Registrera Adyen-terminalen som används i en kassa. Använd målväljaren högst upp för att välja en kassa, eftersom varje kassa har sin egen terminal. Ett terminal-ID som sätts på en butik, en grupp eller tenanten skulle gälla alla kassor under, vilket du nästan aldrig vill. Adyen-kontouppgifterna kommer från ”Payments – Adyen cloud account”.",
   "#/properties/terminalId.label": "Terminal-ID",
-  "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789, som det visas i ditt Adyen-kundområde.",
-  "#/properties/transactionRouting.label": "Hur betalningen når terminalen",
-  "#/properties/transactionRouting.description": "CLOUD: betalningen går via Adyens moln till terminalen, som behöver internetanslutning. LOCAL_APP: betalningen lämnas över till appen Adyen Payments på kassans Android-enhet, till exempel för Tap to Pay.",
-  "LOCAL_APP also needs the “Tap to Pay” section under “Payments – Adyen cloud account” to be filled in.": "LOCAL_APP kräver också att avsnittet ”Tap to Pay” under ”Payments – Adyen cloud account” är ifyllt."
+  "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789. Varje kassa har sin egen terminal, så ställ in detta på en kassa. Ett värde högre upp gäller alla kassor under.",
+  "#/properties/transactionRouting.label": "Betalningsväg",
+  "#/properties/transactionRouting.description": "CLOUD: via Adyens moln, kräver internet. LOCAL_APP: via appen Adyen Payments på kassans Android-enhet.",
+  "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings.": "LOCAL_APP kräver att Tap to Pay är ifyllt i Adyen cloud-inställningarna."
 }

@@ -1,19 +1,9 @@
 {
-  "#.label": "Dirigering av kortbetalningar (förhandsvisning)",
-  "Choose which card payment provider takes card payments from a checkout. Use the target finder at the top to pick where this applies: the tenant, a group, a store or a single checkout. A value set higher up applies to every checkout below it, unless a checkout has its own.": "Välj vilken kortbetalningsleverantör som tar emot kortbetalningar från en kassa. Använd målväljaren högst upp för att välja var det gäller: hela tenanten, en grupp, en butik eller en enskild kassa. Ett värde som sätts högre upp gäller alla kassor under, om inte en kassa har ett eget.",
-  "A checkout can use only one provider at a time. Card terminals that run through an app on the checkout (Adyen local) do not use this page: they are chosen on the tender.": "En kassa kan bara använda en leverantör åt gången. Kortterminaler som körs via en app på kassan (Adyen lokalt) använder inte den här sidan: de väljs på betalmedlet.",
+  "#.label": "Kortbetalningar (förhandsvisning)",
   "#/properties/connector.label": "Kortbetalningsleverantör",
-  "#/properties/connector.description": "Leverantören som hanterar kortbetalningar från den här kassan via Hii Connect i molnet. Välj NONE om kassan inte ska skicka kortbetalningar via Hii Connect.",
-  "Next step: enter your Adyen account once under “Payments – Adyen cloud account”, then register each checkout's terminal under “Payments – Adyen cloud terminals”.": "Nästa steg: ange ditt Adyen-konto en gång under ”Payments – Adyen cloud account” och registrera sedan varje kassas terminal under ”Payments – Adyen cloud terminals”.",
-  "Next step: the Worldline Terminal API account and terminals are set up in the Worldline connector configuration app.": "Nästa steg: Worldline Terminal API-kontot och terminalerna ställs in i konfigurationsappen för Worldline-kopplingen.",
-  "Next step: this provider's account and terminals are not on this portal yet. Use the older Hii Connect payment configuration app.": "Nästa steg: den här leverantörens konto och terminaler finns inte i portalen ännu. Använd den äldre konfigurationsappen för Hii Connect-betalningar.",
-  "Card payments from this checkout will not be sent through Hii Connect.": "Kortbetalningar från den här kassan skickas inte via Hii Connect.",
-  "NONE: no cloud card provider. Use it for checkouts without card payments, or with a terminal that runs through an app on the checkout.": "NONE: ingen kortleverantör i molnet. Använd för kassor utan kortbetalning, eller med en terminal som körs via en app på kassan.",
-  "ADYEN_CLOUD: Adyen terminals reached through Adyen's cloud. Needs an Adyen account and a terminal ID per checkout.": "ADYEN_CLOUD: Adyen-terminaler som nås via Adyens moln. Kräver ett Adyen-konto och ett terminal-ID per kassa.",
-  "NETS_CLOUD: Nets (Nexi) card terminals reached through the cloud.": "NETS_CLOUD: Nets-kortterminaler (Nexi) som nås via molnet.",
-  "SOFTPAY: Softpay, for card payments with tap to pay on a phone or tablet.": "SOFTPAY: Softpay, för kortbetalningar med tap to pay på en telefon eller surfplatta.",
-  "VIVA: Viva payment terminals.": "VIVA: Viva-betalterminaler.",
-  "WIPAY: Worldline WIPay terminals.": "WIPAY: Worldline WIPay-terminaler.",
-  "WOTAPI: Worldline terminals through the Worldline Terminal API.": "WOTAPI: Worldline-terminaler via Worldline Terminal API.",
-  "What the options mean": "Vad alternativen betyder"
+  "#/properties/connector.description": "Vem som tar emot kortbetalningar från en kassa via Hii Connect. En kassa använder en leverantör åt gången. Ett värde som sätts högre upp gäller alla kassor under, om inte en kassa har ett eget. NONE: ingen leverantör. ADYEN_CLOUD: Adyen-terminaler via Adyens moln. NETS_CLOUD: Nets (Nexi). SOFTPAY: Softpay tap to pay. VIVA: Viva. WIPAY: Worldline WIPay. WOTAPI: Worldline Terminal API. Adyen lokalt väljs på betalmedlet.",
+  "Next: set up Adyen cloud, then its terminals.": "Nästa: ställ in Adyen cloud och sedan dess terminaler.",
+  "Set up in the Worldline connector app.": "Ställs in i Worldline-kopplingens app.",
+  "Not on this portal yet. Use the older Hii Connect payment app.": "Finns inte i portalen ännu. Använd den äldre Hii Connect-appen för betalningar.",
+  "No card payments through Hii Connect from here.": "Inga kortbetalningar via Hii Connect härifrån."
 }
