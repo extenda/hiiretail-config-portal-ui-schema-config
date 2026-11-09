@@ -164,7 +164,7 @@
                       "elements": [
                         {
                           "type": "Label",
-                          "text": "Lock and Block Cancelling cannot both be on: the sale could then not take more items, be suspended, void this tender or be cancelled, only be paid in full. Turn one of them off.",
+                          "text": "'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale would then be stuck until it is paid in full. Turn one of them off.",
                           "rule": {
                             "effect": "SHOW",
                             "condition": {
