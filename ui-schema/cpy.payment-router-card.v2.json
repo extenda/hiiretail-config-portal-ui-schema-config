@@ -16,7 +16,7 @@
     },
     {
       "type": "Label",
-      "text": "Next step: enter your Adyen account once under “Adyen (cloud) – account”, then register each checkout's terminal under “Adyen (cloud) – terminals”.",
+      "text": "Next step: enter your Adyen account once under “Payments – Adyen cloud account”, then register each checkout's terminal under “Payments – Adyen cloud terminals”.",
       "rule": {
         "effect": "SHOW",
         "condition": {

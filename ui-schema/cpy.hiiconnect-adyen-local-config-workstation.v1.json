@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Label",
-      "text": "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Adyen (local) – settings”."
+      "text": "Tell a checkout which Adyen terminal to use. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A value set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The shared settings come from “Payments – Adyen local settings”."
     },
     {
       "type": "Control",

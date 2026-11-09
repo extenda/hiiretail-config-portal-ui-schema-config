@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Label",
-      "text": "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Adyen (cloud) – account”."
+      "text": "Register the Adyen terminal used at a checkout. Use the target finder at the top to pick one checkout, because each checkout has its own terminal. A terminal ID set on a store, a group or the tenant would apply to every checkout below it, which you almost never want. The Adyen account details come from “Payments – Adyen cloud account”."
     },
     {
       "type": "Control",
@@ -17,7 +17,7 @@
     },
     {
       "type": "Label",
-      "text": "LOCAL_APP also needs the “Tap to Pay” section under “Adyen (cloud) – account” to be filled in.",
+      "text": "LOCAL_APP also needs the “Tap to Pay” section under “Payments – Adyen cloud account” to be filled in.",
       "rule": {
         "effect": "SHOW",
         "condition": {

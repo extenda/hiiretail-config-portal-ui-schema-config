@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Label",
-      "text": "Settings for Adyen terminals that talk to the checkout over the store network, through an app that runs on the checkout. Use the target finder at the top to pick the tenant, a group or a store. Every checkout below uses them unless it has its own. Each checkout's terminal is entered under “Adyen (local) – terminals”. Which tenders use Adyen local is chosen on the tender, not here."
+      "text": "Settings for Adyen terminals that talk to the checkout over the store network, through an app that runs on the checkout. Use the target finder at the top to pick the tenant, a group or a store. Every checkout below uses them unless it has its own. Each checkout's terminal is entered under “Payments – Adyen local terminals”. Which tenders use Adyen local is chosen on the tender, not here."
     },
     {
       "type": "Group",
