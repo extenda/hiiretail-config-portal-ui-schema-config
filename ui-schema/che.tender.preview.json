@@ -155,6 +155,47 @@
                       }
                     }
                   }
+                },
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "Label",
+                          "text": "Lock and Block Cancelling cannot both be on: the sale could then not take more items, be suspended, void this tender or be cancelled, only be paid in full. Turn one of them off.",
+                          "rule": {
+                            "effect": "SHOW",
+                            "condition": {
+                              "scope": "#/properties/behavior/properties/blockCancel",
+                              "schema": {
+                                "const": true
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/behavior/properties/lockTransaction",
+                          "schema": {
+                            "const": true
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/type/properties/creditCheck",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ],
               "rule": {
