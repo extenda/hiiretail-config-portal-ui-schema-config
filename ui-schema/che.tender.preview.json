@@ -155,6 +155,47 @@
                       }
                     }
                   }
+                },
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "Label",
+                          "text": "'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale would then be stuck until it is paid in full. Turn one of them off.",
+                          "rule": {
+                            "effect": "SHOW",
+                            "condition": {
+                              "scope": "#/properties/behavior/properties/blockCancel",
+                              "schema": {
+                                "const": true
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/behavior/properties/lockTransaction",
+                          "schema": {
+                            "const": true
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "rule": {
+                    "effect": "HIDE",
+                    "condition": {
+                      "scope": "#/properties/type/properties/creditCheck",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ],
               "rule": {
