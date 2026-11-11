@@ -33,3 +33,15 @@ Contains internationalization (i18n) message files for different languages. Each
 ### `theme`
 
 Contains theme configuration files for different tenants. Each tenant can have its own theme definition (colors, typography, branding, etc.), allowing the portal to be white-labeled and customized per tenant.
+
+### `tools`
+
+Generators for forms that are built from their data schema instead of written by hand.
+
+`tools/che.tender.preview/build_ui.py` writes `ui-schema/che.tender.preview.json` and `i18n/che.tender.preview/en.json` from the tender schema in hiiretail-json-schema-registry. Labels, help texts and the tender types each field is shown for all come from that schema, so change the schema first and then run, from the repository root:
+
+```bash
+python tools/che.tender.preview/build_ui.py ../hiiretail-json-schema-registry/customer-config/checkout-config/che.tender.preview.json
+```
+
+Do not edit the two generated files by hand: the next run overwrites them.
