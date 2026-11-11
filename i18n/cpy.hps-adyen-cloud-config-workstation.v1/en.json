@@ -1,0 +1,8 @@
+{
+  "#.label": "Adyen cloud terminals (preview)",
+  "#/properties/terminalId.label": "Terminal ID",
+  "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789. Each checkout has its own terminal, so set this on one checkout. A value set higher up applies to every checkout below it.",
+  "#/properties/transactionRouting.label": "Payment route",
+  "#/properties/transactionRouting.description": "CLOUD: through Adyen's cloud, needs internet. LOCAL_APP: through the Adyen Payments app on the checkout's Android device.",
+  "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings.": "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings."
+}

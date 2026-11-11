@@ -1,0 +1,20 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/terminalId",
+          "label": "Terminal ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/terminalIpAddress",
+          "label": "IP address"
+        }
+      ]
+    }
+  ]
+}

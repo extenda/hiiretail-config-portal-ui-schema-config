@@ -1,0 +1,9 @@
+{
+  "#.label": "Kortbetalningar (förhandsvisning)",
+  "#/properties/connector.label": "Kortbetalningsleverantör",
+  "#/properties/connector.description": "Vem som tar emot kortbetalningar från en kassa via Hii Connect. En kassa använder en leverantör åt gången. Ett värde som sätts högre upp gäller alla kassor under, om inte en kassa har ett eget. NONE: ingen leverantör. ADYEN_CLOUD: Adyen-terminaler via Adyens moln. NETS_CLOUD: Nets (Nexi). SOFTPAY: Softpay tap to pay. VIVA: Viva. WIPAY: Worldline WIPay. WOTAPI: Worldline Terminal API. Adyen lokalt väljs på betalmedlet.",
+  "Next: set up Adyen cloud, then its terminals.": "Nästa: ställ in Adyen cloud och sedan dess terminaler.",
+  "Set up in the Worldline connector app.": "Ställs in i Worldline-kopplingens app.",
+  "Not on this portal yet. Use the older Hii Connect payment app.": "Finns inte i portalen ännu. Använd den äldre Hii Connect-appen för betalningar.",
+  "No card payments through Hii Connect from here.": "Inga kortbetalningar via Hii Connect härifrån."
+}

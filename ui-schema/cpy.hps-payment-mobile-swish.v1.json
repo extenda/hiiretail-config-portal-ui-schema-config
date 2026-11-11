@@ -1,0 +1,38 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/organizationNumber",
+          "label": "Organisation number"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/swishNumber",
+          "label": "Swish number"
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "Live: real Swish payments.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/environment",
+          "schema": {
+            "const": "PRODUCTION"
+          }
+        }
+      }
+    }
+  ]
+}

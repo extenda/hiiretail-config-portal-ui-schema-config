@@ -1,0 +1,7 @@
+{
+  "#.label": "Adyen local-terminaler (förhandsvisning)",
+  "#/properties/terminalId.label": "Terminal-ID",
+  "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789. Varje kassa har sin egen terminal, så ställ in detta på en kassa. Ett värde högre upp gäller alla kassor under.",
+  "#/properties/terminalIpAddress.label": "IP-adress",
+  "#/properties/terminalIpAddress.description": "Terminalens adress i butikens nätverk, till exempel 192.168.1.100. Ge den en fast adress så att kassan alltid hittar den."
+}

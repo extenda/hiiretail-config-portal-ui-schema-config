@@ -393,6 +393,79 @@
             ]
         },
         {
+            "id": "cpy-card-payments",
+            "label": "Card payments (preview)",
+            "type": "group",
+            "order": 12.5,
+            "children": [
+                {
+                    "id": "cpy.payment-router-card.v2",
+                    "label": "Routing",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cpy.payment-router-card.v2"
+                },
+                {
+                    "id": "cpy-adyen-cloud",
+                    "label": "Adyen cloud",
+                    "type": "group",
+                    "order": 1,
+                    "children": [
+                        {
+                            "id": "cpy.hps-adyen-cloud-config.v1",
+                            "label": "Settings",
+                            "type": "kind",
+                            "order": 0,
+                            "path": "/cpy.hps-adyen-cloud-config.v1"
+                        },
+                        {
+                            "id": "cpy.hps-adyen-cloud-config-workstation.v1",
+                            "label": "Terminals",
+                            "type": "kind",
+                            "order": 1,
+                            "path": "/cpy.hps-adyen-cloud-config-workstation.v1"
+                        }
+                    ]
+                },
+                {
+                    "id": "cpy-adyen-local",
+                    "label": "Adyen local",
+                    "type": "group",
+                    "order": 2,
+                    "children": [
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config.v1",
+                            "label": "Settings",
+                            "type": "kind",
+                            "order": 0,
+                            "path": "/cpy.hiiconnect-adyen-local-config.v1"
+                        },
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config-workstation.v1",
+                            "label": "Terminals",
+                            "type": "kind",
+                            "order": 1,
+                            "path": "/cpy.hiiconnect-adyen-local-config-workstation.v1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cpy.payment-router-giftcard.v2",
+            "label": "Gift card routing (preview)",
+            "type": "kind",
+            "order": 12.6,
+            "path": "/cpy.payment-router-giftcard.v2"
+        },
+        {
+            "id": "cpy.hps-payment-mobile-swish.v1",
+            "label": "Swish (preview)",
+            "type": "kind",
+            "order": 12.7,
+            "path": "/cpy.hps-payment-mobile-swish.v1"
+        },
+        {
             "id": "integrations",
             "label": "Integrations",
             "type": "group",
@@ -432,27 +505,6 @@
                     "type": "kind",
                     "order": 4,
                     "path": "/integrations-identity-providers"
-                },
-                {
-                    "id": "integrations-hii-connect-eft",
-                    "label": "Hii Connect – EFT",
-                    "type": "kind",
-                    "order": 5,
-                    "path": "/integrations-hii-connect-eft"
-                },
-                {
-                    "id": "integrations-hii-connect-giftcard",
-                    "label": "Hii Connect – Giftcard",
-                    "type": "kind",
-                    "order": 6,
-                    "path": "/integrations-hii-connect-giftcard"
-                },
-                {
-                    "id": "integrations-hii-connect-mobile",
-                    "label": "Hii Connect – Mobile",
-                    "type": "kind",
-                    "order": 7,
-                    "path": "/integrations-hii-connect-mobile"
                 },
                 {
                     "id": "integrations-hii-connect-loyalty",

@@ -1,0 +1,33 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/terminalId",
+          "label": "Terminal ID"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/transactionRouting",
+          "label": "Payment route"
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/transactionRouting",
+          "schema": {
+            "const": "LOCAL_APP"
+          }
+        }
+      }
+    }
+  ]
+}

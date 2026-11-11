@@ -1,0 +1,8 @@
+{
+  "#.label": "Adyen cloud-terminaler (förhandsvisning)",
+  "#/properties/terminalId.label": "Terminal-ID",
+  "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789. Varje kassa har sin egen terminal, så ställ in detta på en kassa. Ett värde högre upp gäller alla kassor under.",
+  "#/properties/transactionRouting.label": "Betalningsväg",
+  "#/properties/transactionRouting.description": "CLOUD: via Adyens moln, kräver internet. LOCAL_APP: via appen Adyen Payments på kassans Android-enhet.",
+  "LOCAL_APP needs Tap to Pay filled in on Adyen cloud settings.": "LOCAL_APP kräver att Tap to Pay är ifyllt i Adyen cloud-inställningarna."
+}

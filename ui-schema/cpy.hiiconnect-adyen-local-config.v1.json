@@ -1,0 +1,68 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/apiKey",
+          "label": "API key"
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "Live: real cards are charged.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/environment",
+          "schema": {
+            "const": "PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyIdentifier",
+          "label": "Key name"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyPassphrase",
+          "label": "Key passphrase"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/encryptionKeyVersion",
+          "label": "Key version"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/receiptLineWidth",
+          "label": "Receipt width"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/webhookPort",
+          "label": "Status port"
+        }
+      ]
+    }
+  ]
+}
