@@ -29,15 +29,6 @@
             {
               "type": "Control",
               "scope": "#/properties/currency",
-              "rule": {
-                "effect": "SHOW",
-                "condition": {
-                  "scope": "#/properties/type/properties/kind",
-                  "schema": {
-                    "const": "foreignCurrency"
-                  }
-                }
-              },
               "options": {
                 "enumSource": {
                   "type": "request",
@@ -48,6 +39,17 @@
                     "itemsPath": "value",
                     "valueKey": "id",
                     "labelKey": "id"
+                  }
+                }
+              },
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/type/properties/kind",
+                  "schema": {
+                    "enum": [
+                      "foreignCurrency"
+                    ]
                   }
                 }
               }
@@ -85,8 +87,27 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "Label",
-                  "text": "A cash changer tender is never the default cash tender: leave this on Automatic or No.",
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "Label",
+                          "text": "A cash changer tender is never the default cash tender: choose Automatic or No."
+                        }
+                      ],
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/behavior/properties/defaultTender",
+                          "schema": {
+                            "const": "YES"
+                          }
+                        }
+                      }
+                    }
+                  ],
                   "rule": {
                     "effect": "SHOW",
                     "condition": {
@@ -190,8 +211,13 @@
                       "type": "VerticalLayout",
                       "elements": [
                         {
-                          "type": "Label",
-                          "text": "'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale would then be stuck until it is paid in full. Turn one of them off.",
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "Label",
+                              "text": "'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale would then be stuck until it is paid in full. Turn one of them off."
+                            }
+                          ],
                           "rule": {
                             "effect": "SHOW",
                             "condition": {
@@ -315,7 +341,7 @@
                   "elements": [
                     {
                       "type": "Label",
-                      "text": "Leave everything empty to give all change in the store's default cash tender. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate or voucher tender."
+                      "text": "Leave everything empty to give all change in the store's default cash tender. A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here, and choose a cash, foreign currency, gift certificate or voucher tender."
                     },
                     {
                       "type": "Control",
@@ -420,6 +446,10 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/refund/properties/maxAmount"
+                },
+                {
+                  "type": "Label",
+                  "text": "A saved refund amount cannot be cleared yet: Save is then refused."
                 }
               ],
               "rule": {
@@ -461,6 +491,10 @@
                               "scope": "#/properties/refund/properties/minAmount"
                             }
                           ]
+                        },
+                        {
+                          "type": "Label",
+                          "text": "A saved refund amount cannot be cleared yet: Save is then refused."
                         }
                       ],
                       "rule": {
@@ -522,7 +556,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Leave a limit empty for no limit."
+              "text": "Leave a limit empty for no limit. A saved limit cannot be cleared yet: Save is then refused."
             },
             {
               "type": "HorizontalLayout",
@@ -558,7 +592,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Leave empty, or choose 'No rounding', for no rounding. Choose a method and the smallest coin in use to round amounts paid with this tender."
+              "text": "Rounds amounts paid with this tender to the smallest coin in use, for example 0.05. Leave empty, or choose 'No rounding', for no rounding. Only for cash, foreign currency, gift certificates, vouchers and checks; ignored otherwise."
             },
             {
               "type": "HorizontalLayout",
