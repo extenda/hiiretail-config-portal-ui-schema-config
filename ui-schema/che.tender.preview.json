@@ -161,14 +161,33 @@
               }
             },
             {
-              "type": "Label",
-              "text": "This tender was saved with 'Exact Amount Only' on, which this form replaced with 'Overpayment'. While 'Overpayment' is empty it still takes the exact amount: choose an 'Overpayment' option to replace it.",
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Label",
+                  "text": "This tender was saved with 'Exact Amount Only' on. 'Overpayment' replaced that setting, which is no longer read: choose an 'Overpayment' option to set how this tender handles overpayment.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exactAmountOnly",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ],
               "rule": {
-                "effect": "SHOW",
+                "effect": "HIDE",
                 "condition": {
-                  "scope": "#/properties/behavior/properties/exactAmountOnly",
+                  "scope": "#/properties/behavior/properties/overpayment",
                   "schema": {
-                    "const": true
+                    "enum": [
+                      "TYPE_DEFAULT",
+                      "EXACT_AMOUNT",
+                      "WITH_CHANGE",
+                      "WITHOUT_CHANGE"
+                    ]
                   }
                 }
               }
@@ -390,24 +409,24 @@
                           }
                         },
                         {
-                          "type": "VerticalLayout",
-                          "elements": [
-                            {
-                              "type": "Label",
-                              "text": "With the type default this type takes the exact amount, so no change is given. Choose 'Allowed, give change' under 'Overpayment' to set change here."
-                            }
-                          ],
+                          "type": "Label",
+                          "text": "With the type default this type takes the exact amount, so no change is given. Choose 'Allowed, give change' under 'Overpayment' to set change here.",
                           "rule": {
-                            "effect": "HIDE",
+                            "effect": "SHOW",
                             "condition": {
                               "scope": "#/properties/type/properties/kind",
                               "schema": {
                                 "enum": [
-                                  "cash",
-                                  "foreignCurrency",
-                                  "giftCertificate",
-                                  "voucher",
-                                  "check"
+                                  "creditDebit",
+                                  "mobile",
+                                  "electronicGiftCard",
+                                  "coupon",
+                                  "manufacturerCoupon",
+                                  "loyaltyRedemption",
+                                  "organizationCharge",
+                                  "houseAccount",
+                                  "foodStamp",
+                                  "wicCheck"
                                 ]
                               }
                             }
@@ -493,14 +512,32 @@
                   "scope": "#/properties/refund/properties/refundsAllowed"
                 },
                 {
-                  "type": "Label",
-                  "text": "This tender was saved with 'Block Refunds' on, which this form replaced with 'Refunds'. While 'Refunds' is empty, refunds stay blocked: choose a 'Refunds' option to replace it.",
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Label",
+                      "text": "This tender was saved with 'Block Refunds' on. 'Refunds' replaced that setting, which is no longer read: choose a 'Refunds' option to set whether this tender refunds.",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/refund/properties/blockRefunds",
+                          "schema": {
+                            "const": true
+                          }
+                        }
+                      }
+                    }
+                  ],
                   "rule": {
-                    "effect": "SHOW",
+                    "effect": "HIDE",
                     "condition": {
-                      "scope": "#/properties/refund/properties/blockRefunds",
+                      "scope": "#/properties/refund/properties/refundsAllowed",
                       "schema": {
-                        "const": true
+                        "enum": [
+                          "TYPE_DEFAULT",
+                          "YES",
+                          "NO"
+                        ]
                       }
                     }
                   }
@@ -596,17 +633,20 @@
                         }
                       ],
                       "rule": {
-                        "effect": "HIDE",
+                        "effect": "SHOW",
                         "condition": {
                           "scope": "#/properties/type/properties/kind",
                           "schema": {
                             "enum": [
-                              "check",
-                              "coupon",
-                              "manufacturerCoupon",
-                              "foodStamp",
-                              "wicCheck",
-                              "loyaltyRedemption"
+                              "cash",
+                              "foreignCurrency",
+                              "creditDebit",
+                              "mobile",
+                              "electronicGiftCard",
+                              "giftCertificate",
+                              "voucher",
+                              "organizationCharge",
+                              "houseAccount"
                             ]
                           }
                         }

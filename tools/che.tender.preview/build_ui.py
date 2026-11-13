@@ -3,11 +3,11 @@
 Usage, from the repository root:
     python tools/che.tender.preview/build_ui.py <path to hiiretail-json-schema-registry>/customer-config/checkout-config/che.tender.preview.json
 
-Every setting is offered for every tender type. The type groups the form's rules use (foreign currency for the
-currency field, and the type defaults for change and refunds) are read from the schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it after
-a schema change brings the form in line. Before writing
-anything, the script checks that every scope the form uses exists in the schema and that every value a rule
-compares with is allowed there, and stops on a miss.
+Every setting is offered for every tender type. The groups the form's rules use (foreign currency for the currency
+field, the type defaults for change and refunds, and the standalone connection) are read from the schema's $defs,
+and every label and help text from the schema's titles and descriptions, so rerunning it after a schema change
+brings the form in line. Before writing anything, the script checks that every scope the form uses exists in the
+schema and that every value a rule compares with is allowed there, and stops on a miss.
 The form has no x-autoFill rules: hidden settings stay in the data and are ignored for types they do not apply to.
 """
 import json
@@ -55,9 +55,28 @@ def rounding_methods_with_unit():
     fail("The schema has no rule that requires rounding.precision for some rounding methods.")
 
 
+def type_field_group(name):
+    """A $defs group that fixes one type field to a constant, as a rule condition."""
+    try:
+        group = SCHEMA["$defs"][name]
+        group_type = group["properties"]["type"]
+        fields = group_type["properties"]
+    except KeyError:
+        fail(f"The schema has no group $defs.{name}.")
+    field = next(iter(fields), None)
+    unread = ((set(group) - {"$comment", "type", "required", "properties"}) | (set(group["properties"]) - {"type"})
+              | (set(group_type) - {"type", "required", "properties"}))
+    if unread or len(fields) != 1 or set(fields[field]) != {"const"} or group_type.get("required") != [field]:
+        fail(f"$defs.{name} must fix exactly one required type field to a const.")
+    return condition(f"#/properties/type/properties/{field}", {"const": fields[field]["const"]})
+
+
+ALL_KINDS = [branch["properties"]["kind"]["const"] for branch in TENDER["properties"]["type"]["oneOf"]]
 FOREIGN_CURRENCY = kinds_of_group("kindForeignCurrency")
 GIVES_CHANGE_BY_DEFAULT = kinds_of_group("kindGivesChangeByDefault")
+EXACT_AMOUNT_BY_DEFAULT = [kind for kind in ALL_KINDS if kind not in GIVES_CHANGE_BY_DEFAULT]
 REFUNDS_BLOCKED_BY_DEFAULT = kinds_of_group("kindRefundsBlockedByDefault")
+REFUNDS_ALLOWED_BY_DEFAULT = [kind for kind in ALL_KINDS if kind not in REFUNDS_BLOCKED_BY_DEFAULT]
 ROUNDING_METHODS_WITH_UNIT = rounding_methods_with_unit()
 # The overpayment choices that give no change; the Change tab hides its fields for them.
 NO_CHANGE = ["EXACT_AMOUNT", "WITHOUT_CHANGE"]
@@ -71,12 +90,13 @@ LIMITS = "#/properties/limits/properties/"
 ROUNDING = "#/properties/rounding/properties/"
 IS_ON = {"const": True}
 REFUND_CLEARING = "A saved refund amount cannot be cleared yet: Save is then refused."
-INTEGRATION = "#/properties/type/properties/integration"
-STANDALONE = {"const": "STANDALONE"}
 
 
 def condition(scope, schema):
     return {"scope": scope, "schema": schema}
+
+
+STANDALONE = type_field_group("connectionStandalone")
 
 
 def with_rule(element, effect, cond):
@@ -146,6 +166,21 @@ def change_fields(show_if=None):
     ], show_if=show_if)
 
 
+def replaced_field_note(content, replaced, replacement):
+    """A note on a tender saved with a replaced field on, shown until its replacement has a value.
+
+    The replaced field has no control, so it cannot be cleared; choosing any option of the replacement hides the note.
+    """
+    field = TENDER
+    for name in replacement.split("/properties/")[1:]:
+        field = field.get("properties", {}).get(name, {})
+    choices = [option["const"] for option in field.get("oneOf", []) if "const" in option]
+    if not choices:
+        fail(f"{replacement} has no options to hide the replaced field note with.")
+    return vertical([text(content, show_if=condition(replaced, IS_ON))],
+                    hide_if=condition(replacement, {"enum": choices}))
+
+
 def refund_fields(show_if=None, hide_if=None):
     return vertical([
         control(REFUND + "skipAmountPrompt"),
@@ -177,9 +212,10 @@ detail = {"type": "Categorization", "elements": [
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
         text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-        text("This tender was saved with 'Exact Amount Only' on, which this form replaced with 'Overpayment'. While "
-             "'Overpayment' is empty it still takes the exact amount: choose an 'Overpayment' option to replace it.",
-             show_if=condition(BEHAVIOR + "exactAmountOnly", IS_ON)),
+        replaced_field_note(
+            "This tender was saved with 'Exact Amount Only' on. 'Overpayment' replaced that setting, which is no "
+            "longer read: choose an 'Overpayment' option to set how this tender handles overpayment.",
+            BEHAVIOR + "exactAmountOnly", BEHAVIOR + "overpayment"),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
         control(BEHAVIOR + "blockCancel"),
@@ -200,11 +236,12 @@ detail = {"type": "Categorization", "elements": [
              show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([vertical([
             change_fields(show_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"})),
+            # Each type-default branch names its kinds, so nothing shows before a type is chosen.
             vertical([
                 change_fields(show_if=condition(KIND, {"enum": GIVES_CHANGE_BY_DEFAULT})),
-                vertical([text("With the type default this type takes the exact amount, so no change is given. "
-                               "Choose 'Allowed, give change' under 'Overpayment' to set change here.")],
-                         hide_if=condition(KIND, {"enum": GIVES_CHANGE_BY_DEFAULT})),
+                text("With the type default this type takes the exact amount, so no change is given. Choose "
+                     "'Allowed, give change' under 'Overpayment' to set change here.",
+                     show_if=condition(KIND, {"enum": EXACT_AMOUNT_BY_DEFAULT})),
             ], hide_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"})),
         ], hide_if=condition(BEHAVIOR + "exclusive", IS_ON))],
             hide_if=condition(BEHAVIOR + "overpayment", {"enum": NO_CHANGE})),
@@ -219,16 +256,17 @@ detail = {"type": "Categorization", "elements": [
         ], show_if=condition(KIND, {"const": "cash"})),
         vertical([
             control(REFUND + "refundsAllowed"),
-            text("This tender was saved with 'Block Refunds' on, which this form replaced with 'Refunds'. While "
-                 "'Refunds' is empty, refunds stay blocked: choose a 'Refunds' option to replace it.",
-                 show_if=condition(REFUND + "blockRefunds", IS_ON)),
+            replaced_field_note(
+                "This tender was saved with 'Block Refunds' on. 'Refunds' replaced that setting, which is no longer "
+                "read: choose a 'Refunds' option to set whether this tender refunds.",
+                REFUND + "blockRefunds", REFUND + "refundsAllowed"),
             refund_fields(show_if=condition(REFUND + "refundsAllowed", {"const": "YES"})),
             vertical([
                 vertical([
-                    refund_fields(hide_if=condition(INTEGRATION, STANDALONE)),
+                    refund_fields(hide_if=STANDALONE),
                     text("With the type default a standalone payment does not refund, because nothing checks it. "
-                         "Choose 'Allowed' to set refunds here.", show_if=condition(INTEGRATION, STANDALONE)),
-                ], hide_if=condition(KIND, {"enum": REFUNDS_BLOCKED_BY_DEFAULT})),
+                         "Choose 'Allowed' to set refunds here.", show_if=STANDALONE),
+                ], show_if=condition(KIND, {"enum": REFUNDS_ALLOWED_BY_DEFAULT})),
                 text("With the type default this type does not refund. Choose 'Allowed' to set refunds here.",
                      show_if=condition(KIND, {"enum": REFUNDS_BLOCKED_BY_DEFAULT})),
             ], hide_if=condition(REFUND + "refundsAllowed", {"enum": ["YES", "NO"]})),
