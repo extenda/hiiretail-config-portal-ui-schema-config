@@ -284,8 +284,11 @@ detail = {"type": "Categorization", "elements": [
                             show_if=condition(ROUNDING + "method", {"enum": ROUNDING_METHODS_WITH_UNIT}))]),
     ]),
     category("Advanced", [
-        text("Extra attributes are only for settings Extenda Retail support asks you to add. Everything this form "
-             "offers must be set in the form, not here."),
+        text("Everything on this tab is only for what Extenda Retail support asks you to add. Everything the other "
+             "tabs offer must be set there, not here."),
+        text(TENDER["properties"]["authorization"]["description"]),
+        horizontal([control("#/properties/authorization/properties/plugin"),
+                    control("#/properties/authorization/properties/mode")]),
         control("#/properties/extraAttributes"),
     ]),
 ]}

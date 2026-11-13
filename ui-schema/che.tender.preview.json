@@ -777,7 +777,24 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Extra attributes are only for settings Extenda Retail support asks you to add. Everything this form offers must be set in the form, not here."
+              "text": "Everything on this tab is only for what Extenda Retail support asks you to add. Everything the other tabs offer must be set there, not here."
+            },
+            {
+              "type": "Label",
+              "text": "Only use when Extenda Retail support asks for it. Names a payment plugin installed at the till, for example one delivered by an add-on team for a customer, which then approves every payment with this tender instead of the plugin Store Data chooses for the type. Store Data cannot check that the plugin is installed: with a wrong name, every payment with this tender fails at the till, and the cashier must use another tender. Extra attributes are passed to the plugin as written."
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/authorization/properties/plugin"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/authorization/properties/mode"
+                }
+              ]
             },
             {
               "type": "Control",
