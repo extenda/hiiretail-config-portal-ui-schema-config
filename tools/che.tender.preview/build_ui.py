@@ -3,8 +3,9 @@
 Usage, from the repository root:
     python tools/che.tender.preview/build_ui.py <path to hiiretail-json-schema-registry>/customer-config/checkout-config/che.tender.preview.json
 
-Every kind group in the form's rules is read from the schema's $defs, and every label and help text from the
-schema's titles and descriptions, so rerunning it after a schema change brings the form in line. Before writing
+Every setting is shown for every tender type. The types the currency field is shown for are read from the
+schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it after
+a schema change brings the form in line. Before writing
 anything, the script checks that every scope the form uses exists in the schema and that every value a rule
 compares with is allowed there, and stops on a miss.
 The form has no x-autoFill rules: hidden settings stay in the data and are ignored for types they do not apply to.
@@ -29,11 +30,8 @@ def fail(message):
     sys.exit(f"Nothing written. {message}")
 
 
-def kind_group(name):
-    """The kinds of a $defs group, and its exemption as a rule condition (None without one).
-
-    An exemption is a 'not' on one type field, such as organization charge with credit check.
-    """
+def kinds_of_group(name):
+    """The kinds of a $defs group, which may only name kinds."""
     try:
         group = SCHEMA["$defs"][name]
         group_type = group["properties"]["type"]
@@ -41,28 +39,10 @@ def kind_group(name):
     except KeyError:
         fail(f"The schema has no kind group $defs.{name}.")
     unread = ((set(group) - {"type", "required", "properties"}) | (set(group["properties"]) - {"type"})
-              | (set(group_type) - {"type", "required", "properties", "not"}) | (set(group_type["properties"]) - {"kind"}))
+              | (set(group_type) - {"type", "required", "properties"}) | (set(group_type["properties"]) - {"kind"}))
     if unread:
         fail(f"$defs.{name} has conditions the generator does not read: {sorted(unread)}.")
-    kinds = kind["enum"] if "enum" in kind else [kind["const"]]
-    if "not" not in group_type:
-        return kinds, None
-    exemption = group_type["not"]
-    exempt_fields = exemption.get("properties", {})
-    field = next(iter(exempt_fields), None)
-    if (set(exemption) - {"type", "required", "properties"} or len(exempt_fields) != 1
-            or exemption.get("required") != [field] or set(exempt_fields[field]) != {"const"}):
-        fail(f"$defs.{name} has an exemption the generator does not read: it must be one required type field "
-             "with a const.")
-    value = exempt_fields[field]
-    return kinds, {"scope": f"#/properties/type/properties/{field}", "schema": {"const": value["const"]}}
-
-
-def kinds_of_group(name):
-    kinds, exemption = kind_group(name)
-    if exemption:
-        fail(f"$defs.{name} has an exemption, which the form does not apply for this group.")
-    return kinds
+    return kind["enum"] if "enum" in kind else [kind["const"]]
 
 
 def rounding_methods_with_unit():
