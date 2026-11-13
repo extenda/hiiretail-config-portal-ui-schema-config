@@ -38,7 +38,7 @@ Contains theme configuration files for different tenants. Each tenant can have i
 
 Generators for forms that are built from their data schema instead of written by hand.
 
-`tools/che.tender.preview/build_ui.py` writes `ui-schema/che.tender.preview.json` and `i18n/che.tender.preview/en.json` from the tender schema in hiiretail-json-schema-registry. Labels, help texts and the tender types the currency field is shown for all come from that schema, so change the schema first and then run, from the repository root:
+`tools/che.tender.preview/build_ui.py` writes `ui-schema/che.tender.preview.json` and `i18n/che.tender.preview/en.json` from the tender schema in hiiretail-json-schema-registry. Labels, help texts and the type groups the form's rules use all come from that schema, so change the schema first and then run, from the repository root:
 
 ```bash
 python tools/che.tender.preview/build_ui.py ../hiiretail-json-schema-registry/customer-config/checkout-config/che.tender.preview.json

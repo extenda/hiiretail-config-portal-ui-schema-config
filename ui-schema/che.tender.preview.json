@@ -161,6 +161,19 @@
               }
             },
             {
+              "type": "Label",
+              "text": "This tender was saved with 'Exact Amount Only' on, which this form replaced with 'Overpayment'. While 'Overpayment' is empty it still takes the exact amount: choose an 'Overpayment' option to replace it.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/exactAmountOnly",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
               "type": "Control",
               "scope": "#/properties/behavior/properties/exclusive"
             },
@@ -258,45 +271,158 @@
                   "type": "VerticalLayout",
                   "elements": [
                     {
-                      "type": "Label",
-                      "text": "Where change goes when the customer pays more than the amount due. Leave empty to give all change in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
-                    },
-                    {
-                      "type": "Label",
-                      "text": "A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender that allows refunds and has no minimum amounts."
-                    },
-                    {
-                      "type": "Control",
-                      "scope": "#/properties/change/properties/tenderId",
-                      "options": {
-                        "enumSource": {
-                          "type": "request",
-                          "request": {
-                            "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
-                          },
-                          "response": {
-                            "itemsPath": "value",
-                            "valueKey": "id",
-                            "labelKey": "name"
-                          },
-                          "display": {
-                            "secondaryLabelKey": "type.kind"
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "Label",
+                          "text": "Where change goes when the customer pays more than the amount due. Leave empty to give all change in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
+                        },
+                        {
+                          "type": "Label",
+                          "text": "A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/change/properties/tenderId",
+                          "options": {
+                            "enumSource": {
+                              "type": "request",
+                              "request": {
+                                "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
+                              },
+                              "response": {
+                                "itemsPath": "value",
+                                "valueKey": "id",
+                                "labelKey": "name"
+                              },
+                              "display": {
+                                "secondaryLabelKey": "type.kind"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "HorizontalLayout",
+                          "elements": [
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/change/properties/threshold"
+                            },
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/change/properties/autoCompleteLimit"
+                            }
+                          ]
+                        }
+                      ],
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/behavior/properties/overpayment",
+                          "schema": {
+                            "const": "WITH_CHANGE"
                           }
                         }
                       }
                     },
                     {
-                      "type": "HorizontalLayout",
+                      "type": "VerticalLayout",
                       "elements": [
                         {
-                          "type": "Control",
-                          "scope": "#/properties/change/properties/threshold"
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "Label",
+                              "text": "Where change goes when the customer pays more than the amount due. Leave empty to give all change in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
+                            },
+                            {
+                              "type": "Label",
+                              "text": "A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
+                            },
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/change/properties/tenderId",
+                              "options": {
+                                "enumSource": {
+                                  "type": "request",
+                                  "request": {
+                                    "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
+                                  },
+                                  "response": {
+                                    "itemsPath": "value",
+                                    "valueKey": "id",
+                                    "labelKey": "name"
+                                  },
+                                  "display": {
+                                    "secondaryLabelKey": "type.kind"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/change/properties/threshold"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/change/properties/autoCompleteLimit"
+                                }
+                              ]
+                            }
+                          ],
+                          "rule": {
+                            "effect": "SHOW",
+                            "condition": {
+                              "scope": "#/properties/type/properties/kind",
+                              "schema": {
+                                "enum": [
+                                  "cash",
+                                  "foreignCurrency",
+                                  "giftCertificate",
+                                  "voucher",
+                                  "check"
+                                ]
+                              }
+                            }
+                          }
                         },
                         {
-                          "type": "Control",
-                          "scope": "#/properties/change/properties/autoCompleteLimit"
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "Label",
+                              "text": "With the type default this type takes the exact amount, so no change is given. Choose 'Allowed, give change' under 'Overpayment' to set change here."
+                            }
+                          ],
+                          "rule": {
+                            "effect": "HIDE",
+                            "condition": {
+                              "scope": "#/properties/type/properties/kind",
+                              "schema": {
+                                "enum": [
+                                  "cash",
+                                  "foreignCurrency",
+                                  "giftCertificate",
+                                  "voucher",
+                                  "check"
+                                ]
+                              }
+                            }
+                          }
                         }
-                      ]
+                      ],
+                      "rule": {
+                        "effect": "HIDE",
+                        "condition": {
+                          "scope": "#/properties/behavior/properties/overpayment",
+                          "schema": {
+                            "const": "WITH_CHANGE"
+                          }
+                        }
+                      }
                     }
                   ],
                   "rule": {
@@ -367,6 +493,19 @@
                   "scope": "#/properties/refund/properties/refundsAllowed"
                 },
                 {
+                  "type": "Label",
+                  "text": "This tender was saved with 'Block Refunds' on, which this form replaced with 'Refunds'. While 'Refunds' is empty, refunds stay blocked: choose a 'Refunds' option to replace it.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/refund/properties/blockRefunds",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                },
+                {
                   "type": "VerticalLayout",
                   "elements": [
                     {
@@ -392,11 +531,117 @@
                     }
                   ],
                   "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/refund/properties/refundsAllowed",
+                      "schema": {
+                        "const": "YES"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "VerticalLayout",
+                      "elements": [
+                        {
+                          "type": "VerticalLayout",
+                          "elements": [
+                            {
+                              "type": "Control",
+                              "scope": "#/properties/refund/properties/skipAmountPrompt"
+                            },
+                            {
+                              "type": "HorizontalLayout",
+                              "elements": [
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/refund/properties/maxAmount"
+                                },
+                                {
+                                  "type": "Control",
+                                  "scope": "#/properties/refund/properties/minAmount"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "Label",
+                              "text": "A saved refund amount cannot be cleared yet: Save is then refused."
+                            }
+                          ],
+                          "rule": {
+                            "effect": "HIDE",
+                            "condition": {
+                              "scope": "#/properties/type/properties/integration",
+                              "schema": {
+                                "const": "STANDALONE"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "Label",
+                          "text": "With the type default a standalone payment does not refund, because nothing checks it. Choose 'Allowed' to set refunds here.",
+                          "rule": {
+                            "effect": "SHOW",
+                            "condition": {
+                              "scope": "#/properties/type/properties/integration",
+                              "schema": {
+                                "const": "STANDALONE"
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "rule": {
+                        "effect": "HIDE",
+                        "condition": {
+                          "scope": "#/properties/type/properties/kind",
+                          "schema": {
+                            "enum": [
+                              "check",
+                              "coupon",
+                              "manufacturerCoupon",
+                              "foodStamp",
+                              "wicCheck",
+                              "loyaltyRedemption"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Label",
+                      "text": "With the type default this type does not refund. Choose 'Allowed' to set refunds here.",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type/properties/kind",
+                          "schema": {
+                            "enum": [
+                              "check",
+                              "coupon",
+                              "manufacturerCoupon",
+                              "foodStamp",
+                              "wicCheck",
+                              "loyaltyRedemption"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "rule": {
                     "effect": "HIDE",
                     "condition": {
                       "scope": "#/properties/refund/properties/refundsAllowed",
                       "schema": {
-                        "const": "NO"
+                        "enum": [
+                          "YES",
+                          "NO"
+                        ]
                       }
                     }
                   }

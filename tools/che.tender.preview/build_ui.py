@@ -3,8 +3,8 @@
 Usage, from the repository root:
     python tools/che.tender.preview/build_ui.py <path to hiiretail-json-schema-registry>/customer-config/checkout-config/che.tender.preview.json
 
-Every setting is shown for every tender type. The types the currency field is shown for are read from the
-schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it after
+Every setting is offered for every tender type. The type groups the form's rules use (foreign currency for the
+currency field, and the type defaults for change and refunds) are read from the schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it after
 a schema change brings the form in line. Before writing
 anything, the script checks that every scope the form uses exists in the schema and that every value a rule
 compares with is allowed there, and stops on a miss.
@@ -38,7 +38,7 @@ def kinds_of_group(name):
         kind = group_type["properties"]["kind"]
     except KeyError:
         fail(f"The schema has no kind group $defs.{name}.")
-    unread = ((set(group) - {"type", "required", "properties"}) | (set(group["properties"]) - {"type"})
+    unread = ((set(group) - {"$comment", "type", "required", "properties"}) | (set(group["properties"]) - {"type"})
               | (set(group_type) - {"type", "required", "properties"}) | (set(group_type["properties"]) - {"kind"}))
     if unread:
         fail(f"$defs.{name} has conditions the generator does not read: {sorted(unread)}.")
@@ -56,6 +56,8 @@ def rounding_methods_with_unit():
 
 
 FOREIGN_CURRENCY = kinds_of_group("kindForeignCurrency")
+GIVES_CHANGE_BY_DEFAULT = kinds_of_group("kindGivesChangeByDefault")
+REFUNDS_BLOCKED_BY_DEFAULT = kinds_of_group("kindRefundsBlockedByDefault")
 ROUNDING_METHODS_WITH_UNIT = rounding_methods_with_unit()
 # The overpayment choices that give no change; the Change tab hides its fields for them.
 NO_CHANGE = ["EXACT_AMOUNT", "WITHOUT_CHANGE"]
@@ -69,6 +71,8 @@ LIMITS = "#/properties/limits/properties/"
 ROUNDING = "#/properties/rounding/properties/"
 IS_ON = {"const": True}
 REFUND_CLEARING = "A saved refund amount cannot be cleared yet: Save is then refused."
+INTEGRATION = "#/properties/type/properties/integration"
+STANDALONE = {"const": "STANDALONE"}
 
 
 def condition(scope, schema):
@@ -127,6 +131,29 @@ def enum_source(url, label_key, secondary_label_key=None):
     return {"options": {"enumSource": source}}
 
 
+# Change and refund settings show only where they take effect: for an explicit choice, or for a type whose type
+# default gives change or allows refunds. A choice the user has not made is absent, so it matches no rule value.
+def change_fields(show_if=None):
+    return vertical([
+        text(TENDER["properties"]["change"]["description"]),
+        text("A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list "
+             "shows the tenders saved for this target: save a new tender before choosing it here. Choose an "
+             "enabled tender, not loyalty points, that allows refunds and has no minimum amounts."),
+        control(CHANGE + "tenderId",
+                **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
+                              "type.kind")),
+        horizontal([control(CHANGE + "threshold"), control(CHANGE + "autoCompleteLimit")]),
+    ], show_if=show_if)
+
+
+def refund_fields(show_if=None, hide_if=None):
+    return vertical([
+        control(REFUND + "skipAmountPrompt"),
+        horizontal([control(REFUND + "maxAmount"), control(REFUND + "minAmount")]),
+        text(REFUND_CLEARING),
+    ], show_if=show_if, hide_if=hide_if)
+
+
 detail = {"type": "Categorization", "elements": [
     category("Tender", [
         horizontal([control("#/properties/id"), control("#/properties/name")]),
@@ -150,6 +177,9 @@ detail = {"type": "Categorization", "elements": [
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
         text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        text("This tender was saved with 'Exact Amount Only' on, which this form replaced with 'Overpayment'. While "
+             "'Overpayment' is empty it still takes the exact amount: choose an 'Overpayment' option to replace it.",
+             show_if=condition(BEHAVIOR + "exactAmountOnly", IS_ON)),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
         control(BEHAVIOR + "blockCancel"),
@@ -169,14 +199,13 @@ detail = {"type": "Categorization", "elements": [
         text("No change is given, because 'No Split Payment' always takes the exact amount.",
              show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([vertical([
-            text(TENDER["properties"]["change"]["description"]),
-            text("A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list "
-                 "shows the tenders saved for this target: save a new tender before choosing it here. Choose an "
-                 "enabled tender that allows refunds and has no minimum amounts."),
-            control(CHANGE + "tenderId",
-                    **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
-                                  "type.kind")),
-            horizontal([control(CHANGE + "threshold"), control(CHANGE + "autoCompleteLimit")]),
+            change_fields(show_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"})),
+            vertical([
+                change_fields(show_if=condition(KIND, {"enum": GIVES_CHANGE_BY_DEFAULT})),
+                vertical([text("With the type default this type takes the exact amount, so no change is given. "
+                               "Choose 'Allowed, give change' under 'Overpayment' to set change here.")],
+                         hide_if=condition(KIND, {"enum": GIVES_CHANGE_BY_DEFAULT})),
+            ], hide_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"})),
         ], hide_if=condition(BEHAVIOR + "exclusive", IS_ON))],
             hide_if=condition(BEHAVIOR + "overpayment", {"enum": NO_CHANGE})),
     ]),
@@ -190,11 +219,19 @@ detail = {"type": "Categorization", "elements": [
         ], show_if=condition(KIND, {"const": "cash"})),
         vertical([
             control(REFUND + "refundsAllowed"),
+            text("This tender was saved with 'Block Refunds' on, which this form replaced with 'Refunds'. While "
+                 "'Refunds' is empty, refunds stay blocked: choose a 'Refunds' option to replace it.",
+                 show_if=condition(REFUND + "blockRefunds", IS_ON)),
+            refund_fields(show_if=condition(REFUND + "refundsAllowed", {"const": "YES"})),
             vertical([
-                control(REFUND + "skipAmountPrompt"),
-                horizontal([control(REFUND + "maxAmount"), control(REFUND + "minAmount")]),
-                text(REFUND_CLEARING),
-            ], hide_if=condition(REFUND + "refundsAllowed", {"const": "NO"})),
+                vertical([
+                    refund_fields(hide_if=condition(INTEGRATION, STANDALONE)),
+                    text("With the type default a standalone payment does not refund, because nothing checks it. "
+                         "Choose 'Allowed' to set refunds here.", show_if=condition(INTEGRATION, STANDALONE)),
+                ], hide_if=condition(KIND, {"enum": REFUNDS_BLOCKED_BY_DEFAULT})),
+                text("With the type default this type does not refund. Choose 'Allowed' to set refunds here.",
+                     show_if=condition(KIND, {"enum": REFUNDS_BLOCKED_BY_DEFAULT})),
+            ], hide_if=condition(REFUND + "refundsAllowed", {"enum": ["YES", "NO"]})),
         ], hide_if=condition(KIND, {"const": "cash"})),
     ]),
     category("Limits", [
