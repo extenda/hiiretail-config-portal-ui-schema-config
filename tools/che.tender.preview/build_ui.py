@@ -89,6 +89,8 @@ CHANGE = "#/properties/change/properties/"
 LIMITS = "#/properties/limits/properties/"
 ROUNDING = "#/properties/rounding/properties/"
 IS_ON = {"const": True}
+# The one rule condition that is not a comparison with allowed values: a text field holds some text.
+HAS_TEXT = {"type": "string", "minLength": 1}
 REFUND_CLEARING = "A saved refund amount cannot be cleared yet: Save is then refused."
 
 
@@ -286,9 +288,10 @@ detail = {"type": "Categorization", "elements": [
     category("Advanced", [
         text("Everything on this tab is only for what Extenda Retail support asks you to add. Everything the other "
              "tabs offer must be set there, not here."),
-        text(TENDER["properties"]["authorization"]["description"]),
-        horizontal([control("#/properties/authorization/properties/plugin"),
-                    control("#/properties/authorization/properties/mode")]),
+        control("#/properties/authorization/properties/plugin"),
+        # The step is used only with a plugin name, so it shows once a name is entered.
+        control("#/properties/authorization/properties/mode",
+                show_if=condition("#/properties/authorization/properties/plugin", HAS_TEXT)),
         control("#/properties/extraAttributes"),
     ]),
 ]}
@@ -331,10 +334,14 @@ def check_form(element, problems):
         if not fields:
             problems.append(f"no schema field for rule scope {cond['scope']}")
         else:
-            compared = cond["schema"].get("enum", [cond["schema"].get("const")])
-            allowed = set().union(*(allowed_values(field) for field in fields))
-            problems.extend(f"{value!r} is not a value of {cond['scope']}" for value in compared
-                            if value not in allowed)
+            if cond["schema"] == HAS_TEXT:
+                if not any("string" in field.get("type", []) for field in fields):
+                    problems.append(f"rule scope {cond['scope']} is not a text field")
+            else:
+                compared = cond["schema"].get("enum", [cond["schema"].get("const")])
+                allowed = set().union(*(allowed_values(field) for field in fields))
+                problems.extend(f"{value!r} is not a value of {cond['scope']}" for value in compared
+                                if value not in allowed)
     for child in element.get("elements", []) + [element.get("options", {}).get("detail", {})]:
         if child:
             check_form(child, problems)
