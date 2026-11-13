@@ -69,23 +69,16 @@ def rounding_methods_with_unit():
     """The rounding methods of the schema rule that requires rounding.precision."""
     for rule in TENDER.get("allOf", []):
         requires_unit = "precision" in rule.get("then", {}).get("properties", {}).get("rounding", {}).get("required", [])
-        for part in rule.get("if", {}).get("allOf", []) if requires_unit else []:
-            method = part.get("properties", {}).get("rounding", {}).get("properties", {}).get("method", {})
-            if "enum" in method:
-                return method["enum"]
+        method = rule.get("if", {}).get("properties", {}).get("rounding", {}).get("properties", {}).get("method", {})
+        if requires_unit and "enum" in method:
+            return method["enum"]
     fail("The schema has no rule that requires rounding.precision for some rounding methods.")
 
 
-CASH_LIKE = kinds_of_group("kindCashLike")
-CANCEL_BLOCKABLE, CANCEL_BLOCKABLE_EXEMPTION = kind_group("kindCancelBlockable")
-PAY_REMAINING = kinds_of_group("kindPayRemaining")
-REFUNDABLE, REFUNDABLE_EXEMPTION = kind_group("kindRefundable")
-# The Refunds tab explains the refundable exemption in words, so it must be the one the text describes.
-STANDALONE_MOBILE = {"scope": "#/properties/type/properties/integration", "schema": {"const": "STANDALONE"}}
-if REFUNDABLE_EXEMPTION != STANDALONE_MOBILE:
-    fail("$defs.kindRefundable no longer exempts standalone mobile payments; update the Refunds tab text.")
 FOREIGN_CURRENCY = kinds_of_group("kindForeignCurrency")
 ROUNDING_METHODS_WITH_UNIT = rounding_methods_with_unit()
+# The overpayment choices that give no change; the Change tab hides its fields for them.
+NO_CHANGE = ["EXACT_AMOUNT", "WITHOUT_CHANGE"]
 
 KIND = "#/properties/type/properties/kind"
 HARDWARE = "#/properties/type/properties/hardware"
@@ -160,8 +153,8 @@ detail = {"type": "Categorization", "elements": [
         control("#/properties/type"),
         control("#/properties/currency", show_if=condition(KIND, {"enum": FOREIGN_CURRENCY}),
                 **enum_source("{api:ccc-api}/api/v1/config/cur.currencies.v1/values/{target.path}", "id")),
-        text("Choose the tender type first. The other tabs offer only what makes sense for that type, and every "
-             "setting left empty uses the default for the type. Most saved amounts and choices cannot be cleared: "
+        text("Choose the tender type first. Every setting left empty uses the default for the type, and each "
+             "help text says what that default is. Most saved amounts and choices cannot be cleared: "
              "Save is then refused. To go back to the default, choose the default option where the list has one. "
              "Payment plugins, provider codes and the store currency are added automatically by Store Data."),
         control("#/properties/restrictionRuleId"),
@@ -175,45 +168,39 @@ detail = {"type": "Categorization", "elements": [
                        condition(KIND, {"const": "cash"}),
                        condition(HARDWARE, {"const": "CASH_CHANGER_MACHINE"}),
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
-        vertical([
-            text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-            vertical([control(BEHAVIOR + "exactAmountOnly")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-        ], show_if=condition(KIND, {"enum": CASH_LIKE})),
+        text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
-        vertical([
-            control(BEHAVIOR + "blockCancel", hide_if=CANCEL_BLOCKABLE_EXEMPTION),
-            # The schema refuses both together; the warning says why before Save is refused.
-            vertical([shown_when_all(
-                text("'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale "
-                     "would then be stuck until it is paid in full. Turn one of them off."),
-                condition(BEHAVIOR + "lockTransaction", IS_ON),
-                condition(BEHAVIOR + "blockCancel", IS_ON))],
-                hide_if=CANCEL_BLOCKABLE_EXEMPTION),
-        ], show_if=condition(KIND, {"enum": CANCEL_BLOCKABLE})),
-        control(BEHAVIOR + "payRemainingAmount", show_if=condition(KIND, {"enum": PAY_REMAINING})),
+        control(BEHAVIOR + "blockCancel"),
+        # The schema refuses both together; the warning says why before Save is refused.
+        shown_when_all(
+            text("'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale "
+                 "would then be stuck until it is paid in full. Turn one of them off."),
+            condition(BEHAVIOR + "lockTransaction", IS_ON),
+            condition(BEHAVIOR + "blockCancel", IS_ON)),
+        control(BEHAVIOR + "payRemainingAmount"),
         control(BEHAVIOR + "prefillAmount"),
         control(BEHAVIOR + "cashDrawer"),
     ]),
     category("Change", [
-        text("No change is given, because the tender takes the exact amount.",
-             show_if=condition(BEHAVIOR + "exactAmountOnly", IS_ON)),
+        text("No change is given, because 'Overpayment' does not give change.",
+             show_if=condition(BEHAVIOR + "overpayment", {"enum": NO_CHANGE})),
         text("No change is given, because 'No Split Payment' always takes the exact amount.",
              show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([vertical([
-            text("Leave everything empty to give all change in the store's default cash tender. A saved amount "
-                 "here cannot be cleared yet: Save is then refused. The alternate change tender list shows the "
-                 "tenders saved for this target: save a new tender before choosing it here, and choose a cash, "
-                 "foreign currency, gift certificate or voucher tender."),
+            text(TENDER["properties"]["change"]["description"]),
+            text("A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list "
+                 "shows the tenders saved for this target: save a new tender before choosing it here. Choose an "
+                 "enabled tender that allows refunds and has no minimum amounts."),
             control(CHANGE + "tenderId",
                     **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
                                   "type.kind")),
             horizontal([control(CHANGE + "threshold"), control(CHANGE + "autoCompleteLimit")]),
-        ], hide_if=condition(BEHAVIOR + "exclusive", IS_ON))], hide_if=condition(BEHAVIOR + "exactAmountOnly", IS_ON)),
-    ], show_if=condition(KIND, {"enum": CASH_LIKE})),
+        ], hide_if=condition(BEHAVIOR + "exclusive", IS_ON))],
+            hide_if=condition(BEHAVIOR + "overpayment", {"enum": NO_CHANGE})),
+    ]),
     category("Refunds", [
-        text("Standalone mobile payments cannot be refunded at the till: a mobile refund needs the original app "
-             "payment.", show_if=STANDALONE_MOBILE),
         vertical([
             text("On cash, change is paid out as a refund: cash always allows refunds, and the maximum refund also "
                  "limits change."),
@@ -221,15 +208,15 @@ detail = {"type": "Categorization", "elements": [
             control(REFUND + "maxAmount"),
             text(REFUND_CLEARING),
         ], show_if=condition(KIND, {"const": "cash"})),
-        vertical([vertical([
-            control(REFUND + "blockRefunds"),
+        vertical([
+            control(REFUND + "refundsAllowed"),
             vertical([
                 control(REFUND + "skipAmountPrompt"),
                 horizontal([control(REFUND + "maxAmount"), control(REFUND + "minAmount")]),
                 text(REFUND_CLEARING),
-            ], hide_if=condition(REFUND + "blockRefunds", IS_ON)),
-        ], hide_if=condition(KIND, {"const": "cash"}))], hide_if=REFUNDABLE_EXEMPTION),
-    ], show_if=condition(KIND, {"enum": REFUNDABLE})),
+            ], hide_if=condition(REFUND + "refundsAllowed", {"const": "NO"})),
+        ], hide_if=condition(KIND, {"const": "cash"})),
+    ]),
     category("Limits", [
         text("Leave a limit empty for no limit. A saved limit cannot be cleared yet: Save is then refused."),
         horizontal([control(LIMITS + "maxPerSale"), control(LIMITS + "maxPerEntry")]),
@@ -240,7 +227,7 @@ detail = {"type": "Categorization", "elements": [
         horizontal([control(ROUNDING + "method"),
                     control(ROUNDING + "precision",
                             show_if=condition(ROUNDING + "method", {"enum": ROUNDING_METHODS_WITH_UNIT}))]),
-    ], show_if=condition(KIND, {"enum": CASH_LIKE})),
+    ]),
     category("Advanced", [
         text("Extra attributes are only for settings Extenda Retail support asks you to add. Everything this form "
              "offers must be set in the form, not here."),
