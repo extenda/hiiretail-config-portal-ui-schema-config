@@ -168,21 +168,6 @@ def change_fields(show_if=None):
     ], show_if=show_if)
 
 
-def replaced_field_note(content, replaced, replacement):
-    """A note on a tender saved with a replaced field on, shown until its replacement has a value.
-
-    The replaced field has no control, so it cannot be cleared; choosing any option of the replacement hides the note.
-    """
-    field = TENDER
-    for name in replacement.split("/properties/")[1:]:
-        field = field.get("properties", {}).get(name, {})
-    choices = [option["const"] for option in field.get("oneOf", []) if "const" in option]
-    if not choices:
-        fail(f"{replacement} has no options to hide the replaced field note with.")
-    return vertical([text(content, show_if=condition(replaced, IS_ON))],
-                    hide_if=condition(replacement, {"enum": choices}))
-
-
 def refund_fields(show_if=None, hide_if=None):
     return vertical([
         control(REFUND + "skipAmountPrompt"),
@@ -201,7 +186,6 @@ detail = {"type": "Categorization", "elements": [
              "help text says what that default is. Most saved amounts and choices cannot be cleared: "
              "Save is then refused. To go back to the default, choose the default option where the list has one. "
              "Payment plugins, provider codes and the store currency are added automatically by Store Data."),
-        control("#/properties/restrictionRuleId"),
         control("#/properties/description", options={"multi": True}),
         control("#/properties/disabled"),
     ]),
@@ -214,10 +198,6 @@ detail = {"type": "Categorization", "elements": [
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
         text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-        replaced_field_note(
-            "This tender was saved with 'Exact Amount Only' on. 'Overpayment' replaced that setting, which is no "
-            "longer read: choose an 'Overpayment' option to set how this tender handles overpayment.",
-            BEHAVIOR + "exactAmountOnly", BEHAVIOR + "overpayment"),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
         control(BEHAVIOR + "blockCancel"),
@@ -258,10 +238,6 @@ detail = {"type": "Categorization", "elements": [
         ], show_if=condition(KIND, {"const": "cash"})),
         vertical([
             control(REFUND + "refundsAllowed"),
-            replaced_field_note(
-                "This tender was saved with 'Block Refunds' on. 'Refunds' replaced that setting, which is no longer "
-                "read: choose a 'Refunds' option to set whether this tender refunds.",
-                REFUND + "blockRefunds", REFUND + "refundsAllowed"),
             refund_fields(show_if=condition(REFUND + "refundsAllowed", {"const": "YES"})),
             vertical([
                 vertical([
