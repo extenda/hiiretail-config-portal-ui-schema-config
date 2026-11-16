@@ -183,7 +183,7 @@ detail = {"type": "Categorization", "elements": [
         text("Choose the tender type first. Every setting left empty uses the default for the type, and each "
              "help text says what that default is. Most saved amounts and choices cannot be cleared: "
              "Save is then refused. To go back to the default, choose the default option where the list has one. "
-             "The payment connection, provider codes and the store currency are added automatically."),
+             "The payment service settings, provider codes and the store currency are added automatically."),
         control("#/properties/description", options={"multi": True}),
         control("#/properties/disabled"),
     ]),
@@ -303,6 +303,8 @@ def check_form(element, problems):
         fields = resolve(cond["scope"])
         if not fields:
             problems.append(f"no schema field for rule scope {cond['scope']}")
+        elif "const" not in cond["schema"] and "enum" not in cond["schema"]:
+            problems.append(f"rule condition on {cond['scope']} is neither const nor enum")
         else:
             compared = cond["schema"].get("enum", [cond["schema"].get("const")])
             allowed = set().union(*(allowed_values(field) for field in fields))
