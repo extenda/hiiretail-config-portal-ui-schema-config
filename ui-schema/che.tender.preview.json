@@ -56,7 +56,7 @@
             },
             {
               "type": "Label",
-              "text": "Choose the tender type first. Every setting left empty uses the default for the type, and each help text says what that default is. Most saved amounts and choices cannot be cleared: Save is then refused. To go back to the default, choose the default option where the list has one. Payment plugins, provider codes and the store currency are added automatically by Store Data."
+              "text": "Choose the tender type first. Every setting left empty uses the default for the type, and each help text says what that default is. Most saved amounts and choices cannot be cleared: Save is then refused. To go back to the default, choose the default option where the list has one. The payment connection, provider codes and the store currency are added automatically."
             },
             {
               "type": "Control",
@@ -710,25 +710,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Everything on this tab is only for what Extenda Retail support asks you to add. Everything the other tabs offer must be set there, not here."
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/authorization/properties/plugin"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/authorization/properties/mode",
-              "rule": {
-                "effect": "SHOW",
-                "condition": {
-                  "scope": "#/properties/authorization/properties/plugin",
-                  "schema": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                }
-              }
+              "text": "Extra attributes are only for settings support asks you to add. Everything the other tabs offer must be set there, not here."
             },
             {
               "type": "Control",
