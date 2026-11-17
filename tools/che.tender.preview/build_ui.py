@@ -156,8 +156,8 @@ def enum_source(url, label_key, secondary_label_key=None):
 def change_fields(show_if=None):
     return vertical([
         text(TENDER["properties"]["change"]["description"]),
-        text("A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list "
-             "shows the tenders saved for this target: save a new tender before choosing it here. Choose an "
+        text("A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the "
+             "tenders saved for this target: save a new tender before choosing it here. Choose an "
              "enabled tender, not loyalty points, that allows refunds and has no minimum amounts."),
         control(CHANGE + "tenderId",
                 **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
@@ -199,10 +199,9 @@ detail = {"type": "Categorization", "elements": [
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
         control(BEHAVIOR + "blockCancel"),
-        # The schema refuses both together; the warning says why before Save is refused.
         shown_when_all(
-            text("'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale "
-                 "would then be stuck until it is paid in full. Turn one of them off."),
+            text("With 'Lock Sale After Payment Entry' and 'Block Removing the Payment' both on, the sale can only "
+                 "be finished by paying it in full, even when the customer cannot pay."),
             condition(BEHAVIOR + "lockTransaction", IS_ON),
             condition(BEHAVIOR + "blockCancel", IS_ON)),
         control(BEHAVIOR + "payRemainingAmount"),

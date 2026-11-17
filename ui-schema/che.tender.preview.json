@@ -176,7 +176,7 @@
                   "elements": [
                     {
                       "type": "Label",
-                      "text": "'Lock Sale After Payment Entry' and 'Block Cancelling the Sale' cannot both be on: the sale would then be stuck until it is paid in full. Turn one of them off."
+                      "text": "With 'Lock Sale After Payment Entry' and 'Block Removing the Payment' both on, the sale can only be finished by paying it in full, even when the customer cannot pay."
                     }
                   ],
                   "rule": {
@@ -258,11 +258,11 @@
                       "elements": [
                         {
                           "type": "Label",
-                          "text": "Where change goes when the customer pays more than the amount due. Leave empty to give all change in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
+                          "text": "Where change goes when the customer pays more than the amount due. Every setting here is optional: leave them empty to give all change in cash, in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
                         },
                         {
                           "type": "Label",
-                          "text": "A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
+                          "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
                         },
                         {
                           "type": "Control",
@@ -316,11 +316,11 @@
                           "elements": [
                             {
                               "type": "Label",
-                              "text": "Where change goes when the customer pays more than the amount due. Leave empty to give all change in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
+                              "text": "Where change goes when the customer pays more than the amount due. Every setting here is optional: leave them empty to give all change in cash, in the store's default cash tender. Used only when 'Overpayment' gives change; the type default gives change for cash, foreign currency, gift certificates, vouchers and checks."
                             },
                             {
                               "type": "Label",
-                              "text": "A saved amount here cannot be cleared yet: Save is then refused. The alternate change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
+                              "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
                             },
                             {
                               "type": "Control",
