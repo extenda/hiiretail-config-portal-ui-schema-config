@@ -7,7 +7,9 @@ Every setting is offered for every tender type. The foreign currency group, whic
 from the schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it
 after a schema change brings the form in line. Before writing anything, the script checks that every scope the form
 uses exists in the schema and that every value a rule compares with is allowed there, and stops on a miss.
-The form has no x-autoFill rules: hidden settings stay in the data and are ignored for types they do not apply to.
+The change and refund settings stay visible whatever 'Overpayment', 'No Split Payment' or 'Refunds' says, so a value
+Save refuses is always on screen; a note says when they are not used. The form has no x-autoFill rules: a setting hidden for a type, such as the currency, stays
+in the data and is ignored where it has no meaning.
 """
 import json
 import sys
@@ -54,9 +56,19 @@ def rounding_methods_with_unit():
     fail("The schema has no rule that requires rounding.precision for some rounding methods.")
 
 
+def tender_fields(group):
+    """The fields of a tender property group, such as behavior."""
+    try:
+        return TENDER["properties"][group]["properties"]
+    except KeyError:
+        fail(f"The schema has no tender property group {group}.")
+
+
 FOREIGN_CURRENCY = kinds_of_group("kindForeignCurrency")
-BEHAVIOR_FIELDS = TENDER["properties"]["behavior"]["properties"]
-REFUND_FIELDS = TENDER["properties"]["refund"]["properties"]
+BEHAVIOR_FIELDS = tender_fields("behavior")
+REFUND_FIELDS = tender_fields("refund")
+CHANGE_DESCRIPTION = TENDER["properties"].get("change", {}).get("description") or fail(
+    "The schema has no change description.")
 ROUNDING_METHODS_WITH_UNIT = rounding_methods_with_unit()
 
 KIND = "#/properties/type/properties/kind"
@@ -70,9 +82,12 @@ IS_ON = {"const": True}
 NOT_ON = {"not": IS_ON}
 
 
-def unset(field):
+def unset(fields, name):
     """A rule condition that holds while a required choice is not made: a missing value fails every const and enum."""
-    return {"not": {"enum": [option["const"] for option in field["oneOf"]]}}
+    options = fields.get(name, {}).get("oneOf")
+    if not options or any("const" not in option for option in options):
+        fail(f"The required choice {name} is not a list of const options in the schema.")
+    return {"not": {"enum": [option["const"] for option in options]}}
 
 
 REFUND_CLEARING = "A saved refund amount cannot be cleared yet: Save is then refused."
@@ -134,25 +149,26 @@ def enum_source(url, label_key, secondary_label_key=None):
     return {"options": {"enumSource": source}}
 
 
-def change_fields(show_if):
+def change_fields():
     return vertical([
-        text(TENDER["properties"]["change"]["description"]),
+        text(CHANGE_DESCRIPTION),
         text("A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the "
              "tenders saved for this target: save a new tender before choosing it here. Choose an "
-             "enabled tender, not loyalty points, that allows refunds and has no minimum amounts."),
+             "enabled tender, not loyalty points, that allows refunds, has no minimum amounts and does not have 'No "
+             "Split Payment' on."),
         control(CHANGE + "tenderId",
                 **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
                               "type.kind")),
         horizontal([control(CHANGE + "threshold"), control(CHANGE + "autoCompleteLimit")]),
-    ], show_if=show_if)
+    ])
 
 
-def refund_fields(show_if):
+def refund_fields():
     return vertical([
         control(REFUND + "skipAmountPrompt"),
         horizontal([control(REFUND + "maxAmount"), control(REFUND + "minAmount")]),
         text(REFUND_CLEARING),
-    ], show_if=show_if)
+    ])
 
 
 detail = {"type": "Categorization", "elements": [
@@ -161,11 +177,12 @@ detail = {"type": "Categorization", "elements": [
         control("#/properties/type"),
         control("#/properties/currency", show_if=condition(KIND, {"enum": FOREIGN_CURRENCY}),
                 **enum_source("{api:ccc-api}/api/v1/config/cur.currencies.v1/values/{target.path}", "id")),
-        text("Choose the tender type first. 'Overpayment' and 'Cash Drawer' on the At the Till tab, and 'Refunds' "
-             "on the Refunds tab (not for cash), must be chosen: Save is refused until they are. Every other "
-             "setting left empty uses its default. Most saved amounts and choices cannot be cleared: Save is then "
-             "refused. The payment service settings, provider codes and the store currency are added "
-             "automatically."),
+        text("Choose the tender type first. 'Cash Drawer' and 'Overpayment' (unless 'No Split Payment' is on) on the "
+             "At the Till tab, and 'Refunds' on the Refunds tab (not for cash), must be chosen: Save is refused "
+             "until they are. Every other setting left empty uses its default. Most saved amounts and choices "
+             "cannot be cleared: Save is then refused. To go back to a default, choose it where offered, such as "
+             "'Automatic' or 'No rounding'. The payment service settings, provider codes and the store currency are "
+             "added automatically."),
         control("#/properties/description", options={"multi": True}),
         control("#/properties/disabled"),
     ]),
@@ -176,11 +193,12 @@ detail = {"type": "Categorization", "elements": [
                        condition(KIND, {"const": "cash"}),
                        condition(HARDWARE, {"const": "CASH_CHANGER_MACHINE"}),
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
-        text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-        vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        control(BEHAVIOR + "overpayment"),
+        text("'No Split Payment' is on: this tender always takes the exact amount, whatever 'Overpayment' says.",
+             show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         # A required choice that was never made can be reported on the tender, where no field shows it.
         shown_when_all(text("Choose 'Overpayment': Save is refused until it is chosen."),
-                       condition(BEHAVIOR + "overpayment", unset(BEHAVIOR_FIELDS["overpayment"])),
+                       condition(BEHAVIOR + "overpayment", unset(BEHAVIOR_FIELDS, "overpayment")),
                        condition(BEHAVIOR + "exclusive", NOT_ON)),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
@@ -194,16 +212,15 @@ detail = {"type": "Categorization", "elements": [
         control(BEHAVIOR + "prefillAmount"),
         control(BEHAVIOR + "cashDrawer"),
         text("Choose 'Cash Drawer': Save is refused until it is chosen.",
-             show_if=condition(BEHAVIOR + "cashDrawer", unset(BEHAVIOR_FIELDS["cashDrawer"]))),
+             show_if=condition(BEHAVIOR + "cashDrawer", unset(BEHAVIOR_FIELDS, "cashDrawer"))),
     ]),
     category("Change", [
-        shown_when_all(text("The change settings show when 'Overpayment' is 'Allowed, give change'."),
-                       condition(BEHAVIOR + "overpayment", {"not": {"const": "WITH_CHANGE"}}),
+        shown_when_all(text("'Overpayment' gives no change: these settings are not used."),
+                       condition(BEHAVIOR + "overpayment", {"enum": ["EXACT_AMOUNT", "WITHOUT_CHANGE"]}),
                        condition(BEHAVIOR + "exclusive", NOT_ON)),
-        text("No change is given, because 'No Split Payment' always takes the exact amount.",
-             show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
-        vertical([change_fields(show_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"}))],
-                 hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        text("No change is given, because 'No Split Payment' always takes the exact amount: these settings are not "
+             "used.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        change_fields(),
     ]),
     category("Refunds", [
         vertical([
@@ -216,8 +233,10 @@ detail = {"type": "Categorization", "elements": [
         vertical([
             control(REFUND + "refundsAllowed"),
             text("Choose 'Refunds': Save is refused until it is chosen.",
-                 show_if=condition(REFUND + "refundsAllowed", unset(REFUND_FIELDS["refundsAllowed"]))),
-            refund_fields(show_if=condition(REFUND + "refundsAllowed", {"const": "YES"})),
+                 show_if=condition(REFUND + "refundsAllowed", unset(REFUND_FIELDS, "refundsAllowed"))),
+            text("Refunds are blocked: the settings below are not used.",
+                 show_if=condition(REFUND + "refundsAllowed", {"const": "NO"})),
+            refund_fields(),
         ], hide_if=condition(KIND, {"const": "cash"})),
     ]),
     category("Limits", [
@@ -276,8 +295,8 @@ def check_form(element, problems):
         if not fields:
             problems.append(f"no schema field for rule scope {cond['scope']}")
         else:
-            compared_schema = cond["schema"].get("not", cond["schema"])
-            if "const" not in compared_schema and "enum" not in compared_schema:
+            compared_schema = cond["schema"]["not"] if set(cond["schema"]) == {"not"} else cond["schema"]
+            if not isinstance(compared_schema, dict) or set(compared_schema) not in ({"const"}, {"enum"}):
                 problems.append(f"rule condition on {cond['scope']} is not a const or enum, or the negation of one")
                 compared_schema = {"enum": []}
             compared = compared_schema.get("enum", [compared_schema.get("const")])

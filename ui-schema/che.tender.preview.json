@@ -56,7 +56,7 @@
             },
             {
               "type": "Label",
-              "text": "Choose the tender type first. 'Overpayment' and 'Cash Drawer' on the At the Till tab, and 'Refunds' on the Refunds tab (not for cash), must be chosen: Save is refused until they are. Every other setting left empty uses its default. Most saved amounts and choices cannot be cleared: Save is then refused. The payment service settings, provider codes and the store currency are added automatically."
+              "text": "Choose the tender type first. 'Cash Drawer' and 'Overpayment' (unless 'No Split Payment' is on) on the At the Till tab, and 'Refunds' on the Refunds tab (not for cash), must be chosen: Save is refused until they are. Every other setting left empty uses its default. Most saved amounts and choices cannot be cleared: Save is then refused. To go back to a default, choose it where offered, such as 'Automatic' or 'No rounding'. The payment service settings, provider codes and the store currency are added automatically."
             },
             {
               "type": "Control",
@@ -126,28 +126,14 @@
               }
             },
             {
-              "type": "Label",
-              "text": "No split payment always takes the exact amount.",
-              "rule": {
-                "effect": "SHOW",
-                "condition": {
-                  "scope": "#/properties/behavior/properties/exclusive",
-                  "schema": {
-                    "const": true
-                  }
-                }
-              }
+              "type": "Control",
+              "scope": "#/properties/behavior/properties/overpayment"
             },
             {
-              "type": "VerticalLayout",
-              "elements": [
-                {
-                  "type": "Control",
-                  "scope": "#/properties/behavior/properties/overpayment"
-                }
-              ],
+              "type": "Label",
+              "text": "'No Split Payment' is on: this tender always takes the exact amount, whatever 'Overpayment' says.",
               "rule": {
-                "effect": "HIDE",
+                "effect": "SHOW",
                 "condition": {
                   "scope": "#/properties/behavior/properties/exclusive",
                   "schema": {
@@ -284,7 +270,7 @@
                   "elements": [
                     {
                       "type": "Label",
-                      "text": "The change settings show when 'Overpayment' is 'Allowed, give change'."
+                      "text": "'Overpayment' gives no change: these settings are not used."
                     }
                   ],
                   "rule": {
@@ -305,16 +291,17 @@
                 "condition": {
                   "scope": "#/properties/behavior/properties/overpayment",
                   "schema": {
-                    "not": {
-                      "const": "WITH_CHANGE"
-                    }
+                    "enum": [
+                      "EXACT_AMOUNT",
+                      "WITHOUT_CHANGE"
+                    ]
                   }
                 }
               }
             },
             {
               "type": "Label",
-              "text": "No change is given, because 'No Split Payment' always takes the exact amount.",
+              "text": "No change is given, because 'No Split Payment' always takes the exact amount: these settings are not used.",
               "rule": {
                 "effect": "SHOW",
                 "condition": {
@@ -329,70 +316,47 @@
               "type": "VerticalLayout",
               "elements": [
                 {
-                  "type": "VerticalLayout",
+                  "type": "Label",
+                  "text": "Where change goes when the customer pays more than the amount due. Every setting here is optional: leave them empty to give all change in cash, in the store's default cash tender. Used only when 'Overpayment' is 'Allowed, give change'."
+                },
+                {
+                  "type": "Label",
+                  "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds, has no minimum amounts and does not have 'No Split Payment' on."
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/change/properties/tenderId",
+                  "options": {
+                    "enumSource": {
+                      "type": "request",
+                      "request": {
+                        "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
+                      },
+                      "response": {
+                        "itemsPath": "value",
+                        "valueKey": "id",
+                        "labelKey": "name"
+                      },
+                      "display": {
+                        "secondaryLabelKey": "type.kind"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "HorizontalLayout",
                   "elements": [
                     {
-                      "type": "Label",
-                      "text": "Where change goes when the customer pays more than the amount due. Every setting here is optional: leave them empty to give all change in cash, in the store's default cash tender. Used only when 'Overpayment' is 'Allowed, give change'."
-                    },
-                    {
-                      "type": "Label",
-                      "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds and has no minimum amounts."
+                      "type": "Control",
+                      "scope": "#/properties/change/properties/threshold"
                     },
                     {
                       "type": "Control",
-                      "scope": "#/properties/change/properties/tenderId",
-                      "options": {
-                        "enumSource": {
-                          "type": "request",
-                          "request": {
-                            "url": "{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}"
-                          },
-                          "response": {
-                            "itemsPath": "value",
-                            "valueKey": "id",
-                            "labelKey": "name"
-                          },
-                          "display": {
-                            "secondaryLabelKey": "type.kind"
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "type": "HorizontalLayout",
-                      "elements": [
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/change/properties/threshold"
-                        },
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/change/properties/autoCompleteLimit"
-                        }
-                      ]
+                      "scope": "#/properties/change/properties/autoCompleteLimit"
                     }
-                  ],
-                  "rule": {
-                    "effect": "SHOW",
-                    "condition": {
-                      "scope": "#/properties/behavior/properties/overpayment",
-                      "schema": {
-                        "const": "WITH_CHANGE"
-                      }
-                    }
-                  }
+                  ]
                 }
-              ],
-              "rule": {
-                "effect": "HIDE",
-                "condition": {
-                  "scope": "#/properties/behavior/properties/exclusive",
-                  "schema": {
-                    "const": true
-                  }
-                }
-              }
+              ]
             }
           ]
         },
@@ -456,6 +420,19 @@
                   }
                 },
                 {
+                  "type": "Label",
+                  "text": "Refunds are blocked: the settings below are not used.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/refund/properties/refundsAllowed",
+                      "schema": {
+                        "const": "NO"
+                      }
+                    }
+                  }
+                },
+                {
                   "type": "VerticalLayout",
                   "elements": [
                     {
@@ -479,16 +456,7 @@
                       "type": "Label",
                       "text": "A saved refund amount cannot be cleared yet: Save is then refused."
                     }
-                  ],
-                  "rule": {
-                    "effect": "SHOW",
-                    "condition": {
-                      "scope": "#/properties/refund/properties/refundsAllowed",
-                      "schema": {
-                        "const": "YES"
-                      }
-                    }
-                  }
+                  ]
                 }
               ],
               "rule": {
@@ -545,7 +513,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Rounds amounts paid with this tender, for example to the smallest coin in use. Leave empty, or choose 'No rounding', for no rounding. The amount due is rounded with the default cash tender's rounding: a tender with a coarser unit that gives no overpayment cannot pay a remainder that is not a multiple of its unit."
+              "text": "Rounds amounts paid with this tender, for example to the smallest coin in use. Leave empty, or choose 'No rounding', for no rounding. A tender that gives no overpayment pays the amount due rounded to its unit: rounded up, the difference is booked as rounding; rounded down, the rest must be paid with another tender, unless the default cash tender's rounding takes it to zero. With 'No Split Payment' on, use no unit coarser than the store's cash rounding: the tender must pay exactly the order total."
             },
             {
               "type": "HorizontalLayout",
