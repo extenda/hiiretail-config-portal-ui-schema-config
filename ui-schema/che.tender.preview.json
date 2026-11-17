@@ -157,6 +157,46 @@
               }
             },
             {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Label",
+                      "text": "Choose 'Overpayment': Save is refused until it is chosen."
+                    }
+                  ],
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "not": {
+                          "const": true
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/overpayment",
+                  "schema": {
+                    "not": {
+                      "enum": [
+                        "EXACT_AMOUNT",
+                        "WITH_CHANGE",
+                        "WITHOUT_CHANGE"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
               "type": "Control",
               "scope": "#/properties/behavior/properties/exclusive"
             },
@@ -211,6 +251,24 @@
             {
               "type": "Control",
               "scope": "#/properties/behavior/properties/cashDrawer"
+            },
+            {
+              "type": "Label",
+              "text": "Choose 'Cash Drawer': Save is refused until it is chosen.",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/cashDrawer",
+                  "schema": {
+                    "not": {
+                      "enum": [
+                        "OPEN",
+                        "KEEP_CLOSED"
+                      ]
+                    }
+                  }
+                }
+              }
             }
           ]
         },
@@ -219,8 +277,40 @@
           "label": "Change",
           "elements": [
             {
-              "type": "Label",
-              "text": "The change settings show when 'Overpayment' is 'Allowed, give change'."
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Label",
+                      "text": "The change settings show when 'Overpayment' is 'Allowed, give change'."
+                    }
+                  ],
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/behavior/properties/exclusive",
+                      "schema": {
+                        "not": {
+                          "const": true
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/behavior/properties/overpayment",
+                  "schema": {
+                    "not": {
+                      "const": "WITH_CHANGE"
+                    }
+                  }
+                }
+              }
             },
             {
               "type": "Label",
@@ -346,6 +436,24 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/refund/properties/refundsAllowed"
+                },
+                {
+                  "type": "Label",
+                  "text": "Choose 'Refunds': Save is refused until it is chosen.",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/refund/properties/refundsAllowed",
+                      "schema": {
+                        "not": {
+                          "enum": [
+                            "YES",
+                            "NO"
+                          ]
+                        }
+                      }
+                    }
+                  }
                 },
                 {
                   "type": "VerticalLayout",

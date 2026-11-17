@@ -4,9 +4,9 @@ Usage, from the repository root:
     python tools/che.tender.preview/build_ui.py <path to hiiretail-json-schema-registry>/customer-config/checkout-config/che.tender.preview.json
 
 Every setting is offered for every tender type. The foreign currency group, which shows the currency field, is read
-from the schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it after a schema change
-brings the form in line. Before writing anything, the script checks that every scope the form uses exists in the
-schema and that every value a rule compares with is allowed there, and stops on a miss.
+from the schema's $defs, and every label and help text from the schema's titles and descriptions, so rerunning it
+after a schema change brings the form in line. Before writing anything, the script checks that every scope the form
+uses exists in the schema and that every value a rule compares with is allowed there, and stops on a miss.
 The form has no x-autoFill rules: hidden settings stay in the data and are ignored for types they do not apply to.
 """
 import json
@@ -55,6 +55,8 @@ def rounding_methods_with_unit():
 
 
 FOREIGN_CURRENCY = kinds_of_group("kindForeignCurrency")
+BEHAVIOR_FIELDS = TENDER["properties"]["behavior"]["properties"]
+REFUND_FIELDS = TENDER["properties"]["refund"]["properties"]
 ROUNDING_METHODS_WITH_UNIT = rounding_methods_with_unit()
 
 KIND = "#/properties/type/properties/kind"
@@ -65,6 +67,14 @@ CHANGE = "#/properties/change/properties/"
 LIMITS = "#/properties/limits/properties/"
 ROUNDING = "#/properties/rounding/properties/"
 IS_ON = {"const": True}
+NOT_ON = {"not": IS_ON}
+
+
+def unset(field):
+    """A rule condition that holds while a required choice is not made: a missing value fails every const and enum."""
+    return {"not": {"enum": [option["const"] for option in field["oneOf"]]}}
+
+
 REFUND_CLEARING = "A saved refund amount cannot be cleared yet: Save is then refused."
 
 
@@ -124,7 +134,7 @@ def enum_source(url, label_key, secondary_label_key=None):
     return {"options": {"enumSource": source}}
 
 
-def change_fields(show_if=None):
+def change_fields(show_if):
     return vertical([
         text(TENDER["properties"]["change"]["description"]),
         text("A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the "
@@ -137,12 +147,12 @@ def change_fields(show_if=None):
     ], show_if=show_if)
 
 
-def refund_fields(show_if=None, hide_if=None):
+def refund_fields(show_if):
     return vertical([
         control(REFUND + "skipAmountPrompt"),
         horizontal([control(REFUND + "maxAmount"), control(REFUND + "minAmount")]),
         text(REFUND_CLEARING),
-    ], show_if=show_if, hide_if=hide_if)
+    ], show_if=show_if)
 
 
 detail = {"type": "Categorization", "elements": [
@@ -168,6 +178,10 @@ detail = {"type": "Categorization", "elements": [
                        condition(BEHAVIOR + "defaultTender", {"const": "YES"})),
         text("No split payment always takes the exact amount.", show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([control(BEHAVIOR + "overpayment")], hide_if=condition(BEHAVIOR + "exclusive", IS_ON)),
+        # A required choice that was never made can be reported on the tender, where no field shows it.
+        shown_when_all(text("Choose 'Overpayment': Save is refused until it is chosen."),
+                       condition(BEHAVIOR + "overpayment", unset(BEHAVIOR_FIELDS["overpayment"])),
+                       condition(BEHAVIOR + "exclusive", NOT_ON)),
         control(BEHAVIOR + "exclusive"),
         control(BEHAVIOR + "lockTransaction"),
         control(BEHAVIOR + "blockCancel"),
@@ -179,9 +193,13 @@ detail = {"type": "Categorization", "elements": [
         control(BEHAVIOR + "payRemainingAmount"),
         control(BEHAVIOR + "prefillAmount"),
         control(BEHAVIOR + "cashDrawer"),
+        text("Choose 'Cash Drawer': Save is refused until it is chosen.",
+             show_if=condition(BEHAVIOR + "cashDrawer", unset(BEHAVIOR_FIELDS["cashDrawer"]))),
     ]),
     category("Change", [
-        text("The change settings show when 'Overpayment' is 'Allowed, give change'."),
+        shown_when_all(text("The change settings show when 'Overpayment' is 'Allowed, give change'."),
+                       condition(BEHAVIOR + "overpayment", {"not": {"const": "WITH_CHANGE"}}),
+                       condition(BEHAVIOR + "exclusive", NOT_ON)),
         text("No change is given, because 'No Split Payment' always takes the exact amount.",
              show_if=condition(BEHAVIOR + "exclusive", IS_ON)),
         vertical([change_fields(show_if=condition(BEHAVIOR + "overpayment", {"const": "WITH_CHANGE"}))],
@@ -197,6 +215,8 @@ detail = {"type": "Categorization", "elements": [
         ], show_if=condition(KIND, {"const": "cash"})),
         vertical([
             control(REFUND + "refundsAllowed"),
+            text("Choose 'Refunds': Save is refused until it is chosen.",
+                 show_if=condition(REFUND + "refundsAllowed", unset(REFUND_FIELDS["refundsAllowed"]))),
             refund_fields(show_if=condition(REFUND + "refundsAllowed", {"const": "YES"})),
         ], hide_if=condition(KIND, {"const": "cash"})),
     ]),
@@ -255,10 +275,12 @@ def check_form(element, problems):
         fields = resolve(cond["scope"])
         if not fields:
             problems.append(f"no schema field for rule scope {cond['scope']}")
-        elif "const" not in cond["schema"] and "enum" not in cond["schema"]:
-            problems.append(f"rule condition on {cond['scope']} is neither const nor enum")
         else:
-            compared = cond["schema"].get("enum", [cond["schema"].get("const")])
+            compared_schema = cond["schema"].get("not", cond["schema"])
+            if "const" not in compared_schema and "enum" not in compared_schema:
+                problems.append(f"rule condition on {cond['scope']} is not a const or enum, or the negation of one")
+                compared_schema = {"enum": []}
+            compared = compared_schema.get("enum", [compared_schema.get("const")])
             allowed = set().union(*(allowed_values(field) for field in fields))
             problems.extend(f"{value!r} is not a value of {cond['scope']}" for value in compared
                             if value not in allowed)
