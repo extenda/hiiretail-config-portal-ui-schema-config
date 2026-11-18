@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gift Card Settings",
+  "type": "object",
+  "properties": {
+    "enabled": { "type": "boolean", "description": "Turn gift cards on for this business unit." },
+    "currency": { "type": "string", "description": "ISO 4217 code." },
+    "minAmount": { "type": "number", "minimum": 0 },
+    "maxAmount": { "type": "number", "minimum": 0 },
+    "expiry": {
+      "type": "object",
+      "properties": {
+        "expires": { "type": "boolean" },
+        "months": { "type": "integer", "minimum": 1 }
+      },
+      "dependentRequired": { "expires": ["months"] }
+    },
+    "terms": { "type": "string", "maxLength": 1000, "description": "Terms printed on the receipt." }
+  },
+  "required": ["enabled", "currency"]
+}

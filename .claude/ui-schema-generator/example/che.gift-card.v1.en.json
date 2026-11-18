@@ -1,0 +1,14 @@
+{
+  "#.label": "Gift Card Settings",
+  "#/properties/enabled.label": "Enabled",
+  "#/properties/enabled.description": "Turn gift cards on for this business unit.",
+  "#/properties/currency.label": "Currency",
+  "#/properties/currency.description": "ISO 4217 code.",
+  "#/properties/minAmount.label": "Min Amount",
+  "#/properties/maxAmount.label": "Max Amount",
+  "#/properties/expiry/properties/expires.label": "Expires",
+  "#/properties/expiry/properties/months.label": "Months",
+  "#/properties/terms.label": "Terms",
+  "#/properties/terms.description": "Terms printed on the receipt.",
+  "Expiry": "Expiry"
+}
