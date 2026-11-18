@@ -1,0 +1,36 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/enabled", "label": "Enabled" },
+        { "type": "Control", "scope": "#/properties/currency", "label": "Currency" }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/minAmount", "label": "Min Amount" },
+        { "type": "Control", "scope": "#/properties/maxAmount", "label": "Max Amount" }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Expiry",
+      "elements": [
+        { "type": "Control", "scope": "#/properties/expiry/properties/expires", "label": "Expires" },
+        {
+          "type": "Control",
+          "scope": "#/properties/expiry/properties/months",
+          "label": "Months",
+          "rule": {
+            "effect": "SHOW",
+            "condition": { "scope": "#/properties/expiry/properties/expires", "schema": { "const": true } }
+          }
+        }
+      ]
+    },
+    { "type": "Control", "scope": "#/properties/terms", "label": "Terms", "options": { "multi": true } }
+  ]
+}
