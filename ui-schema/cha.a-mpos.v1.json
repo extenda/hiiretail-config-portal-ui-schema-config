@@ -1,0 +1,413 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Infrastructure",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Checkout Engine Server",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/server/properties/host"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/server/properties/networkCallTimeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Payment Connect",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/connect/properties/provider"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Auto Update",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/autoUpdate/properties/channel"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Log Upload",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/logs/properties/uploadEnabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Hardware & profile",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Peripherals",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Printer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/peripherals/properties/printer/properties/enabled"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Camera scanner",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/peripherals/properties/cameraScanner/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/peripherals/properties/cameraScanner/properties/whitelistedPrompts"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Scan",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Audio",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/peripherals/properties/scan/properties/audio/properties/enabled"
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Success",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Error",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ICD — MPOS (Tablet only)",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/peripherals/properties/icd/properties/enabled"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/trainingModeAvailable"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Branding",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Theme",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Colors",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/colors/properties/primary"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/colors/properties/primaryDark"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/colors/properties/primaryLight"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/colors/properties/secondary"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Font families",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/fontFamilies/properties/heading"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/fontFamilies/properties/default"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/theme/properties/fontFamilies/properties/monospace"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/theme/properties/roundness"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/wallpaperUri"
+        },
+        {
+          "type": "Group",
+          "label": "External Links",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/externalLinks/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/externalLinks/properties/links"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/inAppLinksEnabled"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Receipt",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/clearTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/displayInvalidatedItems"
+            },
+            {
+              "type": "Group",
+              "label": "Layout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/linkedPromotionsIndicatorEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/roundedAmountDue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Sales flow",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Lock",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/lock/properties/timeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transactions",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/auth"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/shortcutsEnabled"
+            },
+            {
+              "type": "Group",
+              "label": "Internal",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/internal/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "External",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Transaction Search Actions",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/refundPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/complaintPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printCopy"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printGiftReceipt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/keyboardOverrides"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "PLU",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/plu/properties/enabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "B 2b customer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/b2bCustomer/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "label": "Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/autoAdvance"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Invoice settlement",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer Order Settings",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/searchEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/cancelAllowed"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/enabled"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

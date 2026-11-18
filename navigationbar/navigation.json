@@ -524,6 +524,128 @@
                     ]
                 }
             ]
+        },
+        {
+            "id": "cha-split-a",
+            "label": "Split proposal A: by device",
+            "type": "group",
+            "order": 16,
+            "children": [
+                {
+                    "id": "cha.a-pos.v1",
+                    "label": "POS",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cha.a-pos.v1"
+                },
+                {
+                    "id": "cha.a-sco.v1",
+                    "label": "Self-checkout",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/cha.a-sco.v1"
+                },
+                {
+                    "id": "cha.a-mpos.v1",
+                    "label": "Mobile POS",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/cha.a-mpos.v1"
+                }
+            ]
+        },
+        {
+            "id": "cha-split-b",
+            "label": "Split proposal B: by topic",
+            "type": "group",
+            "order": 17,
+            "children": [
+                {
+                    "id": "cha.b-infrastructure.v1",
+                    "label": "Infrastructure",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cha.b-infrastructure.v1"
+                },
+                {
+                    "id": "cha.b-profile.v1",
+                    "label": "Hardware & profile",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/cha.b-profile.v1"
+                },
+                {
+                    "id": "cha.b-branding.v1",
+                    "label": "Branding",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/cha.b-branding.v1"
+                },
+                {
+                    "id": "cha.b-receipt.v1",
+                    "label": "Receipt",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/cha.b-receipt.v1"
+                },
+                {
+                    "id": "cha.b-flow.v1",
+                    "label": "Sales flow",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/cha.b-flow.v1"
+                }
+            ]
+        },
+        {
+            "id": "cha-split-c",
+            "label": "Split proposal C: mixed",
+            "type": "group",
+            "order": 18,
+            "children": [
+                {
+                    "id": "cha.c-infrastructure.v1",
+                    "label": "Infrastructure",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cha.c-infrastructure.v1"
+                },
+                {
+                    "id": "cha.c-profile.v1",
+                    "label": "Hardware & profile",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/cha.c-profile.v1"
+                },
+                {
+                    "id": "cha.c-branding.v1",
+                    "label": "Branding",
+                    "type": "kind",
+                    "order": 2,
+                    "path": "/cha.c-branding.v1"
+                },
+                {
+                    "id": "cha.c-pos-flow.v1",
+                    "label": "POS sales flow",
+                    "type": "kind",
+                    "order": 3,
+                    "path": "/cha.c-pos-flow.v1"
+                },
+                {
+                    "id": "cha.c-sco-flow.v1",
+                    "label": "Self-checkout sales flow",
+                    "type": "kind",
+                    "order": 4,
+                    "path": "/cha.c-sco-flow.v1"
+                },
+                {
+                    "id": "cha.c-mpos-flow.v1",
+                    "label": "Mobile POS sales flow",
+                    "type": "kind",
+                    "order": 5,
+                    "path": "/cha.c-mpos-flow.v1"
+                }
+            ]
         }
     ]
 }

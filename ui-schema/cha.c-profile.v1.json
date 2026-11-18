@@ -1,0 +1,441 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Peripherals",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/peripherals/properties/legacy"
+            },
+            {
+              "type": "Group",
+              "label": "Scale",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/autoConnect"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/logicalName"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Scanner 1",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner1/properties/autoConnect"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner1/properties/logicalName"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Scanner 2",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner2/properties/autoConnect"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner2/properties/logicalName"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Scan",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Audio",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/enabled"
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Success",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Error",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Printer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/autoConnect"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/logicalName"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/cashdrawerEnabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/cashdrawerLogicalName"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "System printer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/logicalName"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/timeout"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Cash changer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/cashchanger/properties/enabled"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ICD",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/icd/properties/enabled"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ITAB",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/model"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/host"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/port"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/messageTimeoutMilliseconds"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/responseTimeoutMilliseconds"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/connectionTimeout"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/connectionReconnectTime"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/highestApiVersion"
+                },
+                {
+                  "type": "Group",
+                  "label": "Loss prevention",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lossPrevention/properties/enabled"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Exit gate",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/host"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/port"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Light tower",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lightTower/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lightTower/properties/serialPort"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Line display",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/columns"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/rows"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/thankYou"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/welcome"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/zoomFactor"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/fullscreen"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/kiosk"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/trainingModeAvailable"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Self-checkout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/sco/properties/enabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/sco/properties/hybrid"
+        },
+        {
+          "type": "Group",
+          "label": "Language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/language/properties/availableLanguages"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/language/properties/defaultLanguage"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Attendant",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/attendant/properties/enabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "SSLP",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/sslp/properties/enabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Mobile POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Peripherals",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Printer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/printer/properties/enabled"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Camera scanner",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/whitelistedPrompts"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Scan",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Audio",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/enabled"
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Success",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Group",
+                      "label": "Error",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ICD — MPOS (Tablet only)",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/icd/properties/enabled"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/mpos/properties/trainingModeAvailable"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Customer display",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/customerDisplay/properties/zoomFactor"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/customerDisplay/properties/autoStart"
+        }
+      ]
+    }
+  ]
+}

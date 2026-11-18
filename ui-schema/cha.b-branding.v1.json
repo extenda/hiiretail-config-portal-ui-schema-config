@@ -1,0 +1,185 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Theme",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Colors",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/colors/properties/primary"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/colors/properties/primaryDark"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/colors/properties/primaryLight"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/colors/properties/secondary"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Font families",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/heading"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/default"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/monospace"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/theme/properties/roundness"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/wallpaperUri"
+        },
+        {
+          "type": "Group",
+          "label": "External Links",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/externalLinks/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/externalLinks/properties/links"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/inAppLinksEnabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pos/properties/itemPicturesEnabled"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Self-checkout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/sco/properties/logoUri"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Mobile POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Theme",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Colors",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primary"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primaryDark"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primaryLight"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/colors/properties/secondary"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Font families",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/fontFamilies/properties/heading"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/fontFamilies/properties/default"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/fontFamilies/properties/monospace"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/theme/properties/roundness"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/mpos/properties/wallpaperUri"
+        },
+        {
+          "type": "Group",
+          "label": "External Links",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/externalLinks/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/externalLinks/properties/links"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/mpos/properties/inAppLinksEnabled"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Customer display",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/customerDisplay/properties/welcomeMessage"
+        }
+      ]
+    }
+  ]
+}

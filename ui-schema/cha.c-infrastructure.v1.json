@@ -1,0 +1,181 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Server",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/server/properties/host"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/server/properties/networkCallTimeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Edge",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Offline",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/edge/properties/offline/properties/enabled"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/edge/properties/host"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Payment Connect",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/connect/properties/mode"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Auto update",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/autoUpdate/properties/channel"
+            },
+            {
+              "type": "Group",
+              "label": "Maintenance exclusion",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceExclusion/properties/start"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceExclusion/properties/duration"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Maintenance window",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/days"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/start"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/end"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Log Upload",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/logs/properties/uploadEnabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Self-checkout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/sco/properties/sessionKeepAliveInterval"
+        },
+        {
+          "type": "Group",
+          "label": "Lock",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/lock/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/lock/properties/timeout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Mobile POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Checkout Engine Server",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/server/properties/host"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/server/properties/networkCallTimeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Payment Connect",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/connect/properties/provider"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Auto Update",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/autoUpdate/properties/channel"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Log Upload",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/logs/properties/uploadEnabled"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

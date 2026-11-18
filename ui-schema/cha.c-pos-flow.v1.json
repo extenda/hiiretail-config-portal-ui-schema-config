@@ -1,0 +1,747 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Receipt",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/clearTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/displayInvalidatedItems"
+            },
+            {
+              "type": "Group",
+              "label": "Layout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/linkedPromotionsIndicatorEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/roundedAmountDue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Sales flow",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Authentication",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Operator ID card",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/auth/properties/operatorIdCard/properties/prefix"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/auth/properties/operatorIdCard/properties/suffix"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Lock",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/lock/properties/timeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transactions",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/auth"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/shortcutsEnabled"
+            },
+            {
+              "type": "Group",
+              "label": "Internal",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/internal/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "External",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Transaction Search Actions",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/refundPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/complaintPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printCopy"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printGiftReceipt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompt Input",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/decimalMonetary"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/integerMonetary"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/keyboardOverrides"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "PLU",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/plu/properties/enabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "B 2b customer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/b2bCustomer/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "label": "Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/autoAdvance"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Invoice settlement",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer Order Settings",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/searchEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/cancelAllowed"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/enabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Variant search",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/variantSearch/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "label": "Inventory Settings",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/variantSearch/properties/inventory/properties/showIncomingDeliveries"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Facet search parameters",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Assortment Policy Type",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/assortmentPolicyType/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/assortmentPolicyType/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Assortment Tags",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/assortmentTags/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/assortmentTags/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Brand",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/brand/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/brand/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Business Unit IDs",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/businessUnitIds/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/businessUnitIds/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Deposit & Fee Rule IDs",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/depositAndFeeRuleIds/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/depositAndFeeRuleIds/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Tags",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/tags/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/tags/properties/displayName"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/variantSearch/properties/facetSearchParameters/properties/additionalItemProperties"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Quick Search",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/quickSearch/properties/additionalFilterExpression"
+            },
+            {
+              "type": "Group",
+              "label": "Item Identifier in Quick Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/quickSearch/properties/showItemIdentifier/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/quickSearch/properties/showItemIdentifier/properties/additionalPropertyId"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Keyboard shortcuts",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Key bindings",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Lock",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/lock/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/lock/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/lock/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/lock/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/lock/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Secondary Payment Method",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Primary Payment Method",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open PLU",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Transaction Search",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Embedded Web Browser",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Variant Search",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Rescan",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Item Search",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Open B2B Customer Search",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/addItem"
+                },
+                {
+                  "type": "Group",
+                  "label": "Open Customer Order Search",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch/properties/keyCode"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch/properties/altKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch/properties/ctrlKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch/properties/shiftKey"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch/properties/metaKey"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/keyboardShortcuts/properties/keyBindings/properties/menuCommand"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Fast commands",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Register with quantity",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/keyboardShortcuts/properties/fastCommands/properties/registerWithQuantity/properties/enabled"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "On-screen keyboard",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/osk/properties/visibility"
+            },
+            {
+              "type": "Group",
+              "label": "Suggestions",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/osk/properties/suggestions/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/osk/properties/suggestions/properties/items"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Age verification service (EVA)",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Age verification",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/eva/properties/ageVerification/properties/enabled"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/priceVerificationEnabled"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Customer display",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Loyalty",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/customerDisplay/properties/loyalty/properties/showLoyaltyCard"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
