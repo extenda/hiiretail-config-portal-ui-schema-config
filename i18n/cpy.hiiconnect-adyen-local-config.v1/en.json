@@ -1,0 +1,18 @@
+{
+  "#.label": "Adyen local settings (preview)",
+  "#/properties/environment.label": "Environment",
+  "#/properties/environment.description": "Production is live. Sandbox is Adyen's test system. Mock is the Extenda Retail simulator, so nothing reaches Adyen.",
+  "#/properties/apiKey.label": "API key",
+  "#/properties/apiKey.description": "Used at start-up to point the terminal's status messages at the checkout. Needs the Adyen roles “Terminal settings read and write” and “Terminal advanced settings read and write”; Adyen Support must enable the second. Restart the terminal afterwards. Treat it like a password.",
+  "Live: real cards are charged.": "Live: real cards are charged.",
+  "#/properties/encryptionKeyIdentifier.label": "Key name",
+  "#/properties/encryptionKeyIdentifier.description": "Name of the encryption key shared with Adyen. It must match the key set for the terminals.",
+  "#/properties/encryptionKeyPassphrase.label": "Key passphrase",
+  "#/properties/encryptionKeyPassphrase.description": "At least 12 characters. Treat it like a password.",
+  "#/properties/encryptionKeyVersion.label": "Key version",
+  "#/properties/encryptionKeyVersion.description": "Leave at 1 unless Adyen says otherwise.",
+  "#/properties/receiptLineWidth.label": "Receipt width",
+  "#/properties/receiptLineWidth.description": "Characters per line on the card receipts the checkout prints. Default 42. Match the receipt printer.",
+  "#/properties/webhookPort.label": "Status port",
+  "#/properties/webhookPort.description": "Network port on the checkout where the terminal sends status messages. Four digits, for example 8888. Must be free on the checkout and open in the store network."
+}

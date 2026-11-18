@@ -1,0 +1,58 @@
+{
+  "type": "Control",
+  "scope": "#",
+  "options": {
+    "detail": {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/id",
+              "label": "Entry"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/connector",
+              "label": "Gift card provider"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/ranges",
+          "label": "Card number ranges",
+          "options": {
+            "detail": {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/id",
+                  "label": "Range"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/prefixLow",
+                  "label": "From"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/prefixHigh",
+                  "label": "To"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/panLength",
+                  "label": "Length"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

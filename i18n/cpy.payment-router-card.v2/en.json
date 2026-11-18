@@ -1,0 +1,9 @@
+{
+  "#.label": "Card payments (preview)",
+  "#/properties/connector.label": "Card payment provider",
+  "#/properties/connector.description": "Who takes card payments from a checkout through Hii Connect. A checkout uses one provider at a time. A value set higher up applies to every checkout below it unless a checkout has its own. NONE: no provider. ADYEN_CLOUD: Adyen terminals through Adyen's cloud. NETS_CLOUD: Nets (Nexi). SOFTPAY: Softpay tap to pay. VIVA: Viva. WIPAY: Worldline WIPay. WOTAPI: Worldline Terminal API. Adyen local is chosen on the tender.",
+  "Next: set up Adyen cloud, then its terminals.": "Next: set up Adyen cloud, then its terminals.",
+  "Set up in the Worldline connector app.": "Set up in the Worldline connector app.",
+  "Not on this portal yet. Use the older Hii Connect payment app.": "Not on this portal yet. Use the older Hii Connect payment app.",
+  "No card payments through Hii Connect from here.": "No card payments through Hii Connect from here."
+}

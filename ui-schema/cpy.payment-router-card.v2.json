@@ -1,0 +1,67 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/connector",
+      "label": "Card payment provider"
+    },
+    {
+      "type": "Label",
+      "text": "Next: set up Adyen cloud, then its terminals.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "ADYEN_CLOUD"
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "Set up in the Worldline connector app.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "WOTAPI"
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "Not on this portal yet. Use the older Hii Connect payment app.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "enum": [
+              "NETS_CLOUD",
+              "SOFTPAY",
+              "VIVA",
+              "WIPAY"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Label",
+      "text": "No card payments through Hii Connect from here.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/connector",
+          "schema": {
+            "const": "NONE"
+          }
+        }
+      }
+    }
+  ]
+}
