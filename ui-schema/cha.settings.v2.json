@@ -1,0 +1,1909 @@
+{
+  "type": "Categorization",
+  "x-autoFill": [
+    {
+      "description": "The data schema requires hybrid=false whenever SCO is disabled — enforce it and lock the toggle so the relationship is visible.",
+      "when": {
+        "scope": "#/properties/sco/properties/enabled",
+        "schema": {
+          "const": false
+        }
+      },
+      "set": [
+        {
+          "scope": "#/properties/sco/properties/hybrid",
+          "value": false
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Infra & Connect",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Checkout Engine Server — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/server/properties/host",
+                  "label": "API Host"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/server/properties/networkCallTimeout",
+                  "label": "Network Call Timeout (ms)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/edge/properties/host",
+                  "label": "Edge Host URL"
+                },
+                {
+                  "type": "Group",
+                  "label": "Offline",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/edge/properties/offline/properties/enabled",
+                      "label": "Enabled"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Checkout Engine Server — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/server/properties/host",
+                  "label": "API Host"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/server/properties/networkCallTimeout",
+                  "label": "Network Call Timeout (ms)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Auto Update — POS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/autoUpdate/properties/channel",
+              "label": "Update Channel"
+            },
+            {
+              "type": "Label",
+              "text": "Maintenance Window"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/start",
+                  "label": "Window Start (UTC)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/end",
+                  "label": "Window End (UTC)"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/days",
+              "label": "Maintenance Days"
+            },
+            {
+              "type": "Label",
+              "text": "Maintenance Exclusion"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceExclusion/properties/start",
+                  "label": "Exclusion Start (UTC)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceExclusion/properties/duration",
+                  "label": "Exclusion Duration (days)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Auto Update — MPOS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/autoUpdate/properties/channel",
+              "label": "Update Channel"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Payment Connect — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/connect/properties/mode",
+                  "label": "Connection Mode"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Payment Connect — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/connect/properties/provider",
+                  "label": "Soft Terminal Provider"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Log Upload — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/logs/properties/uploadEnabled",
+                  "label": "Enable Log Upload"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Log Upload — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/logs/properties/uploadEnabled",
+                  "label": "Enable Log Upload"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Session & Lock — SCO",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/sessionKeepAliveInterval",
+                  "label": "Session Keep-Alive Interval (ms)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/lock/properties/enabled",
+                  "label": "Enable Lock Screen"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/lock/properties/timeout",
+                  "label": "Lock Screen Timeout (seconds)",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/lock/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Hardware & Main Application",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "App Window — POS",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/fullscreen",
+                  "label": "Open in Fullscreen"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/kiosk",
+                  "label": "Kiosk Mode (hide settings button)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/zoomFactor",
+                  "label": "Zoom Factor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Mode — SCO",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/enabled",
+                  "label": "Enable SCO Mode"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/hybrid",
+                  "label": "Enable Hybrid Mode",
+                  "rule": {
+                    "effect": "DISABLE",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/enabled",
+                      "schema": {
+                        "const": false
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/attendant/properties/enabled",
+                  "label": "Enable Attendant Feature"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/sslp/properties/enabled",
+                  "label": "Enable SSLP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Language — SCO",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/language/properties/availableLanguages",
+                  "label": "Available Languages (comma-separated)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/language/properties/defaultLanguage",
+                  "label": "Default Language"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Training & Links — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/trainingModeAvailable",
+                  "label": "Training Mode Available"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/inAppLinksEnabled",
+                  "label": "Enable In-App Link Handling"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Training & Links — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/trainingModeAvailable",
+                  "label": "Training Mode Available"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/inAppLinksEnabled",
+                  "label": "Enable In-App Link Handling"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Peripherals — POS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/peripherals/properties/legacy",
+              "label": "Use Legacy MQTT Peripherals"
+            },
+            {
+              "type": "Label",
+              "text": "Scale"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/enabled",
+                  "label": "Enable Scale"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/autoConnect",
+                  "label": "Auto Connect",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/logicalName",
+                  "label": "Logical Name",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/scale/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Scanner 1"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner1/properties/logicalName",
+                  "label": "Logical Name"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner1/properties/autoConnect",
+                  "label": "Auto Connect"
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Scanner 2"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner2/properties/logicalName",
+                  "label": "Logical Name"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scanner2/properties/autoConnect",
+                  "label": "Auto Connect"
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Scan Audio Feedback"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                  "label": "Audio Alerts"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled",
+                  "label": "Success Sound"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled",
+                  "label": "Error Sound"
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Printer & Cash"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/enabled",
+                  "label": "Enable Printer"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/autoConnect",
+                  "label": "Auto Connect"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/logicalName",
+                  "label": "Printer Logical Name"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/cashdrawerEnabled",
+                  "label": "Enable Cash Drawer"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/printer/properties/cashdrawerLogicalName",
+                  "label": "Cash Drawer Logical Name"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/cashchanger/properties/enabled",
+                  "label": "Enable Cash Changer"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "System printer",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/enabled",
+                  "label": "Enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/logicalName",
+                  "label": "Logical name"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/timeout",
+                  "label": "Timeout"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ITAB",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/enabled",
+                  "label": "Enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/model",
+                  "label": "Model"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/host",
+                  "label": "Host"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/port",
+                  "label": "Port"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/messageTimeoutMilliseconds",
+                  "label": "Message timeout milliseconds"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/responseTimeoutMilliseconds",
+                  "label": "Response timeout milliseconds"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/connectionTimeout",
+                  "label": "Connection timeout"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/connectionReconnectTime",
+                  "label": "Connection reconnect time"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/highestApiVersion",
+                  "label": "Highest API version"
+                },
+                {
+                  "type": "Group",
+                  "label": "Loss prevention",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lossPrevention/properties/enabled",
+                      "label": "Enabled"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Exit gate",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/enabled",
+                      "label": "Enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/host",
+                      "label": "Host"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/exitGate/properties/port",
+                      "label": "Port"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Light tower",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lightTower/properties/enabled",
+                      "label": "Enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/peripherals/properties/itab/properties/lightTower/properties/serialPort",
+                      "label": "Serial port"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Line display",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/enabled",
+                  "label": "Enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/columns",
+                  "label": "Columns"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/rows",
+                  "label": "Rows"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/thankYou",
+                  "label": "Thank you"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay/properties/welcome",
+                  "label": "Welcome"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Peripherals — MPOS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/peripherals/properties/printer/properties/enabled",
+              "label": "Enable Printing"
+            },
+            {
+              "type": "Label",
+              "text": "Scan Audio Feedback"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                  "label": "Audio Alerts"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled",
+                  "label": "Success Sound"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled",
+                  "label": "Error Sound"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Camera scanner",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/enabled",
+                  "label": "Enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/whitelistedPrompts",
+                  "label": "Whitelisted prompts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Display — CFD",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/cfd/properties/autoStart",
+                  "label": "Auto-Start Display"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/cfd/properties/zoomFactor",
+                  "label": "Zoom Factor"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/cfd/properties/loyalty/properties/showLoyaltyCard",
+                  "label": "Show Loyalty Card"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "ICD Integration",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "ICD — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/icd/properties/enabled",
+                  "label": "Enable ICD Integration"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "ICD — MPOS (Tablet only)",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/peripherals/properties/icd/properties/enabled",
+                  "label": "Enable ICD Integration"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Brand Experience",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Wallpaper — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/wallpaperUri",
+                  "label": "Wallpaper Image URI"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Wallpaper — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/wallpaperUri",
+                  "label": "Wallpaper Image URI"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Logo — SCO",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/logoUri",
+                  "label": "Logo Image URI"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Welcome Message — CFD",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/cfd/properties/welcomeMessage",
+              "label": "Welcome Message"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Item Pictures — POS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/itemPicturesEnabled",
+              "label": "Show Item Pictures"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "External Links — POS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/externalLinks/properties/enabled",
+                  "label": "Enable External Links"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/externalLinks/properties/links",
+                  "label": "Links",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/externalLinks/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "External Links — MPOS",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/externalLinks/properties/enabled",
+                  "label": "Enable External Links"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/externalLinks/properties/links",
+                  "label": "Links",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/mpos/properties/externalLinks/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Theming",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Theme — MPOS",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Colors",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primary",
+                      "label": "Primary"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primaryDark",
+                      "label": "Primary dark"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/mpos/properties/theme/properties/colors/properties/primaryLight",
+                      "label": "Primary light"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/mpos/properties/theme/properties/colors/properties/secondary",
+                      "label": "Secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/theme/properties/roundness",
+                  "label": "Roundness"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Theme — POS",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Colors",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/colors/properties/primary",
+                      "label": "Primary"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/colors/properties/primaryDark",
+                      "label": "Primary dark"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/colors/properties/primaryLight",
+                      "label": "Primary light"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/colors/properties/secondary",
+                      "label": "Secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Font families",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/heading",
+                      "label": "Heading"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/default",
+                      "label": "Default"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/pos/properties/theme/properties/fontFamilies/properties/monospace",
+                      "label": "Monospace"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/theme/properties/roundness",
+                  "label": "Roundness"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Business Flow — POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/clearTimeout",
+                  "label": "Clear Timeout (ms)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/roundedAmountDue",
+                  "label": "Show Rounded Amount Due"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/displayInvalidatedItems",
+                  "label": "Show Voided Items"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/linkedPromotionsIndicatorEnabled",
+                  "label": "Show Linked Promotion Indicators"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/layout/properties/identifierType",
+              "label": "Item Identifier Type"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/layout/properties/visibleAttributes",
+              "label": "Visible Item Attributes"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer Orders",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/customerOrder",
+              "label": "Customer Order Settings"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "B2B Customer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/b2bCustomer/properties/enabled",
+              "label": "Enable B2B Customer"
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled",
+                  "label": "Enable Invoice Settlement"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId",
+                  "label": "Invoice Virtual Item ID"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/search/properties/autoAdvance",
+                  "label": "Auto advance"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers",
+                  "label": "Include inactive customers"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Operator Login & Lock",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/auth/properties/operatorIdCard/properties/prefix",
+                  "label": "Operator Card ID Prefix"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/auth/properties/operatorIdCard/properties/suffix",
+                  "label": "Operator Card ID Suffix"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/lock/properties/timeout",
+                  "label": "Auto-Lock Timeout (seconds)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transactions",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/transactions/properties/auth",
+                  "label": "Authorization Provider"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/transactions/properties/shortcutsEnabled",
+                  "label": "Enable Transaction Search Shortcut"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/transactions/properties/internal/properties/pattern",
+              "label": "Internal Order Number Pattern"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/transactions/properties/external/properties/enabled",
+                  "label": "Detect External Order Numbers"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/transactions/properties/external/properties/pattern",
+                  "label": "External Order Number Pattern",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/transactions/properties/external/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/transactions/properties/actions",
+              "label": "Transaction Search Actions"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Variant Search",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/enabled",
+                  "label": "Enable Variant Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/inventory",
+                  "label": "Inventory Settings"
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Facet Search Filters"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/assortmentPolicyType",
+                  "label": "Assortment Policy Type"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/assortmentTags",
+                  "label": "Assortment Tags"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/brand",
+                  "label": "Brand"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/additionalItemProperties",
+              "label": "Facet Search Additional properties"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/businessUnitIds",
+                  "label": "Business Unit IDs"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/depositAndFeeRuleIds",
+                  "label": "Deposit & Fee Rule IDs"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/tags",
+                  "label": "Tags"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Quick Search",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/quickSearch/properties/showItemIdentifier",
+              "label": "Item Identifier in Quick Search"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/quickSearch/properties/additionalFilterExpression",
+              "label": "Additional filter expression"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompt Input",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/prompt/properties/decimalMonetary",
+                  "label": "Decimal Monetary Input"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/prompt/properties/integerMonetary",
+                  "label": "Integer-Only Monetary Input"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/prompt/properties/keyboardOverrides",
+              "label": "Keyboard overrides"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Keyboard Shortcuts",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/lock",
+                  "label": "Lock"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/primaryPaymentMethod",
+                  "label": "Primary Payment Method"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/secondaryPaymentMethod",
+                  "label": "Secondary Payment Method"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/menuCommand",
+              "label": "Menu command"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/addItem",
+              "label": "Add item"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openPLU",
+                  "label": "Open PLU"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openTransactionsSearch",
+                  "label": "Open Transaction Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openWebBrowser",
+                  "label": "Open Embedded Web Browser"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openVariantSearch",
+                  "label": "Open Variant Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openRescans",
+                  "label": "Open Rescan"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openItemSearch",
+                  "label": "Open Item Search"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openB2BCustomerSearch",
+                  "label": "Open B2B Customer Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/keyboardShortcuts/properties/keyBindings/properties/openCustomerOrderSearch",
+                  "label": "Open Customer Order Search"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/keyboardShortcuts/properties/fastCommands/properties/registerWithQuantity/properties/enabled",
+              "label": "Enable Register-With-Quantity Fast Command"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "On-Screen Keyboard",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/osk/properties/visibility",
+              "label": "Keyboard Visibility"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/osk/properties/suggestions/properties/enabled",
+              "label": "Enable Word Suggestions"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/osk/properties/suggestions/properties/items",
+              "label": "Suggestion Items"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Feature Toggles",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/plu/properties/enabled",
+                  "label": "Enable PLU"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/priceVerificationEnabled",
+                  "label": "Enable Price Verification"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/eva/properties/ageVerification/properties/enabled",
+                  "label": "Enable Age Verification"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Business Flow — SCO",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/receipt/properties/layout/properties/identifierType",
+              "label": "Item Identifier Type"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/receipt/properties/layout/properties/visibleAttributes",
+              "label": "Visible Item Attributes"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Bags & PLU",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/bags/properties/enabled",
+                  "label": "Enable Bag Selection Screen"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/plu/properties/enabled",
+                  "label": "Enable PLU"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/plu/properties/shortcutsEnabled",
+                  "label": "Enable PLU Shortcuts"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/bags/properties/items",
+              "label": "Bags"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "General",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/manualSearchEnabled",
+                  "label": "Enable Manual Barcode Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/callAssistantEnabled",
+                  "label": "Enable Call Assistant"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/decreaseEnabled",
+                  "label": "Allow Quantity Decrease"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/spotCheckEnabled",
+                  "label": "Show Spot Check Message"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Schedule",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/schedule/properties/logoutTimeout",
+              "label": "Logout Timeout (minutes)"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/schedule/properties/days",
+              "label": "Opening hours per day"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompts",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/prompt/properties/whitelistedPrompts",
+              "label": "Whitelisted Prompts"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/prompt/properties/keyboardOverrides",
+              "label": "Keyboard overrides"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Loyalty",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/enabled",
+                  "label": "Enable Loyalty Card"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/countryCodePrefix",
+                  "label": "Card Country Code Prefix"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/loyalty/properties/cardReminderEnabled",
+              "label": "Enable Card Reminder Dialog"
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderEnabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderTriggers/properties/startTrip",
+                  "label": "Trigger at Trip Start"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderTriggers/properties/startPayment",
+                  "label": "Trigger at Payment Start"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderEnabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderMediaContent/properties/type",
+                  "label": "Reminder Media Type"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/cardReminderMediaContent/properties/sourceUrl",
+                  "label": "Reminder Media Source URL"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/qrCode/properties/enabled",
+                  "label": "Enable Loyalty QR Info"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/loyalty/properties/qrCode/properties/data",
+                  "label": "QR Code Data URL",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/loyalty/properties/qrCode/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "SSLP Rescan Rules",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/sslp/properties/rescan/properties/indicateScanStatus",
+                  "label": "Indicate Scan Status"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/sslp/properties/rescan/properties/clearBasketOnSwitch",
+                  "label": "Clear Basket on Switch to Full Rescan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Payment menu settings — SCO",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/sco/properties/paymentMenuSettings",
+              "label": "Payment menu settings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Business Flow — MPOS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/clearTimeout",
+                  "label": "Clear Timeout (ms)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/roundedAmountDue",
+                  "label": "Show Rounded Amount Due"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/displayInvalidatedItems",
+                  "label": "Show Voided Items"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/linkedPromotionsIndicatorEnabled",
+                  "label": "Show Linked Promotion Indicators"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/layout/properties/identifierType",
+              "label": "Item Identifier Type"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/layout/properties/visibleAttributes",
+              "label": "Visible Item Attributes"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer Orders",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/customerOrder",
+              "label": "Customer Order Settings"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "B2B Customer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/b2bCustomer/properties/enabled",
+              "label": "Enable B2B Customer"
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled",
+                  "label": "Enable Invoice Settlement"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId",
+                  "label": "Invoice Virtual Item ID"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/search/properties/autoAdvance",
+                  "label": "Auto advance"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers",
+                  "label": "Include inactive customers"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Lock & PLU",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/lock/properties/timeout",
+                  "label": "Auto-Lock Timeout (seconds)"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/plu/properties/enabled",
+                  "label": "Enable PLU"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transactions",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/transactions/properties/auth",
+                  "label": "Authorization Provider"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/transactions/properties/shortcutsEnabled",
+                  "label": "Enable Transaction Search Shortcut"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/transactions/properties/internal/properties/pattern",
+              "label": "Internal Order Number Pattern"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/transactions/properties/external/properties/enabled",
+                  "label": "Detect External Order Numbers"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/transactions/properties/external/properties/pattern",
+                  "label": "External Order Number Pattern",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/mpos/properties/transactions/properties/external/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/transactions/properties/actions",
+              "label": "Transaction Search Actions"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompt — MPOS",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/prompt/properties/keyboardOverrides",
+              "label": "Keyboard overrides"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -51,10 +51,17 @@
                     "path": "/cha.settings.v1"
                 },
                 {
+                    "id": "cha.settings.v2",
+                    "label": "Settings v2",
+                    "type": "kind",
+                    "order": 1,
+                    "path": "/cha.settings.v2"
+                },
+                {
                     "id": "cha.pos-layout.preview",
                     "label": "POS buttons and layout (preview)",
                     "type": "kind",
-                    "order": 1,
+                    "order": 2,
                     "path": "/cha.pos-layout.preview"
                 }
             ]
@@ -599,7 +606,7 @@
         },
         {
             "id": "cha-split-c",
-            "label": "Split proposal C: mixed",
+            "label": "Split proposal C: mixed (HRP-727)",
             "type": "group",
             "order": 18,
             "children": [
