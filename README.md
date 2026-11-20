@@ -26,6 +26,12 @@ An `app` item shows only when configuration-portal (hiiretail-frontend) has an a
 { "id": "pos-config", "label": "POS config", "type": "app", "appId": "pos-config", "order": 0, "permissions": ["ccc.configuration.get"] }
 ```
 
+A `kind` or `group` item can have an optional `rule` that greys out (`DISABLE`, the default) or removes (`HIDE`) the item when a field of another kind, resolved at the level selected in the target finder, is not one of the allowed values. The effect names are the same as in UI schema rules. `field` is a dot path into the resolved value, and `in` lists the allowed values. The children of a group follow the group. While the value is loading, or when it can't be read, the item stays enabled. The sidebar follows the saved value, not unsaved edits in an open form. Configuration-portal (hiiretail-frontend) applies rules; until it supports them, they are ignored.
+
+```json
+{ "id": "cpy-adyen-cloud", "label": "Adyen cloud", "type": "group", "order": 1, "children": [], "rule": { "effect": "DISABLE", "condition": { "kind": "cpy.payment-router-card.v2", "field": "connector", "in": ["ADYEN_CLOUD"] } } }
+```
+
 ### `i18n`
 
 Contains internationalization (i18n) message files for different languages. Each file provides translated strings used throughout the portal, enabling multi-language support for end users.

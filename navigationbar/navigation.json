@@ -425,7 +425,17 @@
                             "order": 1,
                             "path": "/cpy.hps-adyen-cloud-config-workstation.v1"
                         }
-                    ]
+                    ],
+                    "rule": {
+                        "effect": "DISABLE",
+                        "condition": {
+                            "kind": "cpy.payment-router-card.v2",
+                            "field": "connector",
+                            "in": [
+                                "ADYEN_CLOUD"
+                            ]
+                        }
+                    }
                 },
                 {
                     "id": "cpy-adyen-local",
