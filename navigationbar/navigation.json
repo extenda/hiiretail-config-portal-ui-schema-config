@@ -393,10 +393,79 @@
             ]
         },
         {
+            "id": "cpy-card-payments",
+            "label": "Card payments (preview)",
+            "type": "group",
+            "order": 13,
+            "children": [
+                {
+                    "id": "cpy.payment-router-card.v2",
+                    "label": "Routing",
+                    "type": "kind",
+                    "order": 0,
+                    "path": "/cpy.payment-router-card.v2"
+                },
+                {
+                    "id": "cpy-adyen-cloud",
+                    "label": "Adyen cloud",
+                    "type": "group",
+                    "order": 1,
+                    "children": [
+                        {
+                            "id": "cpy.hps-adyen-cloud-config.v1",
+                            "label": "Settings",
+                            "type": "kind",
+                            "order": 0,
+                            "path": "/cpy.hps-adyen-cloud-config.v1"
+                        },
+                        {
+                            "id": "cpy.hps-adyen-cloud-config-workstation.v1",
+                            "label": "Terminals",
+                            "type": "kind",
+                            "order": 1,
+                            "path": "/cpy.hps-adyen-cloud-config-workstation.v1"
+                        }
+                    ],
+                    "rule": {
+                        "effect": "DISABLE",
+                        "condition": {
+                            "kind": "cpy.payment-router-card.v2",
+                            "field": "connector",
+                            "in": [
+                                "ADYEN_CLOUD"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "cpy-adyen-local",
+                    "label": "Adyen local",
+                    "type": "group",
+                    "order": 2,
+                    "children": [
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config.v1",
+                            "label": "Settings",
+                            "type": "kind",
+                            "order": 0,
+                            "path": "/cpy.hiiconnect-adyen-local-config.v1"
+                        },
+                        {
+                            "id": "cpy.hiiconnect-adyen-local-config-workstation.v1",
+                            "label": "Terminals",
+                            "type": "kind",
+                            "order": 1,
+                            "path": "/cpy.hiiconnect-adyen-local-config-workstation.v1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": "integrations",
             "label": "Integrations",
             "type": "group",
-            "order": 13,
+            "order": 14,
             "children": [
                 {
                     "id": "integrations-external-events-event-sources",
@@ -495,7 +564,7 @@
             "id": "demand",
             "label": "Demand",
             "type": "group",
-            "order": 14,
+            "order": 15,
             "children": [
                 {
                     "id": "dmd.demand-calculation.v1",
@@ -510,7 +579,7 @@
             "id": "erpos",
             "label": "ERPOS",
             "type": "group",
-            "order": 15,
+            "order": 16,
             "children": [
                 {
                     "id": "pos-config",
