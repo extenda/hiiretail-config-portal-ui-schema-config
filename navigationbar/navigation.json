@@ -362,10 +362,21 @@
                     "path": "/localization-language-override"
                 },
                 {
+                    "id": "currencies",
+                    "label": "Currencies",
+                    "type": "app",
+                    "appId": "currencies",
+                    "order": 1,
+                    "icon": "settings",
+                    "permissions": [
+                        "ccc.configuration.get"
+                    ]
+                },
+                {
                     "id": "localization-behavior-and-conditions",
                     "label": "Behavior & conditions",
                     "type": "kind",
-                    "order": 1,
+                    "order": 2,
                     "path": "/localization-behavior-and-conditions"
                 }
             ]
