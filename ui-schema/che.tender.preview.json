@@ -2,6 +2,7 @@
   "type": "ListWithDetail",
   "scope": "#",
   "options": {
+    "elementLabelProp": "name",
     "detail": {
       "type": "Categorization",
       "elements": [

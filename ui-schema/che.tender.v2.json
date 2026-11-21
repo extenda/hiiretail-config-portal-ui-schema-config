@@ -159,6 +159,7 @@
   ],
 
   "options": {
+    "elementLabelProp": "name",
     "detail": {
       "type": "Categorization",
       "elements": [
