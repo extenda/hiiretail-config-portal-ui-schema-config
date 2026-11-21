@@ -8,6 +8,16 @@ This repository contains configuration files used by the HiiRetail Config Portal
 
 Contains JSON Forms configuration files that define the UI schema and data schema for dynamic form rendering. These files control the structure, layout, and validation rules of forms across the portal.
 
+Portal options for secrets and optional sections (any kind, no portal code per kind):
+
+| Option | Where | Effect |
+|---|---|---|
+| `"mask": true` | `Control` | The value is shown as dots, also in the review and data preview dialogs. Fields with `writeOnly: true` or `format: "password"` in the kind schema are masked without it; `"mask": false` turns that off. Use the option when `format` is already taken (e.g. `uuid`). |
+| `"editGuard": true` | `Control` | Once the field has a saved value it is read-only, with an Edit button (Cancel puts the value back). On by default for masked fields; `"editGuard": false` turns it off. A masked field starts empty when edited and keeps the saved secret until something is typed. |
+| `"enableSwitch": { "scope": "#/properties/<object>" }` | `Group` | A "use / don't use" switch in the group heading for an optional object (not in its parent's `required`). Off hides the fields and removes the object, so its required fields only apply when it is on. Turning it on prefills the object's schema defaults. Locked on when the value is set at a higher level. |
+
+The portal also removes an optional object whose fields were all cleared, and prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
+
 ### `navigationbar`
 
 Contains JSON configuration files that define the structure and items of the navigation bar. This allows the navigation menu to be customized and managed without code changes.

@@ -12,7 +12,10 @@
         {
           "type": "Control",
           "scope": "#/properties/apiKey",
-          "label": "API key"
+          "label": "API key",
+          "options": {
+            "mask": true
+          }
         }
       ]
     },
@@ -40,7 +43,10 @@
         {
           "type": "Control",
           "scope": "#/properties/encryptionKeyPassphrase",
-          "label": "Key passphrase"
+          "label": "Key passphrase",
+          "options": {
+            "mask": true
+          }
         },
         {
           "type": "Control",

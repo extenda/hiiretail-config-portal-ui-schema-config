@@ -12,7 +12,10 @@
         {
           "type": "Control",
           "scope": "#/properties/apiKey",
-          "label": "API key"
+          "label": "API key",
+          "options": {
+            "mask": true
+          }
         }
       ]
     },
@@ -49,7 +52,10 @@
             {
               "type": "Control",
               "scope": "#/properties/webhook/properties/password",
-              "label": "Password"
+              "label": "Password",
+              "options": {
+                "mask": true
+              }
             }
           ]
         }
@@ -59,7 +65,10 @@
       "type": "Group",
       "label": "Tap to Pay (optional)",
       "options": {
-        "defaultExpanded": false
+        "defaultExpanded": false,
+        "enableSwitch": {
+          "scope": "#/properties/softpos"
+        }
       },
       "elements": [
         {
@@ -78,7 +87,10 @@
             {
               "type": "Control",
               "scope": "#/properties/softpos/properties/softposApiKey",
-              "label": "Tap to Pay API key"
+              "label": "Tap to Pay API key",
+              "options": {
+                "mask": true
+              }
             }
           ]
         },
@@ -101,7 +113,10 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/softpos/properties/encryption/properties/keyPassphrase",
-                  "label": "Key passphrase"
+                  "label": "Key passphrase",
+                  "options": {
+                    "mask": true
+                  }
                 },
                 {
                   "type": "Control",
