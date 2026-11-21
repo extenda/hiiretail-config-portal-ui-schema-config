@@ -14,6 +14,7 @@ Portal options for secrets (any kind, no portal code per kind):
 |---|---|---|
 | `"mask": true` | `Control` | The value is shown as dots, also in the review and data preview dialogs. Fields with `writeOnly: true` or `format: "password"` in the kind schema are masked without it; `"mask": false` turns that off. Use the option when `format` is already taken (e.g. `uuid`). |
 | `"viewable": true` | `Control` | Adds an eye button to a masked field so the user can show the value. Without it a masked field stays dots. |
+| `"elementLabelProp": "name"` or `["name", "code"]` | array `Control`, `ListWithDetail` | Titles each item with that item property (dot paths allowed; with a list, the first non-empty one). Items without a value keep the default title, e.g. "Terminals 2". |
 | `"editGuard": true` | `Control` | Once the field has a saved value it is read-only, with an Edit button (Cancel puts the value back). On by default for masked fields; `"editGuard": false` turns it off. A masked field starts empty when edited and keeps the saved secret until something is typed. |
 
 An optional object (not in its parent's `required`) is either all empty or complete: when all its fields are cleared it is saved with empty strings and shows no errors; once one field has a value, its mandatory fields apply. The portal also prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
