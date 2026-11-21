@@ -65,10 +65,7 @@
       "type": "Group",
       "label": "Tap to Pay (optional)",
       "options": {
-        "defaultExpanded": false,
-        "enableSwitch": {
-          "scope": "#/properties/softpos"
-        }
+        "defaultExpanded": false
       },
       "elements": [
         {

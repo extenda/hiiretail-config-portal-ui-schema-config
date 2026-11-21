@@ -105,20 +105,7 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
       errors.push(`${here}: rule.effect "${el.rule.effect}" is not SHOW/HIDE/ENABLE/DISABLE`);
     }
   }
-  // Group "use / don't use" switch: the scope must be an optional object of the schema.
-  const sw = el.options?.enableSwitch;
-  if (sw !== undefined) {
-    const target = checkScope(ctx, sw?.scope, `${here} options.enableSwitch`);
-    if (target && target.type !== 'object') {
-      errors.push(`${here}: options.enableSwitch.scope "${sw.scope}" must point to an object`);
-    }
-    const m = typeof sw?.scope === 'string' ? sw.scope.match(/^(.*)\/properties\/([^/]+)$/) : null;
-    const parent = m ? resolve(ctx, m[1] || '#') : undefined;
-    if (target && parent && branches(parent).some((p) => (p.required ?? []).includes(m[2]))) {
-      errors.push(`${here}: options.enableSwitch.scope "${sw.scope}" is required, so it cannot be switched off`);
-    }
-  }
-  for (const flag of ['mask', 'editGuard']) {
+  for (const flag of ['mask', 'editGuard', 'viewable']) {
     if (el.options?.[flag] !== undefined && typeof el.options[flag] !== 'boolean') {
       errors.push(`${here}: options.${flag} must be true or false`);
     }
