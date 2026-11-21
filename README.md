@@ -16,7 +16,7 @@ Portal options for secrets (any kind, no portal code per kind):
 | `"viewable": true` | `Control` | Adds an eye button to a masked field so the user can show the value. Without it a masked field stays dots. |
 | `"editGuard": true` | `Control` | Once the field has a saved value it is read-only, with an Edit button (Cancel puts the value back). On by default for masked fields; `"editGuard": false` turns it off. A masked field starts empty when edited and keeps the saved secret until something is typed. |
 
-The portal also removes an optional object whose fields were all cleared (saved as `null` when it had a value), and prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
+An optional object (not in its parent's `required`) is either all empty or complete: when all its fields are cleared it is saved with empty strings and shows no errors; once one field has a value, its mandatory fields apply. The portal also prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
 
 ### `navigationbar`
 
