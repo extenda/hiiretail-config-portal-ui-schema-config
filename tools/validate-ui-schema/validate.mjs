@@ -125,6 +125,36 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
     }
     return;
   }
+  if (el.type === 'ListWithDetail' || el.type === 'TreeWithDetail') {
+    const scope = el.scope ?? '#';
+    const node = checkScope(ctx, scope, here);
+    covered.add(`${ctxId}|${scope}`);
+    if (el.options?.detail && node) {
+      const detailCtx = node.type === 'array' ? deref(node.items) : node;
+      walk(el.options.detail, detailCtx, `${here}.detail`, `${ctxId}>${scope}`, new Set());
+    }
+    if (el.type === 'TreeWithDetail' && Array.isArray(el.options?.nodeTypes) && node) {
+      const rootItemCtx = node.type === 'array' ? deref(node.items) : node;
+      const childrenProp = el.options.childrenProp ?? 'content';
+      const childArrSchema = rootItemCtx ? child(rootItemCtx, childrenProp) : undefined;
+      const childItemCtx = childArrSchema?.type === 'array' ? deref(childArrSchema.items) : undefined;
+      for (const [idx, nt] of el.options.nodeTypes.entries()) {
+        if (!nt?.detail) continue;
+        let ntCtx = rootItemCtx;
+        if (nt.role !== 'root' && childItemCtx) {
+          ntCtx = childItemCtx;
+          if (nt.discriminator) {
+            const matched = branches(childItemCtx).find(
+              (b) => deref(b.properties?.[nt.discriminator.field])?.const === nt.discriminator.value,
+            );
+            if (matched) ntCtx = matched;
+          }
+        }
+        walk(nt.detail, ntCtx, `${here}.nodeTypes[${idx}].detail`, `${ctxId}>${scope}#nt${idx}`, new Set());
+      }
+    }
+    return;
+  }
   for (const [i, c] of (el.elements ?? []).entries()) walk(c, ctx, `${here}[${i}]`, ctxId, seenControls);
 };
 
@@ -165,13 +195,26 @@ if (i18n) {
   const titles = [];
   const collect = (el) => {
     if (!el || typeof el !== 'object') return;
-    if ((el.type === 'Category' || el.type === 'Group') && el.label) titles.push(el.label);
-    if (el.type === 'Label' && el.text) titles.push(el.text);
+    if (el.type === 'Category' || el.type === 'Group') {
+      titles.push(el.i18n ? `${el.i18n}.label` : el.label);
+    }
+    if (el.type === 'Label') {
+      titles.push(el.i18n ? `${el.i18n}.text` : el.text);
+    }
+    if (el.type === 'Control' && el.i18n) titles.push(`${el.i18n}.label`);
     (el.elements ?? []).forEach(collect);
     if (el.options?.detail) collect(el.options.detail);
+    if (Array.isArray(el.options?.nodeTypes)) {
+      el.options.nodeTypes.forEach((nt) => {
+        if (nt?.label) titles.push(nt.label);
+        if (nt?.detail) collect(nt.detail);
+      });
+    }
   };
   collect(ui);
-  for (const t of titles) if (!(t in i18n)) warnings.push(`i18n: missing raw-text key "${t}"`);
+  for (const t of titles) {
+    if (t && !(t in i18n)) warnings.push(`i18n: missing raw-text key "${t}"`);
+  }
 }
 
 for (const e of errors) console.log(`ERROR   ${e}`);
