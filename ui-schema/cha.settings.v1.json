@@ -20,7 +20,7 @@
   "elements": [
     {
       "type": "Category",
-      "label": "Infrastructure & Connectivity",
+      "label": "Infra & Connect",
       "elements": [
         {
           "type": "HorizontalLayout",

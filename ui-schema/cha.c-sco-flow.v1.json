@@ -1,0 +1,203 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Receipt",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Receipt",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Sales flow",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "SSLP",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "SSLP Rescan Rules",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sslp/properties/rescan/properties/indicateScanStatus"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sslp/properties/rescan/properties/clearBasketOnSwitch"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Schedule",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/schedule/properties/logoutTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/schedule/properties/days"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Bags",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/bags/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/bags/properties/items"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Item details",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/itemDetails/properties/voidItemEnabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompts",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/keyboardOverrides"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/whitelistedPrompts"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "PLU",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/plu/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/plu/properties/shortcutsEnabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Loyalty",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/loyalty/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/loyalty/properties/countryCodePrefix"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/loyalty/properties/cardReminderEnabled"
+            },
+            {
+              "type": "Group",
+              "label": "Card reminder triggers",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/cardReminderTriggers/properties/startTrip"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/cardReminderTriggers/properties/startPayment"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Card reminder media content",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/cardReminderMediaContent/properties/type"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/cardReminderMediaContent/properties/sourceUrl"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "QR code",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/qrCode/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/loyalty/properties/qrCode/properties/data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/manualSearchEnabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/callAssistantEnabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/decreaseEnabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/spotCheckEnabled"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/paymentMenuSettings"
+        }
+      ]
+    }
+  ]
+}

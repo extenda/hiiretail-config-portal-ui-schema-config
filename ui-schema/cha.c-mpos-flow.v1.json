@@ -1,0 +1,199 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Receipt",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/clearTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/displayInvalidatedItems"
+            },
+            {
+              "type": "Group",
+              "label": "Layout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/linkedPromotionsIndicatorEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/receipt/properties/roundedAmountDue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Sales flow",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Lock",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/lock/properties/timeout"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Transactions",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/auth"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/transactions/properties/shortcutsEnabled"
+            },
+            {
+              "type": "Group",
+              "label": "Internal",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/internal/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "External",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/external/properties/pattern"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Transaction Search Actions",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/refundPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/complaintPreviousOrder"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printCopy"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/transactions/properties/actions/properties/printGiftReceipt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Prompt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/prompt/properties/keyboardOverrides"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "PLU",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/plu/properties/enabled"
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "B 2b customer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/b2bCustomer/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "label": "Search",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/autoAdvance"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers"
+                }
+              ]
+            },
+            {
+              "type": "Group",
+              "label": "Invoice settlement",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Customer Order Settings",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/searchEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/cancelAllowed"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/customerOrder/properties/enabled"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

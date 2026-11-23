@@ -1,0 +1,115 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/clearTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/displayInvalidatedItems"
+            },
+            {
+              "type": "Group",
+              "label": "Layout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/linkedPromotionsIndicatorEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/receipt/properties/roundedAmountDue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Self-checkout",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Group",
+              "label": "Receipt",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/sco/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Mobile POS",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Receipt",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/clearTimeout"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/displayInvalidatedItems"
+            },
+            {
+              "type": "Group",
+              "label": "Layout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/layout/properties/identifierType"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/receipt/properties/layout/properties/visibleAttributes"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/linkedPromotionsIndicatorEnabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/receipt/properties/roundedAmountDue"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
