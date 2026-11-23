@@ -1,0 +1,130 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/apiKey",
+          "label": "API key",
+          "options": {
+            "mask": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "Live: real cards are charged.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/environment",
+          "schema": {
+            "const": "PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "type": "Group",
+      "label": "Webhook",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/url",
+              "label": "Webhook ID"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/username",
+              "label": "Username"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/password",
+              "label": "Password",
+              "options": {
+                "mask": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Tap to Pay (optional)",
+      "options": {
+        "defaultExpanded": false
+      },
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/merchantId",
+              "label": "Merchant account"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/storeId",
+              "label": "Store ID"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/softposApiKey",
+              "label": "Tap to Pay API key",
+              "options": {
+                "mask": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Encryption key",
+          "elements": [
+            {
+              "type": "Label",
+              "text": "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area."
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/softpos/properties/encryption/properties/keyIdentifier",
+                  "label": "Key identifier"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/softpos/properties/encryption/properties/keyPassphrase",
+                  "label": "Key passphrase",
+                  "options": {
+                    "mask": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/softpos/properties/encryption/properties/keyVersion",
+                  "label": "Key version"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

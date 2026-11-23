@@ -8,6 +8,17 @@ This repository contains configuration files used by the HiiRetail Config Portal
 
 Contains JSON Forms configuration files that define the UI schema and data schema for dynamic form rendering. These files control the structure, layout, and validation rules of forms across the portal.
 
+Portal options for secrets (any kind, no portal code per kind):
+
+| Option | Where | Effect |
+|---|---|---|
+| `"mask": true` | `Control` | The value is shown as dots, also in the review and data preview dialogs. Fields with `writeOnly: true` or `format: "password"` in the kind schema are masked without it; `"mask": false` turns that off. Use the option when `format` is already taken (e.g. `uuid`). |
+| `"viewable": true` | `Control` | Adds an eye button to a masked field so the user can show the value. Without it a masked field stays dots. |
+| `"elementLabelProp": "name"` or `["name", "code"]` | array `Control`, `ListWithDetail` | Titles each item with that item property (dot paths allowed; with a list, the first non-empty one). Items without a value keep the default title, e.g. "Terminals 2". |
+| `"editGuard": true` | `Control` | Once the field has a saved value it is read-only, with an Edit button (Cancel puts the value back). On by default for masked fields; `"editGuard": false` turns it off. A masked field starts empty when edited and keeps the saved secret until something is typed. |
+
+An optional object (not in its parent's `required`) is either all empty or complete: when all its fields are cleared it is saved with empty strings and shows no errors; once one field has a value, its mandatory fields apply. The portal also prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
+
 ### `navigationbar`
 
 Contains JSON configuration files that define the structure and items of the navigation bar. This allows the navigation menu to be customized and managed without code changes.
@@ -24,6 +35,12 @@ An `app` item shows only when configuration-portal (hiiretail-frontend) has an a
 
 ```json
 { "id": "pos-config", "label": "POS config", "type": "app", "appId": "pos-config", "order": 0, "permissions": ["ccc.configuration.get"] }
+```
+
+A `kind` or `group` item can have an optional `rule` that greys out (`DISABLE`, the default) or removes (`HIDE`) the item when a field of another kind, resolved at the level selected in the target finder, is not one of the allowed values. The effect names are the same as in UI schema rules. `field` is a dot path into the resolved value, and `in` lists the allowed values. The children of a group follow the group. While the value is loading, or when it can't be read, the item stays enabled. The sidebar follows the saved value, not unsaved edits in an open form. Configuration-portal (hiiretail-frontend) applies rules; until it supports them, they are ignored.
+
+```json
+{ "id": "cpy-adyen-cloud", "label": "Adyen cloud", "type": "group", "order": 1, "children": [], "rule": { "effect": "DISABLE", "condition": { "kind": "cpy.payment-router-card.v2", "field": "connector", "in": ["ADYEN_CLOUD"] } } }
 ```
 
 ### `i18n`

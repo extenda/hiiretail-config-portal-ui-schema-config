@@ -1,0 +1,7 @@
+{
+  "#.label": "Adyen local terminals (preview)",
+  "#/properties/terminalId.label": "Terminal ID",
+  "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789. Each checkout has its own terminal, so set this on one checkout. A value set higher up applies to every checkout below it.",
+  "#/properties/terminalIpAddress.label": "IP address",
+  "#/properties/terminalIpAddress.description": "The terminal's address on the store network, for example 192.168.1.100. Give it a fixed address so the checkout always finds it."
+}

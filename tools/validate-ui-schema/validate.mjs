@@ -105,6 +105,18 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
       errors.push(`${here}: rule.effect "${el.rule.effect}" is not SHOW/HIDE/ENABLE/DISABLE`);
     }
   }
+  const elp = el.options?.elementLabelProp;
+  if (elp !== undefined) {
+    const paths = Array.isArray(elp) ? elp : [elp];
+    if (paths.length === 0 || paths.some((p) => typeof p !== 'string' || p.trim() === '')) {
+      errors.push(`${here}: options.elementLabelProp must be a property path or a list of them`);
+    }
+  }
+  for (const flag of ['mask', 'editGuard', 'viewable']) {
+    if (el.options?.[flag] !== undefined && typeof el.options[flag] !== 'boolean') {
+      errors.push(`${here}: options.${flag} must be true or false`);
+    }
+  }
   if (el.type === 'Control') {
     const node = checkScope(ctx, el.scope, here);
     const key = `${ctxId}|${el.scope}`;
