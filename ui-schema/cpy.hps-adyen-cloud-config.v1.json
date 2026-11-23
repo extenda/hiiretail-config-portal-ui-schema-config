@@ -1,0 +1,109 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/environment",
+          "label": "Environment"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/apiKey",
+          "label": "API key"
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "Live: real cards are charged.",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/environment",
+          "schema": {
+            "const": "PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "type": "Group",
+      "label": "Webhook",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/url",
+              "label": "Webhook ID"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/username",
+              "label": "Username"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/webhook/properties/password",
+              "label": "Password"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Tap to Pay (optional)",
+      "elements": [
+        {
+          "type": "Label",
+          "text": "Leave empty if you do not use Tap to Pay."
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/merchantId",
+              "label": "Merchant account"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/storeId",
+              "label": "Store ID"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/softposApiKey",
+              "label": "Tap to Pay API key"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyIdentifier",
+              "label": "Key name"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyPassphrase",
+              "label": "Key passphrase"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/softpos/properties/encryption/properties/keyVersion",
+              "label": "Key version"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
