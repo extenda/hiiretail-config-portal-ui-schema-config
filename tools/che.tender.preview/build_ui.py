@@ -154,8 +154,8 @@ def change_fields():
         text(CHANGE_DESCRIPTION),
         text("A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the "
              "tenders saved for this target: save a new tender before choosing it here. Choose an "
-             "enabled tender, not loyalty points, that allows refunds, has no minimum amounts and does not have 'No "
-             "Split Payment' on."),
+             "enabled tender, not loyalty points or an integrated mobile payment, that allows refunds, has no minimum "
+             "amounts and does not have 'No Split Payment' on."),
         control(CHANGE + "tenderId",
                 **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
                               "type.kind")),
