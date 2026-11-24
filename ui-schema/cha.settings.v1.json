@@ -43,6 +43,11 @@
                   "type": "Control",
                   "scope": "#/properties/pos/properties/edge/properties/host",
                   "label": "Edge Host URL"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/edge/properties/offline",
+                  "label": "Offline Mode"
                 }
               ]
             },
@@ -83,12 +88,18 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/start",
-                  "label": "Window Start (UTC)"
+                  "label": "Window Start (UTC)",
+                  "options": {
+                    "format": "time"
+                  }
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceWindow/properties/end",
-                  "label": "Window End (UTC)"
+                  "label": "Window End (UTC)",
+                  "options": {
+                    "format": "time"
+                  }
                 }
               ]
             },
@@ -107,7 +118,10 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/autoUpdate/properties/maintenanceExclusion/properties/start",
-                  "label": "Exclusion Start (UTC)"
+                  "label": "Exclusion Start (UTC)",
+                  "options": {
+                    "saveFormat": "iso-utc"
+                  }
                 },
                 {
                   "type": "Control",
@@ -434,12 +448,30 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled",
-                  "label": "Success Sound"
+                  "label": "Success Sound",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled",
-                  "label": "Error Sound"
+                  "label": "Error Sound",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ]
             },
@@ -486,6 +518,58 @@
                   "label": "Enable Cash Changer"
                 }
               ]
+            },
+            {
+              "type": "Label",
+              "text": "System Printer"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/enabled",
+                  "label": "Enable System Printer"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/logicalName",
+                  "label": "System Printer Device Name",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/timeout",
+                  "label": "System Printer Timeout (ms)",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/peripherals/properties/systemPrinter/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/peripherals/properties/lineDisplay",
+              "label": "Line Display"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/peripherals/properties/itab",
+              "label": "ITAB Integration"
             }
           ]
         },
@@ -497,6 +581,31 @@
               "type": "Control",
               "scope": "#/properties/mpos/properties/peripherals/properties/printer/properties/enabled",
               "label": "Enable Printing"
+            },
+            {
+              "type": "Label",
+              "text": "Camera Scanner"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/enabled",
+              "label": "Enable Camera Scanning"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/whitelistedPrompts",
+              "label": "Whitelisted Prompts",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/mpos/properties/peripherals/properties/cameraScanner/properties/enabled",
+                  "schema": {
+                    "not": {
+                      "const": false
+                    }
+                  }
+                }
+              }
             },
             {
               "type": "Label",
@@ -513,12 +622,30 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/success/properties/enabled",
-                  "label": "Success Sound"
+                  "label": "Success Sound",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/error/properties/enabled",
-                  "label": "Error Sound"
+                  "label": "Error Sound",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/mpos/properties/peripherals/properties/scan/properties/audio/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -806,7 +933,40 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId",
-                  "label": "Invoice Virtual Item ID"
+                  "label": "Invoice Virtual Item ID",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/search/properties/autoAdvance",
+                  "label": "Auto-Advance Customer Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/pos/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers",
+                  "label": "Include Inactive Customers"
                 }
               ]
             }
@@ -908,13 +1068,31 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/pos/properties/variantSearch/properties/inventory",
-                  "label": "Inventory Settings"
+                  "label": "Inventory Settings",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/pos/properties/variantSearch/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ]
             },
             {
               "type": "Label",
-              "text": "Facet Search Filters"
+              "text": "Facet Search Filters",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/variantSearch/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
             },
             {
               "type": "HorizontalLayout",
@@ -934,7 +1112,16 @@
                   "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/brand",
                   "label": "Brand"
                 }
-              ]
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/variantSearch/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
             },
             {
               "type": "HorizontalLayout",
@@ -954,7 +1141,16 @@
                   "scope": "#/properties/pos/properties/variantSearch/properties/facetSearchParameters/properties/tags",
                   "label": "Tags"
                 }
-              ]
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/variantSearch/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
             }
           ]
         },
@@ -966,6 +1162,11 @@
               "type": "Control",
               "scope": "#/properties/pos/properties/quickSearch/properties/showItemIdentifier",
               "label": "Item Identifier in Quick Search"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pos/properties/quickSearch/properties/additionalFilterExpression",
+              "label": "Additional Filter Expression (KQL)"
             }
           ]
         },
@@ -1093,7 +1294,16 @@
             {
               "type": "Control",
               "scope": "#/properties/pos/properties/osk/properties/suggestions/properties/items",
-              "label": "Suggestion Items"
+              "label": "Suggestion Items",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/pos/properties/osk/properties/suggestions/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              }
             }
           ]
         },
@@ -1165,7 +1375,16 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/sco/properties/plu/properties/shortcutsEnabled",
-                  "label": "Enable PLU Shortcuts"
+                  "label": "Enable PLU Shortcuts",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/plu/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -1341,12 +1560,30 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/sco/properties/sslp/properties/rescan/properties/indicateScanStatus",
-                  "label": "Indicate Scan Status"
+                  "label": "Indicate Scan Status",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/sslp/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 },
                 {
                   "type": "Control",
                   "scope": "#/properties/sco/properties/sslp/properties/rescan/properties/clearBasketOnSwitch",
-                  "label": "Clear Basket on Switch to Full Rescan"
+                  "label": "Clear Basket on Switch to Full Rescan",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/sco/properties/sslp/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -1444,7 +1681,40 @@
                 {
                   "type": "Control",
                   "scope": "#/properties/mpos/properties/b2bCustomer/properties/invoiceSettlement/properties/itemId",
-                  "label": "Invoice Virtual Item ID"
+                  "label": "Invoice Virtual Item ID",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/mpos/properties/b2bCustomer/properties/invoiceSettlement/properties/enabled",
+                      "schema": {
+                        "const": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/enabled",
+                  "schema": {
+                    "const": true
+                  }
+                }
+              },
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/search/properties/autoAdvance",
+                  "label": "Auto-Advance Customer Search"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/mpos/properties/b2bCustomer/properties/search/properties/includeInactiveCustomers",
+                  "label": "Include Inactive Customers"
                 }
               ]
             }
