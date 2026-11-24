@@ -107,19 +107,31 @@
                       "elements": [
                         {
                           "type": "Control",
-                          "scope": "#/properties/applicationTypes/properties/DEFAULT"
+                          "scope": "#/properties/applicationTypes/properties/DEFAULT",
+                          "options": {
+                            "checkbox": true
+                          }
                         },
                         {
                           "type": "Control",
-                          "scope": "#/properties/applicationTypes/properties/MOBILE_POS"
+                          "scope": "#/properties/applicationTypes/properties/MOBILE_POS",
+                          "options": {
+                            "checkbox": true
+                          }
                         },
                         {
                           "type": "Control",
-                          "scope": "#/properties/applicationTypes/properties/SELF_CHECKOUT"
+                          "scope": "#/properties/applicationTypes/properties/SELF_CHECKOUT",
+                          "options": {
+                            "checkbox": true
+                          }
                         },
                         {
                           "type": "Control",
-                          "scope": "#/properties/applicationTypes/properties/SELF_CHECKOUT_ATTENDANT"
+                          "scope": "#/properties/applicationTypes/properties/SELF_CHECKOUT_ATTENDANT",
+                          "options": {
+                            "checkbox": true
+                          }
                         }
                       ]
                     }
