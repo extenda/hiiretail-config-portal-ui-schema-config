@@ -256,8 +256,8 @@ detail = {"type": "Categorization", "elements": [
                             show_if=condition(ROUNDING + "method", {"enum": ROUNDING_METHODS_WITH_UNIT}))]),
     ]),
     category("Advanced", [
-        text("Extra attributes are only for settings support asks you to add. Everything the other tabs offer must "
-             "be set there, not here."),
+        text("Extra attributes are only for settings support asks you to add, and for 'giftCardProductCode' on "
+             "a separate gift card refund tender. Everything the other tabs offer must be set there, not here."),
         control("#/properties/extraAttributes"),
     ]),
 ]}

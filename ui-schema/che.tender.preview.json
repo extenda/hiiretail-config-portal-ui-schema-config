@@ -555,7 +555,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Extra attributes are only for settings support asks you to add. Everything the other tabs offer must be set there, not here."
+              "text": "Extra attributes are only for settings support asks you to add, and for 'giftCardProductCode' on a separate gift card refund tender. Everything the other tabs offer must be set there, not here."
             },
             {
               "type": "Control",
