@@ -103,7 +103,7 @@
                       ]
                     },
                     {
-                      "type": "HorizontalLayout",
+                      "type": "VerticalLayout",
                       "elements": [
                         {
                           "type": "Control",
