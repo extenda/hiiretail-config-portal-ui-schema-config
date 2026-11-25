@@ -261,7 +261,7 @@ detail = {"type": "Categorization", "elements": [
         control("#/properties/extraAttributes"),
     ]),
 ]}
-ui_schema = {"type": "ListWithDetail", "scope": "#", "options": {"detail": detail}}
+ui_schema = {"type": "ListWithDetail", "scope": "#", "options": {"elementLabelProp": "name", "detail": detail}}
 
 
 # ---------- Check the form against the schema ----------
