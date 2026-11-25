@@ -59,23 +59,11 @@
                       }
                     },
                     {
-                      "type": "HorizontalLayout",
-                      "elements": [
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/numberOfColumns",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        },
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/deleted",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        }
-                      ]
+                      "type": "Control",
+                      "scope": "#/properties/numberOfColumns",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -190,25 +178,12 @@
                       }
                     },
                     {
-                      "type": "HorizontalLayout",
-                      "elements": [
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/sequenceNumber",
-                          "i18n": "menuGroupSequenceNumber",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        },
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/deleted",
-                          "i18n": "menuGroupDeleted",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        }
-                      ]
+                      "type": "Control",
+                      "scope": "#/properties/sequenceNumber",
+                      "i18n": "menuGroupSequenceNumber",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },
@@ -292,25 +267,12 @@
                       }
                     },
                     {
-                      "type": "HorizontalLayout",
-                      "elements": [
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/sequenceNumber",
-                          "i18n": "menuItemSequenceNumber",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        },
-                        {
-                          "type": "Control",
-                          "scope": "#/properties/deleted",
-                          "i18n": "menuItemDeleted",
-                          "options": {
-                            "showUnfocusedDescription": true
-                          }
-                        }
-                      ]
+                      "type": "Control",
+                      "scope": "#/properties/sequenceNumber",
+                      "i18n": "menuItemSequenceNumber",
+                      "options": {
+                        "showUnfocusedDescription": true
+                      }
                     }
                   ]
                 },

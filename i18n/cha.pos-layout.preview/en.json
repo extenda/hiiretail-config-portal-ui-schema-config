@@ -5,8 +5,6 @@
   "#/properties/menuTrees.description": "Menu lists available to the Checkout App. Each list is a hierarchy of groups and items.",
   "#/properties/menuTrees/items/properties/id.label": "Menu list id",
   "#/properties/menuTrees/items/properties/id.description": "A unique identifier for the Menu.",
-  "#/properties/menuTrees/items/properties/deleted.label": "Menu list deleted",
-  "#/properties/menuTrees/items/properties/deleted.description": "If true, this Menu list will not be available",
   "#/properties/menuTrees/items/properties/name.label": "Menu list name",
   "#/properties/menuTrees/items/properties/name.description": "The Menu list title",
   "#/properties/menuTrees/items/properties/description.label": "Menu list description",
@@ -52,8 +50,6 @@
   "menuGroupDescription.description": "The Menu group description",
   "menuGroupSequenceNumber.label": "Menu group sequence number",
   "menuGroupSequenceNumber.description": "A sequence number to sort items.",
-  "menuGroupDeleted.label": "Menu group deleted",
-  "menuGroupDeleted.description": "If true, this Menu group will not be available",
   "menuGroupIcon.label": "Menu group icon",
   "menuGroupIcon.description": "The icon URI. Inapplicable to root groups.",
   "menuItemName.label": "Menu item name",
@@ -68,8 +64,6 @@
   "menuItemColor.description": "The background color of the button",
   "menuGroupColor.label": "Color",
   "menuGroupColor.description": "The background color of the button",
-  "menuItemDeleted.label": "Menu item deleted",
-  "menuItemDeleted.description": "If true, this Menu item will not be available",
   "menuItemIcon.label": "Menu item icon",
   "menuItemIcon.description": "The icon URI."
 }
