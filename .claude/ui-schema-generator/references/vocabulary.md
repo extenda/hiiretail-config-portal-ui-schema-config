@@ -3,7 +3,7 @@
 Only emit what is listed here and in the other references.
 
 ## Elements
-`Categorization` (root tabs) > `Category` (needs `label`) > `Group` (titled section, `label`) > `HorizontalLayout` / `VerticalLayout` > `Control` (`scope`, `label`). `Label` uses `text`, not `label`. `ListWithDetail` takes `options.detail`.
+`Categorization` (root tabs) > `Category` (needs `label`) > `Group` (titled section, `label`) > `HorizontalLayout` / `VerticalLayout` > `Control` (`scope`, `label`). `Label` uses `text`, not `label`. `ListWithDetail` takes `options.detail`. `TreeWithDetail` renders a VS Code-style recursive tree sidebar + right detail inspector for hierarchical arrays (`options`: `childrenProp`, `labelProp`, optional `idProp`, and `nodeTypes[]` with `role: "root"` or `discriminator: { field, value }`, `label`, `canHaveChildren`, `icon`, `defaults`, `detail`).
 `Categorization` is valid only at the form root or the root of a root-Control `options.detail`; never nest it.
 
 ## Layout choice (object root, first match wins)
