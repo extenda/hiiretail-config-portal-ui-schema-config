@@ -141,11 +141,16 @@ def shown_when_all(element, *conditions):
     return element
 
 
-def enum_source(url, label_key, secondary_label_key=None):
+def enum_source(url, label_key, secondary_label_key=None, columns=None):
     source = {"type": "request", "request": {"url": url},
               "response": {"itemsPath": "value", "valueKey": "id", "labelKey": label_key}}
+    display = {}
     if secondary_label_key:
-        source["display"] = {"secondaryLabelKey": secondary_label_key}
+        display["secondaryLabelKey"] = secondary_label_key
+    if columns:
+        display["columns"] = [{"key": key, "label": label} for key, label in columns]
+    if display:
+        source["display"] = display
     return {"options": {"enumSource": source}}
 
 
@@ -154,11 +159,11 @@ def change_fields():
         text(CHANGE_DESCRIPTION),
         text("A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the "
              "tenders saved for this target: save a new tender before choosing it here. Choose an "
-             "enabled tender, not loyalty points, that allows refunds, has no minimum amounts and does not have 'No "
-             "Split Payment' on."),
+             "enabled tender, neither loyalty points nor a mobile payment whose connection is INTEGRATED, that allows refunds, has no minimum "
+             "amounts and does not have 'No Split Payment' on."),
         control(CHANGE + "tenderId",
                 **enum_source("{api:ccc-api}/api/v1/config/che.tender.preview/values/{target.path}", "name",
-                              "type.kind")),
+                              "type.kind", columns=[("type.integration", "Connection")])),
         horizontal([control(CHANGE + "threshold"), control(CHANGE + "autoCompleteLimit")]),
     ])
 
@@ -251,8 +256,8 @@ detail = {"type": "Categorization", "elements": [
                             show_if=condition(ROUNDING + "method", {"enum": ROUNDING_METHODS_WITH_UNIT}))]),
     ]),
     category("Advanced", [
-        text("Extra attributes are only for settings support asks you to add. Everything the other tabs offer must "
-             "be set there, not here."),
+        text("Extra attributes are only for settings support asks you to add, and for 'giftCardProductCode' on "
+             "a separate gift card refund tender. Everything the other tabs offer must be set there, not here."),
         control("#/properties/extraAttributes"),
     ]),
 ]}

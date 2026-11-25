@@ -322,7 +322,7 @@
                 },
                 {
                   "type": "Label",
-                  "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, not loyalty points, that allows refunds, has no minimum amounts and does not have 'No Split Payment' on."
+                  "text": "A saved amount here cannot be cleared yet: Save is then refused. The change tender list shows the tenders saved for this target: save a new tender before choosing it here. Choose an enabled tender, neither loyalty points nor a mobile payment whose connection is INTEGRATED, that allows refunds, has no minimum amounts and does not have 'No Split Payment' on."
                 },
                 {
                   "type": "Control",
@@ -339,7 +339,13 @@
                         "labelKey": "name"
                       },
                       "display": {
-                        "secondaryLabelKey": "type.kind"
+                        "secondaryLabelKey": "type.kind",
+                        "columns": [
+                          {
+                            "key": "type.integration",
+                            "label": "Connection"
+                          }
+                        ]
                       }
                     }
                   }
@@ -550,7 +556,7 @@
           "elements": [
             {
               "type": "Label",
-              "text": "Extra attributes are only for settings support asks you to add. Everything the other tabs offer must be set there, not here."
+              "text": "Extra attributes are only for settings support asks you to add, and for 'giftCardProductCode' on a separate gift card refund tender. Everything the other tabs offer must be set there, not here."
             },
             {
               "type": "Control",
