@@ -722,6 +722,21 @@
                     "path": "/cha.c-mpos-flow.v1"
                 }
             ]
+        },
+        {
+            "id": "ecs-entity-conditions",
+            "label": "Entity conditions",
+            "type": "group",
+            "order": 19,
+            "children": [
+                {
+                    "id": "entity-conditions",
+                    "label": "Entity conditions",
+                    "type": "app",
+                    "appId": "entity-conditions",
+                    "order": 0
+                }
+            ]
         }
     ]
 }
