@@ -475,94 +475,105 @@
             "order": 14,
             "children": [
                 {
+                    "id": "integrations-worldline",
+                    "label": "Worldline",
+                    "type": "app",
+                    "appId": "worldline",
+                    "order": 0,
+                    "icon": "settings",
+                    "permissions": [
+                        "ccc.configuration.get"
+                    ]
+                },
+                {
                     "id": "integrations-external-events-event-sources",
                     "label": "External Events – Event Sources",
                     "type": "kind",
-                    "order": 0,
+                    "order": 1,
                     "path": "/integrations-external-events-event-sources"
                 },
                 {
                     "id": "integrations-external-events-webhooks",
                     "label": "External Events – Webhooks",
                     "type": "kind",
-                    "order": 1,
+                    "order": 2,
                     "path": "/integrations-external-events-webhooks"
                 },
                 {
                     "id": "integrations-external-events-playground",
                     "label": "External Events – Playground",
                     "type": "kind",
-                    "order": 2,
+                    "order": 3,
                     "path": "/integrations-external-events-playground"
                 },
                 {
                     "id": "integrations-external-events-event-journal",
                     "label": "External Events – Event Journal",
                     "type": "kind",
-                    "order": 3,
+                    "order": 4,
                     "path": "/integrations-external-events-event-journal"
                 },
                 {
                     "id": "integrations-identity-providers",
                     "label": "Identity Providers",
                     "type": "kind",
-                    "order": 4,
+                    "order": 5,
                     "path": "/integrations-identity-providers"
                 },
                 {
                     "id": "integrations-hii-connect-eft",
                     "label": "Hii Connect – EFT",
                     "type": "kind",
-                    "order": 5,
+                    "order": 6,
                     "path": "/integrations-hii-connect-eft"
                 },
                 {
                     "id": "integrations-hii-connect-giftcard",
                     "label": "Hii Connect – Giftcard",
                     "type": "kind",
-                    "order": 6,
+                    "order": 7,
                     "path": "/integrations-hii-connect-giftcard"
                 },
                 {
                     "id": "integrations-hii-connect-mobile",
                     "label": "Hii Connect – Mobile",
                     "type": "kind",
-                    "order": 7,
+                    "order": 8,
                     "path": "/integrations-hii-connect-mobile"
                 },
                 {
                     "id": "integrations-hii-connect-loyalty",
                     "label": "Hii Connect – Loyalty",
                     "type": "kind",
-                    "order": 8,
+                    "order": 9,
                     "path": "/integrations-hii-connect-loyalty"
                 },
                 {
                     "id": "integrations-ocms-clients",
                     "label": "OCMS – Clients",
                     "type": "kind",
-                    "order": 9,
+                    "order": 10,
                     "path": "/integrations-ocms-clients"
                 },
                 {
                     "id": "integrations-ocms-templates",
                     "label": "OCMS – Templates",
                     "type": "kind",
-                    "order": 10,
+                    "order": 11,
                     "path": "/integrations-ocms-templates"
                 },
                 {
                     "id": "integrations-ocms-statements",
                     "label": "OCMS – Statements",
                     "type": "kind",
-                    "order": 11,
+                    "order": 12,
                     "path": "/integrations-ocms-statements"
                 },
                 {
                     "id": "svi.omnium-oms-connector-config.v3",
                     "label": "OMS – Omnium",
                     "type": "kind",
-                    "order": 12,
+                    "order": 13,
                     "path": "/svi.omnium-oms-connector-config.v3"
                 }
             ]
