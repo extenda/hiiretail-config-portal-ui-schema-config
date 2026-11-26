@@ -476,7 +476,7 @@
             "children": [
                 {
                     "id": "integrations-worldline",
-                    "label": "Worldline",
+                    "label": "Worldline Connector",
                     "type": "app",
                     "appId": "worldline",
                     "order": 0,
