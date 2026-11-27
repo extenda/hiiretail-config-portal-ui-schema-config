@@ -112,7 +112,7 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
       errors.push(`${here}: options.elementLabelProp must be a property path or a list of them`);
     }
   }
-  for (const flag of ['mask', 'editGuard', 'viewable']) {
+  for (const flag of ['mask', 'editGuard', 'viewable', 'deletable']) {
     if (el.options?.[flag] !== undefined && typeof el.options[flag] !== 'boolean') {
       errors.push(`${here}: options.${flag} must be true or false`);
     }

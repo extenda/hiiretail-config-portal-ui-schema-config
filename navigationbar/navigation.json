@@ -407,7 +407,7 @@
             "children": [
                 {
                     "id": "cpy.payment-router-card.v2",
-                    "label": "Routing",
+                    "label": "Connector selection",
                     "type": "kind",
                     "order": 0,
                     "path": "/cpy.payment-router-card.v2"
@@ -430,7 +430,8 @@
                             "label": "Terminals",
                             "type": "kind",
                             "order": 1,
-                            "path": "/cpy.hps-adyen-cloud-config-workstation.v1"
+                            "path": "/cpy.hps-adyen-cloud-config-workstation.v1",
+                            "allowedLevels": ["workstation"]
                         }
                     ],
                     "rule": {
@@ -462,7 +463,8 @@
                             "label": "Terminals",
                             "type": "kind",
                             "order": 1,
-                            "path": "/cpy.hiiconnect-adyen-local-config-workstation.v1"
+                            "path": "/cpy.hiiconnect-adyen-local-config-workstation.v1",
+                            "allowedLevels": ["workstation"]
                         }
                     ]
                 }
