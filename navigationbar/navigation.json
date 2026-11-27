@@ -401,7 +401,7 @@
         },
         {
             "id": "cpy-card-payments",
-            "label": "Card payments (preview)",
+            "label": "Card payments",
             "type": "group",
             "order": 13,
             "children": [
