@@ -1,5 +1,5 @@
 {
-  "#.label": "Adyen local settings (preview)",
+  "#.label": "Adyen local settings",
   "#/properties/environment.label": "Environment",
   "#/properties/environment.description": "Production is live. Sandbox is Adyen's test system. Mock is the Extenda Retail simulator, so nothing reaches Adyen.",
   "#/properties/apiKey.label": "API key",

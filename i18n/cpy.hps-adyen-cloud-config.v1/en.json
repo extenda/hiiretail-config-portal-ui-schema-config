@@ -1,5 +1,5 @@
 {
-  "#.label": "Adyen cloud settings (preview)",
+  "#.label": "Adyen cloud settings",
   "#/properties/environment.label": "Environment",
   "#/properties/environment.description": "Production is live. Sandbox is Adyen's test system. Mock is the Extenda Retail simulator, so nothing reaches Adyen.",
   "#/properties/apiKey.label": "API key",

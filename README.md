@@ -16,6 +16,8 @@ Portal options for secrets (any kind, no portal code per kind):
 | `"viewable": true` | `Control` | Adds an eye button to a masked field so the user can show the value. Without it a masked field stays dots. |
 | `"elementLabelProp": "name"` or `["name", "code"]` | array `Control`, `ListWithDetail` | Titles each item with that item property (dot paths allowed; with a list, the first non-empty one). Items without a value keep the default title, e.g. "Terminals 2". |
 | `"editGuard": true` | `Control` | Once the field has a saved value it is read-only, with an Edit button (Cancel puts the value back). On by default for masked fields; `"editGuard": false` turns it off. A masked field starts empty when edited and keeps the saved secret until something is typed. |
+| `"enumTenants": { "MOCK": ["testrunner", "harrows"] }` | enum `Control` | Offers that enum value only on the listed tenants (the first label of the host name). Elsewhere the value is hidden, and a saved hidden value fails validation, so it can't be submitted. |
+| `"deletable": true` | `Group` with a `scope` pointing to an optional object | Adds a delete button to the group header when the object has a value at the selected level. After a confirm, the save sends `{ "<prop>": { "__ccc_deleted": true } }`, which removes the object at that level. |
 
 An optional object (not in its parent's `required`) is either all empty or complete: when all its fields are cleared it is saved with empty strings and shows no errors; once one field has a value, its mandatory fields apply. The portal also prefills fields that have a schema `default` when no value is set. `tools/validate-ui-schema` checks these options.
 
@@ -38,6 +40,8 @@ An `app` item shows only when configuration-portal (hiiretail-frontend) has an a
 ```
 
 A `kind` or `group` item can have an optional `rule` that greys out (`DISABLE`, the default) or removes (`HIDE`) the item when a field of another kind, resolved at the level selected in the target finder, is not one of the allowed values. The effect names are the same as in UI schema rules. `field` is a dot path into the resolved value, and `in` lists the allowed values. The children of a group follow the group. While the value is loading, or when it can't be read, the item stays enabled. The sidebar follows the saved value, not unsaved edits in an open form. Configuration-portal (hiiretail-frontend) applies rules; until it supports them, they are ignored.
+
+A `kind` or `group` item can also have `allowedLevels` (currently only `["workstation"]`). At any other level selected in the target finder the item is greyed out, its page shows why, and Submit is blocked.
 
 ```json
 { "id": "cpy-adyen-cloud", "label": "Adyen cloud", "type": "group", "order": 1, "children": [], "rule": { "effect": "DISABLE", "condition": { "kind": "cpy.payment-router-card.v2", "field": "connector", "in": ["ADYEN_CLOUD"] } } }
