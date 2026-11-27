@@ -1,5 +1,5 @@
 {
-  "#.label": "Adyen cloud-terminaler (förhandsvisning)",
+  "#.label": "Adyen cloud-terminaler",
   "#/properties/terminalId.label": "Unikt terminal-ID / Installations-ID",
   "#/properties/terminalId.description": "Adyens ID för terminalen i den här kassan, till exempel e285p-123456789. Varje kassa har sin egen terminal, så ställ in detta på en kassa. Ett värde högre upp gäller alla kassor under.",
   "#/properties/transactionRouting.label": "Betalningsväg",

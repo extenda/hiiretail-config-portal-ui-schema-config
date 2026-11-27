@@ -7,7 +7,10 @@
         {
           "type": "Control",
           "scope": "#/properties/environment",
-          "label": "Environment"
+          "label": "Environment",
+          "options": {
+            "enumTenants": { "MOCK": ["testrunner", "harrows"] }
+          }
         },
         {
           "type": "Control",
@@ -93,8 +96,10 @@
     {
       "type": "Group",
       "label": "Tap to Pay (optional)",
+      "scope": "#/properties/softpos",
       "options": {
-        "defaultExpanded": false
+        "defaultExpanded": false,
+        "deletable": true
       },
       "elements": [
         {

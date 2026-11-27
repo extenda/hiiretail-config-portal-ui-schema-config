@@ -1,5 +1,5 @@
 {
-  "#.label": "Adyen cloud terminals (preview)",
+  "#.label": "Adyen cloud terminals",
   "#/properties/terminalId.label": "Unique terminal ID / Installation ID",
   "#/properties/terminalId.description": "Adyen's ID for the terminal at this checkout, for example e285p-123456789. Each checkout has its own terminal, so set this on one checkout. A value set higher up applies to every checkout below it.",
   "#/properties/transactionRouting.label": "Payment route",
