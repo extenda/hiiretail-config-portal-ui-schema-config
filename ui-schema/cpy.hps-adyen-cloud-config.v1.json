@@ -40,6 +40,9 @@
           "type": "Action",
           "action": "generateValues",
           "label": "Generate webhook credentials",
+          "options": {
+            "placement": "header"
+          },
           "params": {
             "title": "Webhook credentials",
             "fields": [

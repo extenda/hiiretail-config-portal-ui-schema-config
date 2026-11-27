@@ -119,6 +119,10 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
   }
   if (el.type === 'Action') {
     if (typeof el.action !== 'string' || el.action === '') errors.push(`${here}: Action needs an "action" id (string)`);
+    const placement = el.options?.placement;
+    if (placement !== undefined && placement !== 'header') {
+      errors.push(`${here}: Action options.placement must be "header" (or omitted for inline)`);
+    }
     if (el.params === null || typeof el.params !== 'object' || Array.isArray(el.params)) {
       errors.push(`${here}: Action needs "params" (object)`);
     } else {
