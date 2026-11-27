@@ -37,6 +37,33 @@
       "label": "Webhook",
       "elements": [
         {
+          "type": "Action",
+          "action": "generateValues",
+          "label": "Generate webhook credentials",
+          "params": {
+            "title": "Webhook credentials",
+            "fields": [
+              {
+                "scope": "#/properties/webhook/properties/url",
+                "label": "Webhook URL",
+                "generator": "uuid",
+                "displayPrefix": "https://adyen-connector.retailsvc.com/api/v1/webhook/"
+              },
+              {
+                "scope": "#/properties/webhook/properties/username",
+                "label": "Username",
+                "generator": "uuid"
+              },
+              {
+                "scope": "#/properties/webhook/properties/password",
+                "label": "Password",
+                "generator": "uuid"
+              }
+            ],
+            "note": "Copy the username and password to Adyen's web portal."
+          }
+        },
+        {
           "type": "HorizontalLayout",
           "elements": [
             {

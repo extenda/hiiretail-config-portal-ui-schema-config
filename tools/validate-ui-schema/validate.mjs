@@ -117,6 +117,18 @@ const walk = (el, ctx, path, ctxId, seenControls) => {
       errors.push(`${here}: options.${flag} must be true or false`);
     }
   }
+  if (el.type === 'Action') {
+    if (typeof el.action !== 'string' || el.action === '') errors.push(`${here}: Action needs an "action" id (string)`);
+    if (el.params === null || typeof el.params !== 'object' || Array.isArray(el.params)) {
+      errors.push(`${here}: Action needs "params" (object)`);
+    } else {
+      for (const [i, f] of (el.params.fields ?? []).entries()) {
+        checkScope(ctx, f?.scope, `${here} params.fields[${i}]`);
+        covered.add(`${ctxId}|${f?.scope}`);
+      }
+    }
+    return;
+  }
   if (el.type === 'Control') {
     const node = checkScope(ctx, el.scope, here);
     const key = `${ctxId}|${el.scope}`;
@@ -179,6 +191,11 @@ if (i18n) {
     if (!el || typeof el !== 'object') return;
     if ((el.type === 'Category' || el.type === 'Group') && el.label) titles.push(el.label);
     if (el.type === 'Label' && el.text) titles.push(el.text);
+    if (el.type === 'Action') {
+      if (el.label) titles.push(el.label);
+      const { title, note, fields } = el.params ?? {};
+      for (const t of [title, note, ...(fields ?? []).map((f) => f?.label)]) if (typeof t === 'string') titles.push(t);
+    }
     (el.elements ?? []).forEach(collect);
     if (el.options?.detail) collect(el.options.detail);
   };

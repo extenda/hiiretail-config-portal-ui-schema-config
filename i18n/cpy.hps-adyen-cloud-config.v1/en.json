@@ -26,5 +26,11 @@
   "#/properties/softpos/properties/encryption/properties/keyVersion.description": "Leave at 1 unless Adyen says otherwise.",
   "Tap to Pay (optional)": "Tap to Pay (optional)",
   "Encryption key": "Encryption key",
-  "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area.": "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area."
+  "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area.": "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area.",
+  "Generate webhook credentials": "Generate webhook credentials",
+  "Webhook credentials": "Webhook credentials",
+  "Webhook URL": "Webhook URL",
+  "Copy the username and password to Adyen's web portal.": "Copy the username and password to Adyen's web portal.",
+  "Username": "Username",
+  "Password": "Password"
 }

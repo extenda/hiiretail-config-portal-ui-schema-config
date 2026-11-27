@@ -26,5 +26,11 @@
   "#/properties/softpos/properties/encryption/properties/keyVersion.description": "Låt vara 1 om inte Adyen säger något annat.",
   "Tap to Pay (optional)": "Tap to Pay (valfritt)",
   "Encryption key": "Krypteringsnyckel",
-  "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area.": "Nyckeln krypterar alla meddelanden som skickas till Adyens Tap to Pay-app och dekrypterar svaren från Adyen. De tre värdena måste stämma med dem som finns sparade i Adyens Customer Area."
+  "This key encrypts every message sent to Adyen's Tap to Pay app and decrypts the responses from Adyen. The three values must match the ones stored in Adyen's Customer Area.": "Nyckeln krypterar alla meddelanden som skickas till Adyens Tap to Pay-app och dekrypterar svaren från Adyen. De tre värdena måste stämma med dem som finns sparade i Adyens Customer Area.",
+  "Generate webhook credentials": "Generera webhook-uppgifter",
+  "Webhook credentials": "Webhook-uppgifter",
+  "Webhook URL": "Webhook-URL",
+  "Copy the username and password to Adyen's web portal.": "Kopiera användarnamn och lösenord till Adyens webbportal.",
+  "Username": "Användarnamn",
+  "Password": "Lösenord"
 }
