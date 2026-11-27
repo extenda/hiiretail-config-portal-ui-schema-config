@@ -30,7 +30,6 @@
   "Generate webhook credentials": "Generera webhook-uppgifter",
   "Webhook credentials": "Webhook-uppgifter",
   "Webhook URL": "Webhook-URL",
-  "Copy the username and password to Adyen's web portal.": "Kopiera användarnamn och lösenord till Adyens webbportal.",
   "Username": "Användarnamn",
   "Password": "Lösenord"
 }

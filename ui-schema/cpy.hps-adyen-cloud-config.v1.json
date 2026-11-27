@@ -62,8 +62,7 @@
                 "label": "Password",
                 "generator": "uuid"
               }
-            ],
-            "note": "Copy the username and password to Adyen's web portal."
+            ]
           }
         },
         {
